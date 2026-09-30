@@ -2171,6 +2171,224 @@ body main .start-safety li{color:#f6dce0!important}
 /* absolute final no-white safety net */
 body main [style*="background:#fff"],body main [style*="background: #fff"],body main [style*="background:white"],body main [style*="background: white"]{background:#0a2945!important;color:#eaf6ff!important}
 </style>
+
+<style id="v31-production-mockup-theme">
+:root{
+  --ui-bg:#06111d;
+  --ui-panel:#0a2135;
+  --ui-panel2:#0d2b45;
+  --ui-line:#245a82;
+  --ui-text:#eef8ff;
+  --ui-muted:#9db9cd;
+  --ui-cyan:#27c8ff;
+  --ui-blue:#168fff;
+  --ui-purple:#9b5cff;
+  --ui-pink:#f45ca8;
+  --ui-green:#27d977;
+  --ui-amber:#f9c54b;
+  --ui-red:#ff6363;
+}
+html{background:#06111d!important}
+html body{
+  background:
+    linear-gradient(rgba(9,34,57,.16) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(9,34,57,.16) 1px,transparent 1px),
+    radial-gradient(circle at 18% 0%,rgba(20,142,255,.18),transparent 28%),
+    linear-gradient(180deg,#06111d 0%,#071625 48%,#06111d 100%)!important;
+  background-size:64px 64px,64px 64px,auto,auto!important;
+  color:var(--ui-text)!important;
+  min-height:100vh!important;
+}
+body main,body main.shell,body .page-shell{background:transparent!important}
+
+/* Scenic branded header */
+body header.casteel-header{
+  position:sticky!important;top:0!important;left:auto!important;bottom:auto!important;
+  width:100%!important;height:auto!important;z-index:100!important;overflow:visible!important;
+  border:0!important;border-bottom:1px solid rgba(48,164,230,.34)!important;
+  background:
+    linear-gradient(90deg,rgba(5,18,31,.98) 0%,rgba(5,18,31,.86) 43%,rgba(5,18,31,.28) 72%,rgba(5,18,31,.14) 100%),
+    url("data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20440%22%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b4070%22%2F%3E%3Cstop%20offset%3D%22.45%22%20stop-color%3D%22%230b5d99%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2307192a%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22mount%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%237db8db%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2317334a%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22unit%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23c9d9e2%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%236f8798%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23273948%22%2F%3E%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22440%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%3Ccircle%20cx%3D%221180%22%20cy%3D%2280%22%20r%3D%22260%22%20fill%3D%22%2353bbff%22%20opacity%3D%22.12%22%2F%3E%0A%3Cpath%20d%3D%22M0%20330%20L170%20210%20L300%20300%20L470%20130%20L630%20305%20L785%20185%20L970%20318%20L1135%20205%20L1290%20302%20L1430%20208%20L1600%20320%20L1600%20440%20L0%20440Z%22%20fill%3D%22url(%23mount)%22%20opacity%3D%22.92%22%2F%3E%0A%3Cpath%20d%3D%22M0%20360%20L220%20285%20L355%20342%20L520%20250%20L680%20355%20L835%20285%20L1015%20365%20L1225%20275%20L1370%20345%20L1600%20292%20L1600%20440%20L0%20440Z%22%20fill%3D%22%23071722%22%20opacity%3D%22.95%22%2F%3E%0A%3Cg%20opacity%3D%22.92%22%3E%0A%3Crect%20x%3D%221040%22%20y%3D%22145%22%20width%3D%22215%22%20height%3D%22238%22%20rx%3D%2216%22%20fill%3D%22url(%23unit)%22%20stroke%3D%22%23d8e5ed%22%20stroke-opacity%3D%22.3%22%2F%3E%0A%3Crect%20x%3D%221070%22%20y%3D%22178%22%20width%3D%22155%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%2329485c%22%2F%3E%0A%3Ccircle%20cx%3D%221147%22%20cy%3D%22284%22%20r%3D%2266%22%20fill%3D%22%2320313f%22%2F%3E%3Ccircle%20cx%3D%221147%22%20cy%3D%22284%22%20r%3D%2250%22%20fill%3D%22%230d1821%22%2F%3E%0A%3Cg%20stroke%3D%22%237890a0%22%20stroke-width%3D%226%22%3E%3Cline%20x1%3D%221147%22%20y1%3D%22236%22%20x2%3D%221147%22%20y2%3D%22332%22%2F%3E%3Cline%20x1%3D%221099%22%20y1%3D%22284%22%20x2%3D%221195%22%20y2%3D%22284%22%2F%3E%3Cline%20x1%3D%221113%22%20y1%3D%22250%22%20x2%3D%221181%22%20y2%3D%22318%22%2F%3E%3Cline%20x1%3D%221181%22%20y1%3D%22250%22%20x2%3D%221113%22%20y2%3D%22318%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M1190%20164%20h46%20l-46%2046z%22%20fill%3D%22%231ab5ee%22%2F%3E%0A%3Crect%20x%3D%221280%22%20y%3D%22190%22%20width%3D%22165%22%20height%3D%22193%22%20rx%3D%2214%22%20fill%3D%22url(%23unit)%22%20opacity%3D%22.88%22%2F%3E%0A%3Ccircle%20cx%3D%221362%22%20cy%3D%22286%22%20r%3D%2248%22%20fill%3D%22%2320313f%22%2F%3E%3Ccircle%20cx%3D%221362%22%20cy%3D%22286%22%20r%3D%2236%22%20fill%3D%22%230e1820%22%2F%3E%0A%3Cpath%20d%3D%22M1398%20207%20h34%20l-34%2034z%22%20fill%3D%22%231ab5ee%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") right center/cover no-repeat!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.32)!important;
+}
+body .casteel-brandbar{
+  max-width:1480px!important;margin:0 auto!important;padding:16px 20px 10px!important;
+  min-height:116px!important;display:grid!important;
+  grid-template-columns:minmax(250px,390px) 1fr auto!important;gap:22px!important;align-items:center!important;
+  background:transparent!important;border:0!important;
+}
+body .casteel-logo{max-width:340px!important;width:100%!important;height:84px!important;object-fit:contain!important;background:transparent!important;border:0!important;box-shadow:none!important;filter:drop-shadow(0 7px 18px rgba(0,0,0,.32))}
+body .app-heading strong{display:block!important;color:#fff!important;font-size:clamp(25px,3vw,39px)!important;font-weight:950!important;letter-spacing:.18em!important;line-height:1!important;text-transform:uppercase!important;text-shadow:0 3px 12px rgba(0,0,0,.4)}
+body .app-heading span{display:block!important;margin-top:9px!important;color:#9fd4f7!important;font-size:12px!important;font-weight:800!important;letter-spacing:.24em!important;text-transform:uppercase!important}
+body .source-badge{background:rgba(4,19,32,.5)!important;color:#dcefff!important;border:1px solid rgba(86,185,243,.36)!important;border-radius:12px!important;padding:8px 10px!important;font-size:10px!important;letter-spacing:.08em!important;box-shadow:none!important}
+
+/* Large glowing nav tiles */
+body header .nav{
+  max-width:1480px!important;margin:0 auto!important;padding:10px 18px 16px!important;
+  display:flex!important;flex-direction:row!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important;background:transparent!important
+}
+body header .nav::-webkit-scrollbar{display:none}
+body header .nav-pill{
+  min-width:150px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  padding:14px 16px!important;border-radius:16px!important;border:2px solid #2b5d80!important;
+  background:linear-gradient(180deg,#0d2b45,#081d30)!important;color:#eaf7ff!important;
+  font-size:13px!important;font-weight:900!important;letter-spacing:.02em!important;text-align:center!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 20px rgba(0,0,0,.22)!important;
+}
+body header .tab-start{border-color:#3cbcff!important}
+body header .tab-diagnostics{border-color:#f1539e!important;color:#ffd0e7!important}
+body header .tab-zoning{border-color:#9f68ff!important;color:#dac5ff!important}
+body header .tab-equipment{border-color:#3bbdff!important;color:#c7ecff!important}
+body header .tab-ahri{border-color:#31dc86!important;color:#c8f8dc!important}
+body header .tab-gaps{border-color:#f6c34d!important;color:#ffeca8!important}
+body header .tab-sources{border-color:#8ea3b7!important;color:#e1e9f0!important}
+body #page-start:checked ~ header label[for="page-start"]{background:linear-gradient(180deg,#1da4ff,#126ed0)!important;border-color:#6cddff!important;color:#fff!important;box-shadow:0 0 0 1px rgba(71,202,255,.32),0 0 22px rgba(21,149,255,.35)!important}
+body #page-fault:checked ~ header label[for="page-fault"]{background:linear-gradient(180deg,#d83d88,#8a285d)!important;border-color:#ff7cc2!important;color:#fff!important;box-shadow:0 0 22px rgba(244,83,158,.32)!important}
+body #page-zoning:checked ~ header label[for="page-zoning"]{background:linear-gradient(180deg,#8f50ff,#5f31c4)!important;border-color:#c3a0ff!important;color:#fff!important;box-shadow:0 0 22px rgba(159,104,255,.32)!important}
+body #page-catalog:checked ~ header label[for="page-catalog"]{background:linear-gradient(180deg,#20a9ff,#0c76c7)!important;border-color:#78dcff!important;color:#fff!important;box-shadow:0 0 22px rgba(32,169,255,.28)!important}
+body #page-ahri:checked ~ header label[for="page-ahri"]{background:linear-gradient(180deg,#2adf82,#178d56)!important;border-color:#82f5ba!important;color:#fff!important;box-shadow:0 0 22px rgba(42,223,130,.28)!important}
+
+/* Main page shell */
+body main.shell{max-width:1480px!important;margin:0 auto!important;padding:20px 18px 80px!important;min-height:100vh!important}
+body main .section-block{margin:0!important;background:transparent!important;border:0!important;color:var(--ui-text)!important}
+
+/* Start page scenic hero */
+body main #sec-start{max-width:1480px!important;background:transparent!important;border:0!important}
+body main #sec-start::before{
+  content:"";display:block;height:255px;border-radius:26px;margin-bottom:18px;
+  background:
+    linear-gradient(90deg,rgba(6,18,30,.92) 0%,rgba(6,18,30,.70) 42%,rgba(6,18,30,.22) 72%,rgba(6,18,30,.10) 100%),
+    url("data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20440%22%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b4070%22%2F%3E%3Cstop%20offset%3D%22.45%22%20stop-color%3D%22%230b5d99%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2307192a%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22mount%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%237db8db%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2317334a%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22unit%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23c9d9e2%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%236f8798%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23273948%22%2F%3E%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22440%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%3Ccircle%20cx%3D%221180%22%20cy%3D%2280%22%20r%3D%22260%22%20fill%3D%22%2353bbff%22%20opacity%3D%22.12%22%2F%3E%0A%3Cpath%20d%3D%22M0%20330%20L170%20210%20L300%20300%20L470%20130%20L630%20305%20L785%20185%20L970%20318%20L1135%20205%20L1290%20302%20L1430%20208%20L1600%20320%20L1600%20440%20L0%20440Z%22%20fill%3D%22url(%23mount)%22%20opacity%3D%22.92%22%2F%3E%0A%3Cpath%20d%3D%22M0%20360%20L220%20285%20L355%20342%20L520%20250%20L680%20355%20L835%20285%20L1015%20365%20L1225%20275%20L1370%20345%20L1600%20292%20L1600%20440%20L0%20440Z%22%20fill%3D%22%23071722%22%20opacity%3D%22.95%22%2F%3E%0A%3Cg%20opacity%3D%22.92%22%3E%0A%3Crect%20x%3D%221040%22%20y%3D%22145%22%20width%3D%22215%22%20height%3D%22238%22%20rx%3D%2216%22%20fill%3D%22url(%23unit)%22%20stroke%3D%22%23d8e5ed%22%20stroke-opacity%3D%22.3%22%2F%3E%0A%3Crect%20x%3D%221070%22%20y%3D%22178%22%20width%3D%22155%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%2329485c%22%2F%3E%0A%3Ccircle%20cx%3D%221147%22%20cy%3D%22284%22%20r%3D%2266%22%20fill%3D%22%2320313f%22%2F%3E%3Ccircle%20cx%3D%221147%22%20cy%3D%22284%22%20r%3D%2250%22%20fill%3D%22%230d1821%22%2F%3E%0A%3Cg%20stroke%3D%22%237890a0%22%20stroke-width%3D%226%22%3E%3Cline%20x1%3D%221147%22%20y1%3D%22236%22%20x2%3D%221147%22%20y2%3D%22332%22%2F%3E%3Cline%20x1%3D%221099%22%20y1%3D%22284%22%20x2%3D%221195%22%20y2%3D%22284%22%2F%3E%3Cline%20x1%3D%221113%22%20y1%3D%22250%22%20x2%3D%221181%22%20y2%3D%22318%22%2F%3E%3Cline%20x1%3D%221181%22%20y1%3D%22250%22%20x2%3D%221113%22%20y2%3D%22318%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M1190%20164%20h46%20l-46%2046z%22%20fill%3D%22%231ab5ee%22%2F%3E%0A%3Crect%20x%3D%221280%22%20y%3D%22190%22%20width%3D%22165%22%20height%3D%22193%22%20rx%3D%2214%22%20fill%3D%22url(%23unit)%22%20opacity%3D%22.88%22%2F%3E%0A%3Ccircle%20cx%3D%221362%22%20cy%3D%22286%22%20r%3D%2248%22%20fill%3D%22%2320313f%22%2F%3E%3Ccircle%20cx%3D%221362%22%20cy%3D%22286%22%20r%3D%2236%22%20fill%3D%22%230e1820%22%2F%3E%0A%3Cpath%20d%3D%22M1398%20207%20h34%20l-34%2034z%22%20fill%3D%22%231ab5ee%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E") right center/cover no-repeat!important;
+  border:1px solid #2e6c98;box-shadow:0 18px 34px rgba(0,0,0,.26)
+}
+body main #sec-start .start-hero{margin-top:-238px!important;min-height:205px!important;padding:30px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;align-items:flex-start!important;background:transparent!important}
+body main #sec-start .start-brand-lockup{justify-content:flex-start!important;margin:0!important;padding:0!important;gap:20px!important}
+body main #sec-start .start-casteel-logo{width:min(360px,50vw)!important;max-height:110px!important}
+body main #sec-start .start-hero p{color:#e5f5ff!important;font-size:16px!important;letter-spacing:.06em!important;text-transform:none!important;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+body main #sec-start .start-eyebrow{color:#7fd2ff!important}
+body main #sec-start .start-lookup input{min-height:58px!important;background:#071a2a!important;color:#eef9ff!important;border:2px solid #2fbdf5!important;border-radius:16px!important;box-shadow:0 0 0 1px rgba(47,189,245,.18),0 10px 26px rgba(0,0,0,.2)!important}
+body main #sec-start .start-example{color:#86a9c1!important}
+body main #sec-start .start-section-title h3{color:#fff!important}
+body main #sec-start .start-section-title p{color:#9ab7ca!important}
+
+/* Dark premium surfaces everywhere */
+body main .ref-card.static-card,
+body main .ref-card.fault-flat,
+body main .card,body main .panel,body main .section-card,
+body main .guided-reference,body main .model-context,body main .model-suggestions,
+body main .ahri-model-mode,body main .ahri-table-wrap,body main .ahri-summary,
+body main .zoning-subtabs,body main .zoning-pane,body main .start-glossary,
+body main .diag-quick-strip,body main .start-btn,body main .start-hit,body main .start-empty,
+body main .section-head,body main .page-title,
+body main .equip-group,body main .diag-group,body main .diag-static-group,body main .diag-group-body,
+body main details.jump-list{
+  background:linear-gradient(180deg,#0c2942,#081d30)!important;
+  color:var(--ui-text)!important;border:1px solid #285d83!important;border-radius:16px!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.19),inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+body main .ref-card.static-card{overflow:hidden!important}
+body main .card-header-static,body main .fault-platform-label,body main .diag-group-header,
+body main .equip-group>h3,body main .diag-group>h3{
+  background:linear-gradient(180deg,#10436a,#0b3151)!important;color:#fff!important;border-color:#3378a5!important;
+}
+body main .equip-group>h3,body main .diag-group>h3{padding:12px 14px!important;border-radius:14px!important}
+body main .card-header-static span,body main .fault-platform-label,body main .diag-group-title,
+body main h1,body main h2,body main h3,body main h4,body main summary{color:#fff!important}
+body main .card-body,body main .card-body p,body main .card-body li,body main .card-body dd,body main .card-body dt,
+body main .guided-reference-body,body main .zoning-pane,body main .ahri-summary span,body main p,body main li{
+  color:#c7dcec!important;
+}
+body main .card-body strong,body main .card-body b,body main li strong,body main p strong{color:#fff!important}
+body main small,body main .muted,body main .subtle{color:#95b1c6!important}
+
+/* Color-coded content accents */
+body main .ref-card.blue{border-left:5px solid #28baff!important}
+body main .ref-card.purple{border-left:5px solid #a56cff!important}
+body main .ref-card.green{border-left:5px solid #36dd88!important}
+body main .ref-card.red,body main .fault-flat{border-left:5px solid #ff6262!important}
+body main .ref-card.orange{border-left:5px solid #ff985a!important}
+body main .ref-card.amber{border-left:5px solid #f7c74f!important}
+body main .ref-card.cyan{border-left:5px solid #34e2ff!important}
+body main .ref-card.pink{border-left:5px solid #f45ca8!important}
+body main .ref-card.gray{border-left:5px solid #8da4b8!important}
+body main .ref-card.blue .card-header-static span:first-child,body main .ref-card.blue .card-body strong{color:#7bd7ff!important}
+body main .ref-card.purple .card-header-static span:first-child,body main .ref-card.purple .card-body strong{color:#d1b0ff!important}
+body main .ref-card.green .card-header-static span:first-child,body main .ref-card.green .card-body strong{color:#8ff0bb!important}
+body main .ref-card.red .card-header-static span:first-child,body main .ref-card.red .card-body strong,body main .fault-flat .card-body strong{color:#ff9e9e!important}
+body main .ref-card.orange .card-header-static span:first-child,body main .ref-card.orange .card-body strong{color:#ffbf87!important}
+body main .ref-card.amber .card-header-static span:first-child,body main .ref-card.amber .card-body strong{color:#ffdc79!important}
+body main .ref-card.cyan .card-header-static span:first-child,body main .ref-card.cyan .card-body strong{color:#80efff!important}
+body main .ref-card.pink .card-header-static span:first-child,body main .ref-card.pink .card-body strong{color:#ff99cb!important}
+
+/* Diagnostic page */
+body main #sec-fault-codes{background:transparent!important;border:0!important;padding:0!important}
+body main #sec-fault-codes .diag-hero{
+  background:
+    linear-gradient(90deg,rgba(8,28,45,.98),rgba(8,28,45,.84)),
+    linear-gradient(110deg,#168fff,#0e62c1)!important;
+  border:1px solid #3178a5!important;border-radius:18px!important;box-shadow:0 12px 28px rgba(0,0,0,.20)!important
+}
+body main #sec-fault-codes .diag-hero strong{color:#fff!important;font-size:26px!important}
+body main #sec-fault-codes .diag-hero span{color:#cfeaff!important}
+body main #sec-fault-codes .diag-group,body main #sec-fault-codes .diag-static-group,body main #sec-fault-codes .diag-group-body{background:transparent!important;border:0!important;box-shadow:none!important}
+body main #sec-fault-codes .fault-platform-label{background:#0f3553!important}
+
+/* Search and controls */
+body main input,body main select,body main textarea,body main .section-search,body main #ahri-search,body main #ahri-system-filter,
+body main .ahri-search,body main .ahri-select,body main .ahri-model-fields input{
+  background:#071a2a!important;color:#f2faff!important;border:1px solid #3479a6!important;border-radius:13px!important;
+}
+body main input::placeholder,body main textarea::placeholder{color:#8eacc2!important}
+body main .section-search-wrap{background:rgba(6,24,39,.88)!important;border:1px solid #285d83!important;border-radius:16px!important;box-shadow:0 8px 20px rgba(0,0,0,.15)!important}
+body main .diag-quick-strip button,body main .guided-reference button,body main .model-context-actions button,
+body main .zoning-subtab,body main .ahri-filter,body main #ahri-model-clear{
+  background:linear-gradient(180deg,#0e3453,#09243a)!important;color:#eaf7ff!important;border:1px solid #3375a0!important;border-radius:12px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important
+}
+body main .zoning-subtab.active{background:linear-gradient(180deg,#8d4dfd,#6030c5)!important;border-color:#c5a4ff!important;color:#fff!important}
+body main .ahri-filter.active{background:linear-gradient(180deg,#23d67b,#168c55)!important;border-color:#7cf0b5!important;color:#fff!important}
+
+/* Tables */
+body main .table-wrap,body main .ahri-table-wrap{background:#071a2a!important;border:1px solid #285d83!important;border-radius:14px!important}
+body main table,body main .ahri-table{background:#071a2a!important;color:#e6f4ff!important}
+body main th,body main .ahri-table th{background:#10456d!important;color:#fff!important;border-color:#2c638b!important}
+body main td,body main .ahri-table td{background:#0a2944!important;color:#d8eaf7!important;border-color:#224f71!important}
+body main tr:nth-child(even) td,body main .ahri-table tr:nth-child(even) td{background:#0b3150!important}
+body main .ahri-number,body main .ahri-table strong{color:#78d9ff!important}
+
+/* Warnings remain special but dark */
+body main .start-safety,body main .danger,body main .critical{background:linear-gradient(90deg,#471822,#2d1118)!important;border-color:#9f3d4d!important;color:#ffd9df!important}
+body main .alert,body main .warn,body main .warning,body main .ahri-note{background:linear-gradient(180deg,#3a311a,#272214)!important;border-color:#82682d!important;color:#ffe7a9!important}
+
+/* Remove every leftover white/light-theme surface */
+body main [style*="background:#fff"],body main [style*="background: #fff"],body main [style*="background:white"],body main [style*="background: white"]{
+  background:#0a2944!important;color:#e6f4ff!important
+}
+body main .ref-card.static-card .card-body{background:transparent!important}
+body main details.jump-list summary{background:#0e3453!important;color:#fff!important}
+body main details.jump-list a{color:#73d6ff!important}
+
+/* Mobile keeps the exact same design language */
+@media(max-width:900px){
+  body .casteel-brandbar{grid-template-columns:1fr!important;gap:7px!important;min-height:auto!important;padding:12px 14px 8px!important}
+  body .casteel-logo{max-width:300px!important;height:72px!important}
+  body .app-heading strong{font-size:28px!important;letter-spacing:.12em!important}
+  body .app-heading span{font-size:10px!important;letter-spacing:.18em!important}
+  body .source-badge{display:none!important}
+  body header .nav{display:flex!important;flex-direction:row!important;padding:8px 12px 12px!important;gap:10px!important}
+  body header .nav-pill{min-width:148px!important;padding:13px 14px!important;border-radius:15px!important;font-size:12px!important}
+  body main.shell{padding:14px 10px 64px!important}
+  body main #sec-start::before{height:210px;border-radius:20px!important}
+  body main #sec-start .start-hero{margin-top:-198px!important;min-height:178px!important;padding:18px!important}
+  body main #sec-start .start-brand-lockup{gap:12px!important}
+  body main #sec-start .start-casteel-logo{width:210px!important;max-height:72px!important}
+  body main #sec-start .start-brand-divider{height:56px!important}
+  body main #sec-start .daikin-mark{width:34px!important;height:28px!important}
+  body main #sec-start .daikin-word{font-size:28px!important}
+  body main #sec-start .start-hero p{font-size:13px!important}
+  body main .start-buttons{grid-template-columns:1fr!important}
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
