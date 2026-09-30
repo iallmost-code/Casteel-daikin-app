@@ -966,6 +966,12 @@ details.jump-list{margin:0 0 14px;border:1px solid #cbd5e1;border-radius:10px;ba
 details.jump-list summary{cursor:pointer;padding:11px 14px;font-weight:800;font-size:14px}
 details.jump-list ol{margin:0;padding:4px 14px 12px 34px;max-height:340px;overflow:auto;font-size:13.5px;line-height:1.35}
 details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover{text-decoration:underline}
+</style><style id="v25-start-fix">
+.start-search{width:100%;box-sizing:border-box;min-height:48px;padding:10px 14px;border:2px solid #1685d1;border-radius:10px;background:#fff!important;color:#000!important;font-size:16px}
+.start-search:focus{outline:none;border-color:#0072bc;box-shadow:0 0 0 3px rgba(22,133,209,.18)}
+.start-search::placeholder{color:#7a8794}
+label.start-btn{display:block}
+#start-nojs{margin:0 0 12px;background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:10px 12px;color:#7c2d12;font-size:14px}
 </style></head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
@@ -996,7 +1002,8 @@ details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover
 <main class="shell">
 <section class="section-block" id="sec-start">
 <div class="start-hero"><h2>START HERE</h2><p>Type a model number, fault code or a word. It searches the whole guide.</p></div>
-<div class="start-lookup"><input autocomplete="off" class="section-search" id="start-input" placeholder="Model (DC9VSA2410A), code (E13, 0x81), or a word (bias, capacitor)…" type="search"/></div>
+<p id="start-nojs">Search is not running here (scripts look blocked). The buttons below still open the matching section. Open this page in Chrome or Safari for the full search.</p>
+<div class="start-lookup"><input autocomplete="off" class="start-search" id="start-input" placeholder="Model (DC9VSA2410A), code (E13, 0x81), or a word (bias, capacitor)…" type="search"/></div>
 <div class="start-results" id="start-results" aria-live="polite"></div>
 <div class="start-safety"><strong>BEFORE YOU START</strong><ul>
 <li>The wiring diagram and nameplate on the unit always win over anything in this guide.</li>
@@ -1005,7 +1012,7 @@ details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover
 <li>If an R-32 leak alarm is showing, do not open the unit or turn it off.</li>
 </ul></div>
 <h3 class="start-h">Or pick what is going on</h3>
-<div class="start-buttons"><button type="button" class="start-btn" data-q="fault code">Error code on the thermostat or board<small>Type the code in the lookup, or tap to search fault codes</small></button><button type="button" class="start-btn" data-q="bias">Thermostat not finding equipment / comm error<small>Bias voltage, termination switches, LEARN button</small></button><button type="button" class="start-btn" data-q="furnace">Furnace problem or furnace code<small>Furnace codes, pressure switches, igniter, flame</small></button><button type="button" class="start-btn" data-q="a2l">R-32 leak alarm / A2L sensor<small>LED patterns and what to do</small></button><button type="button" class="start-btn" data-q="zone">Zoning panel problem<small>Daikin DOZP-6-A and EWC UT3000</small></button><button type="button" class="start-btn" data-q="subcool">Charging: subcool, superheat, factory charge<small>Targets and conflicts by model</small></button><button type="button" class="start-btn" data-q="dip">DIP switches, emergency mode<small>Settings and what each switch does</small></button><button type="button" class="start-btn" data-q="terminal">Wiring: terminals and thermostat hookup<small>Terminal maps and communicating wiring</small></button><button type="button" class="start-btn" data-q="heater kit">Heater kit or airflow (CFM) settings<small>Heater kit kW switches, airflow tables</small></button></div>
+<div class="start-buttons"><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="fault code">Error code on the thermostat or board<small>Type the code in the lookup, or tap to search fault codes</small></label><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="bias">Thermostat not finding equipment / comm error<small>Bias voltage, termination switches, LEARN button</small></label><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="furnace">Furnace problem or furnace code<small>Furnace codes, pressure switches, igniter, flame</small></label><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="a2l">R-32 leak alarm / A2L sensor<small>LED patterns and what to do</small></label><label class="start-btn" for="page-zoning" tabindex="0" role="button" data-q="zone">Zoning panel problem<small>Daikin DOZP-6-A and EWC UT3000</small></label><label class="start-btn" for="page-catalog" tabindex="0" role="button" data-q="subcool">Charging: subcool, superheat, factory charge<small>Targets and conflicts by model</small></label><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="dip">DIP switches, emergency mode<small>Settings and what each switch does</small></label><label class="start-btn" for="page-fault" tabindex="0" role="button" data-q="terminal">Wiring: terminals and thermostat hookup<small>Terminal maps and communicating wiring</small></label><label class="start-btn" for="page-catalog" tabindex="0" role="button" data-q="heater kit">Heater kit or airflow (CFM) settings<small>Heater kit kW switches, airflow tables</small></label></div>
 <article class="gray ref-card static-card" data-search="glossary — what the abbreviations mean"><div class="card-header-static"><span>GLOSSARY — WHAT THE ABBREVIATIONS MEAN</span></div><div class="card-body"><p><small>Plain-language definitions for this guide. Not quoted from a manufacturer document.</small></p><dl class="gloss"><dt>A2L</dt><dd>Class of mildly flammable refrigerants; R-32 is one. "A2L" on a board or alarm relates to the refrigerant leak-detection system.</dd><dt>AHRI</dt><dd>Air-Conditioning, Heating &amp; Refrigeration Institute. An AHRI number identifies one certified outdoor + indoor equipment combination and its ratings.</dd><dt>Aux / backup heat</dt><dd>Electric strip heat (or another heat source) that helps or replaces the heat pump.</dd><dt>CFM</dt><dd>Cubic feet per minute: airflow.</dd><dt>ClimateTalk</dt><dd>The communicating protocol that lets the thermostat, outdoor unit and indoor unit talk over the Data 1 / Data 2 (1 / 2) wires.</dd><dt>Comm bus bias</dt><dd>The small DC voltage difference between Data 1 and Data 2 when the bus is idle. See the bias-voltage cards for the target for each platform.</dd><dt>DIP switch (DS)</dt><dd>A small bank of ON/OFF switches on a circuit board. Photograph the positions before changing anything.</dd><dt>EEV</dt><dd>Electronic expansion valve: a motor-driven metering device that the board controls (replaces a fixed orifice or mechanical TXV).</dd><dt>EER2 / SEER2 / HSPF2</dt><dd>Efficiency ratings: cooling at one condition (EER2), seasonal cooling (SEER2), seasonal heating for heat pumps (HSPF2).</dd><dt>HPS / LPS</dt><dd>High-pressure switch / low-pressure switch.</dd><dt>IM / SS</dt><dd>Installation manual / spec sheet (as used in the source citations).</dd><dt>LRA / RLA / FLA</dt><dd>Locked-rotor amps / rated-load amps / full-load amps.</dd><dt>MCA / MOCP</dt><dd>Minimum circuit ampacity (wire size) / maximum overcurrent protection (breaker or fuse size).</dd><dt>OD / ID</dt><dd>Outdoor unit / indoor unit.</dd><dt>PCB</dt><dd>Printed circuit board (control board).</dd><dt>SAS / OAS</dt><dd>Supply air sensor / outdoor air sensor (EWC zone panel).</dd><dt>Shared data / memory card</dt><dd>The configuration data a communicating board needs to know its model. Wrong or missing data causes the d0, d1, d4 style codes.</dd><dt>TERM / termination</dt><dd>Switches or jumpers that add the bus end-of-line resistance. Only change them where the card for that exact platform says to.</dd><dt>TXV</dt><dd>Thermostatic expansion valve: a mechanical metering device.</dd></dl></div></article>
 </section>
 <section class="section-block" id="sec-zoning">
@@ -3865,9 +3872,15 @@ details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover
     var card=b.hasAttribute('data-i')?index[+b.getAttribute('data-i')].card:null;
     goTo(sid,q,card);
   });
-  document.querySelectorAll('.start-btn').forEach(function(b){b.addEventListener('click',function(){
-    var q=b.getAttribute('data-q'); if(inp){inp.value=q;} show(q); var r=document.getElementById('start-results'); if(r&&r.scrollIntoView)r.scrollIntoView({block:'start'});
-  });});
+  var nj=document.getElementById('start-nojs'); if(nj)nj.style.display='none';
+  function runBtn(b){var q=b.getAttribute('data-q'); if(inp){inp.value=q;} show(q); var r=document.getElementById('start-results'); if(r&&r.scrollIntoView)r.scrollIntoView({block:'start'});}
+  document.querySelectorAll('.start-btn').forEach(function(b){
+    b.addEventListener('click',function(ev){ev.preventDefault();runBtn(b);});
+    b.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();runBtn(b);}});
+  });
+  // when coming back to Start, make the results match the box
+  var sr=document.getElementById('page-start');
+  if(sr)sr.addEventListener('change',function(){if(sr.checked&&inp){show(inp.value);}});
   // jump lists
   var n=0;
   ['sec-fault-codes','sec-catalog-differences'].forEach(function(sid){
