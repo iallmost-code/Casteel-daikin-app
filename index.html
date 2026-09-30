@@ -966,7 +966,269 @@ details.jump-list{margin:0 0 14px;border:1px solid #cbd5e1;border-radius:10px;ba
 details.jump-list summary{cursor:pointer;padding:11px 14px;font-weight:800;font-size:14px}
 details.jump-list ol{margin:0;padding:4px 14px 12px 34px;max-height:340px;overflow:auto;font-size:13.5px;line-height:1.35}
 details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover{text-decoration:underline}
-</style></head><body>
+</style><style id="v25-field-dashboard">
+:root{
+  --dash-bg:#07111b;
+  --dash-bg2:#0a1724;
+  --dash-panel:#0d1d2b;
+  --dash-panel2:#102334;
+  --dash-border:#254157;
+  --dash-text:#edf6ff;
+  --dash-muted:#98aec0;
+  --dash-cyan:#17bdf4;
+  --dash-blue:#0b83e6;
+}
+html{background:var(--dash-bg)}
+body{
+  background:
+    radial-gradient(circle at 76% -10%,rgba(16,126,204,.18),transparent 36%),
+    linear-gradient(180deg,#07111b 0,#081522 55%,#07111b 100%)!important;
+  color:var(--dash-text)!important;
+  min-height:100vh;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:linear-gradient(120deg,rgba(255,255,255,.018),transparent 30%);
+}
+
+/* Desktop: turn the existing header/nav into the left rail from the new visual direction */
+header.casteel-header{
+  position:fixed!important;left:0;top:0;bottom:0;width:245px;height:100vh;
+  background:linear-gradient(180deg,#07131f,#08111a)!important;
+  border-right:1px solid #1d3548!important;border-bottom:0!important;
+  box-shadow:8px 0 28px rgba(0,0,0,.16)!important;z-index:50;overflow:auto;
+}
+.casteel-brandbar{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  gap:10px!important;padding:22px 18px 18px!important;min-height:auto!important;
+  border-bottom:1px solid #173044;
+}
+.casteel-logo-wrap{width:100%;display:flex;align-items:center}
+.casteel-logo{max-width:175px!important;height:auto!important;filter:drop-shadow(0 5px 14px rgba(0,169,224,.15))}
+.app-heading{padding:0!important}
+.app-heading strong{
+  display:block!important;color:#fff!important;font-size:19px!important;
+  font-weight:950!important;letter-spacing:.06em!important
+}
+.app-heading span{display:block!important;color:#8da8bd!important;font-size:10px!important;letter-spacing:.10em!important;text-transform:uppercase}
+.source-badge{display:none!important}
+.nav{
+  display:flex!important;flex-direction:column!important;gap:7px!important;
+  padding:16px 10px 24px!important;margin:0!important;overflow:visible!important;
+}
+.nav-pill{
+  display:block!important;border:1px solid transparent!important;background:transparent!important;
+  color:#d6e4ef!important;border-radius:10px!important;padding:11px 13px!important;
+  font-size:13px!important;font-weight:700!important;letter-spacing:.01em!important;
+  box-shadow:none!important;text-align:left!important;
+}
+.nav-pill:hover{background:#0d2131!important;border-color:#1d435d!important;color:#fff!important}
+#page-start:checked ~ header label[for='page-start'],
+#page-fault:checked ~ header label[for='page-fault'],
+#page-zoning:checked ~ header label[for='page-zoning'],
+#page-catalog:checked ~ header label[for='page-catalog'],
+#page-ahri:checked ~ header label[for='page-ahri'],
+#page-gaps:checked ~ header label[for='page-gaps'],
+#page-sources:checked ~ header label[for='page-sources']{
+  background:linear-gradient(90deg,#087bd4,#0963c2)!important;
+  border-color:#19b9ff!important;color:#fff!important;
+  box-shadow:0 0 0 1px rgba(23,189,244,.2),0 0 22px rgba(23,189,244,.13)!important;
+}
+main.shell{
+  max-width:none!important;margin:0 0 0 245px!important;padding:28px 30px 80px!important;
+  min-height:100vh;
+}
+.section-block{margin:0!important}
+
+/* Shared page chrome */
+.section-head,.page-title{
+  background:linear-gradient(135deg,#0b1a28,#0d2334)!important;
+  border:1px solid #203b50!important;border-radius:14px!important;
+  padding:16px 18px!important;margin:0 0 14px!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.14)!important;
+}
+.section-head h2,.page-title h1{color:#fff!important;font-size:22px!important;font-weight:900!important}
+.section-head .count,.page-title p,.page-title .page-count{color:#8da7ba!important}
+.kicker{background:#0a2233!important;border:1px solid #254961!important}
+.section-search-wrap{
+  position:sticky!important;top:12px!important;z-index:18!important;
+  background:rgba(7,17,27,.88)!important;backdrop-filter:blur(10px)!important;
+  border:1px solid #203a50!important;border-radius:13px!important;padding:8px!important;
+  margin:0 0 14px!important;box-shadow:0 10px 26px rgba(0,0,0,.12)!important;
+}
+.section-search{
+  background:#0a1825!important;color:#edf6ff!important;border:1px solid #31536b!important;
+  border-radius:10px!important;padding:12px 14px!important;
+}
+.section-search::placeholder{color:#7990a2!important}
+.section-search:focus{border-color:#17bdf4!important;box-shadow:0 0 0 3px rgba(23,189,244,.12)!important}
+
+/* Reference cards */
+.ref-card,.card,.panel,.section-card,details.ref-card,.fault-flat{
+  background:linear-gradient(180deg,#0f2130,#0b1824)!important;
+  color:#dce9f3!important;border-color:#244155!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.13)!important;
+}
+.ref-card.static-card{border-radius:12px!important;overflow:hidden!important}
+.card-header-static,.fault-platform-label{
+  background:rgba(255,255,255,.018)!important;border-bottom:1px solid #213d50!important;
+  color:#f5f9fd!important;
+}
+.card-header-static span,.fault-platform-label{color:#f4f8fc!important}
+.card-body{color:#c9d7e2!important;border-top-color:#203b4e!important}
+.card-body p,.card-body li,.card-body td,.card-body dd,.card-body dt{color:#c9d7e2!important}
+.card-body strong,.card-body b{color:#fff!important}
+small,.muted,.subtle{color:#90a6b8!important}
+a{color:#38c7ff!important}
+code{background:#061019!important;border-color:#28495e!important;color:#dff6ff!important}
+.table-wrap{border-color:#28465a!important;background:#0b1722!important}
+table{background:#0b1722!important;color:#dbe8f2!important}
+th{background:#102b3e!important;color:#f3f8fc!important;border-color:#294b60!important}
+td{background:#0b1925!important;color:#cfdee9!important;border-color:#1f3a4d!important}
+tr:nth-child(even) td{background:#0d1d2a!important}
+
+/* Maintain semantic rails */
+.ref-card.red,.fault-flat{border-left-color:#ef4962!important}
+.ref-card.orange{border-left-color:#ff7a2f!important}
+.ref-card.amber{border-left-color:#f7bc42!important}
+.ref-card.green{border-left-color:#53df7a!important}
+.ref-card.blue{border-left-color:#4fa7ff!important}
+.ref-card.cyan{border-left-color:#21d0de!important}
+.ref-card.purple{border-left-color:#8b62e8!important}
+.ref-card.pink{border-left-color:#ed5cab!important}
+.ref-card.gray{border-left-color:#7e93a4!important}
+
+/* Zoning + diagnostic groups */
+.zoning-subtabs,.ahri-filters{background:#0a1824!important;border-color:#203e52!important}
+.zoning-subtab,.ahri-filter{
+  background:#0d1d2a!important;color:#bdd0df!important;border-color:#27485e!important
+}
+.zoning-subtab.active,.ahri-filter.active{
+  background:#0b6fbe!important;color:#fff!important;border-color:#22b9f3!important
+}
+.zoning-pane-intro{color:#91a9ba!important}
+.diag-static-group{background:transparent!important;border:0!important;box-shadow:none!important}
+.diag-group-header{background:#0d1d2a!important;border-color:#29485c!important}
+.diag-group-title{color:#fff!important}
+#sec-fault-codes .fault-flat{background:#0d1c29!important}
+#sec-fault-codes .fault-platform-label{background:#111f2d!important;color:#ffd6dc!important;border-bottom-color:#3d2830!important}
+
+/* AHRI */
+.ahri-wrap,.ahri-controls,.ahri-panel{background:#0b1925!important;border-color:#25465b!important;color:#d9e7f1!important}
+#ahri-search,#ahri-system-filter{background:#07131e!important;color:#eaf6ff!important;border-color:#31536b!important}
+.sys-chip{background:#123149!important;color:#9fddff!important}
+.tax-chip{background:#172434!important;color:#c8d8e5!important}
+.tax-chip.yes{background:#123926!important;color:#9af1ba!important}
+.ahri-number{color:#6dd4ff!important}
+
+/* START HERE - cleaned dashboard */
+#sec-start{display:none;max-width:1180px;margin:0 auto!important}
+#page-start:checked ~ main #sec-start{display:block!important}
+.start-hero{text-align:center;padding:18px 8px 14px;margin-bottom:4px}
+.start-eyebrow{color:#6394ba;font-size:10px;font-weight:800;letter-spacing:.24em;margin-bottom:10px}
+.start-hero h2{
+  margin:0!important;font-size:clamp(38px,6vw,66px)!important;line-height:.95!important;
+  color:#fff!important;font-weight:950!important;letter-spacing:-2px!important;
+  text-shadow:0 4px 18px rgba(0,0,0,.3)
+}
+.start-hero h2 span{color:#1bbcf2!important}
+.start-hero p{margin:10px 0 0!important;color:#8da9bf!important;font-size:13px!important;font-weight:800!important;letter-spacing:.28em;text-transform:uppercase}
+.start-lookup{position:relative;margin:8px 0 8px}
+.start-lookup:before{content:"⌕";position:absolute;left:20px;top:50%;transform:translateY(-52%);font-size:30px;color:#d7e9f4;z-index:2;pointer-events:none}
+.start-lookup input{
+  width:100%;padding:17px 18px 17px 58px!important;background:#0a1824!important;color:#eef8ff!important;
+  border:2px solid #0aa8ee!important;border-radius:14px!important;font-size:17px!important;
+  box-shadow:0 0 0 1px rgba(10,168,238,.15),0 0 22px rgba(10,168,238,.14)!important
+}
+.start-example{text-align:center;color:#6f8799;font-size:11px;margin:0 0 24px}
+.start-section-title{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.start-section-icon{font-size:28px;color:#f5f9fc}
+.start-section-title h3{margin:0!important;color:#fff!important;font-size:21px!important;letter-spacing:.02em}
+.start-section-title p{margin:3px 0 0!important;color:#8da5b7!important;font-size:12px}
+.start-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:0 0 20px}
+.start-btn{
+  position:relative;display:flex;align-items:center;gap:14px;text-align:left;min-height:96px;
+  padding:15px 38px 15px 16px;border:1px solid #29485d;border-radius:10px;
+  background:linear-gradient(180deg,#0f2231,#0d1b28);color:#d9e7f1;font:inherit;cursor:pointer;
+  box-shadow:0 5px 14px rgba(0,0,0,.12)
+}
+.start-btn:after{content:"›";position:absolute;right:15px;top:50%;transform:translateY(-52%);font-size:25px;color:#9cb5c7}
+.start-btn:hover,.start-btn:focus{border-color:#4e89ac;background:#10283a;outline:none;transform:translateY(-1px)}
+.start-btn b{display:block;color:#fff!important;font-size:14px;letter-spacing:.03em}
+.start-btn small{display:block;color:#9cb0c0!important;font-size:12px;line-height:1.35;margin-top:4px}
+.task-icon{
+  width:38px;height:38px;display:grid;place-items:center;flex:0 0 38px;border-radius:10px;
+  background:#122332;font-size:25px;font-weight:900;line-height:1
+}
+.task-red .task-icon{color:#ff4767}.task-purple .task-icon{color:#8d5ff3}.task-orange .task-icon{color:#ff7a2f}
+.task-green .task-icon{color:#61e777}.task-blue .task-icon{color:#57a8ff}.task-amber .task-icon{color:#ffbf3f}
+.task-violet .task-icon{color:#8a64ee}.task-cyan .task-icon{color:#2ad6e8}.task-lime .task-icon{color:#67e66e}
+.start-results{margin:12px 0 18px}
+.start-results h3{font-size:12px!important;letter-spacing:.08em;margin:14px 0 6px;color:#9bb0c0!important;text-transform:uppercase}
+.start-hit{display:block;width:100%;text-align:left;padding:11px 13px;margin:0 0 6px;border:1px solid #29485c;border-radius:8px;background:#0d1d2a;color:#dce9f3;font:inherit;font-size:13px;cursor:pointer}
+.start-hit:hover,.start-hit:focus{border-color:#0fa9ed;background:#102638;outline:none}
+.start-empty{padding:12px;border:1px dashed #3c5a6e;border-radius:8px;color:#90a7b7}
+.start-safety{
+  display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:start;
+  border:1px solid #70252d;border-left:4px solid #ff2d45;
+  background:linear-gradient(90deg,rgba(120,17,28,.33),rgba(61,16,22,.18));
+  color:#f5dadd;border-radius:10px;padding:14px 16px;margin:0 0 18px
+}
+.safety-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:#ff3951;color:#fff;font-size:27px;font-weight:950}
+.start-safety strong{color:#ff5166!important;font-size:15px!important;letter-spacing:.04em;display:block!important}
+.start-safety ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 22px;margin:6px 0 0;padding-left:18px}
+.start-safety li{color:#f0d8db!important;font-size:12px}
+.start-glossary{
+  margin:0!important;border:1px solid #1c6992!important;border-left:1px solid #1c6992!important;
+  border-radius:10px!important;background:linear-gradient(180deg,#0d2030,#0b1925)!important;box-shadow:none!important
+}
+.start-glossary summary{display:flex!important;align-items:center!important;gap:12px!important;cursor:pointer;list-style:none;padding:14px 16px!important;color:#fff!important}
+.start-glossary summary::-webkit-details-marker{display:none}
+.start-glossary summary:after{content:"⌄";margin-left:auto;color:#cbeeff;font-size:22px}
+.start-glossary[open] summary:after{content:"⌃"}
+.gloss-icon{font-size:27px;color:#dbeefa}
+.start-glossary summary b{display:block;color:#fff!important;font-size:15px}
+.start-glossary summary small{display:block;color:#7f9bb0!important;font-size:10px;letter-spacing:.14em;margin-top:2px}
+.start-glossary .card-body{padding:8px 16px 18px!important;border-top:1px solid #1f435a!important}
+.gloss{display:grid;grid-template-columns:190px 1fr;column-gap:16px;row-gap:8px}
+.gloss dt{font-weight:800;margin:0;color:#fff!important}.gloss dd{margin:0;color:#bfd0dc!important}
+
+/* Known gaps / sources should stay readable in the dark shell */
+.alert,.warn,.warning{background:#2a2110!important;color:#f2dca6!important;border-color:#735a28!important}
+.danger,.critical{background:#2b1419!important;color:#ffd0d8!important;border-color:#7d2d39!important}
+.good,.success{background:#102a20!important;color:#bff2d0!important;border-color:#286347!important}
+.info{background:#0f2537!important;color:#c8e8ff!important;border-color:#315d79!important}
+footer{color:#6f8798!important;border-top-color:#1d3445!important}
+
+/* Phone/tablet: preserve the current top-navigation usability */
+@media(max-width:900px){
+  header.casteel-header{
+    position:sticky!important;width:auto!important;height:auto!important;bottom:auto!important;
+    border-right:0!important;border-bottom:2px solid #0d6fae!important;overflow:visible!important
+  }
+  .casteel-brandbar{flex-direction:row!important;align-items:center!important;padding:10px 12px!important}
+  .casteel-logo-wrap{width:auto!important}.casteel-logo{max-width:115px!important}
+  .app-heading strong{font-size:15px!important}.app-heading span{display:none!important}
+  .nav{flex-direction:row!important;overflow:auto!important;padding:8px 10px!important;gap:6px!important}
+  .nav-pill{padding:8px 10px!important;white-space:nowrap!important;font-size:11px!important}
+  main.shell{margin-left:0!important;padding:16px 12px 60px!important}
+  .section-search-wrap{top:70px!important}
+  .start-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .start-safety ul{grid-template-columns:1fr}
+  .gloss{grid-template-columns:1fr}.gloss dt{margin-top:8px}
+}
+@media(max-width:620px){
+  .start-hero{text-align:left;padding-left:0}
+  .start-hero h2{font-size:42px!important}
+  .start-hero p{letter-spacing:.12em}
+  .start-buttons{grid-template-columns:1fr}
+  .start-btn{min-height:78px}
+  .start-safety{grid-template-columns:42px 1fr}
+  .safety-icon{width:36px;height:36px;font-size:23px}
+}
+</style>
+</head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
 <input class="page-radio" id="page-fault" name="app-page" type="radio"/>
@@ -995,18 +1257,39 @@ details.jump-list a{color:#005a9e;text-decoration:none}details.jump-list a:hover
 </header>
 <main class="shell">
 <section class="section-block" id="sec-start">
-<div class="start-hero"><h2>START HERE</h2><p>Type a model number, fault code or a word. It searches the whole guide.</p></div>
-<div class="start-lookup"><input autocomplete="off" class="section-search" id="start-input" placeholder="Model (DC9VSA2410A), code (E13, 0x81), or a word (bias, capacitor)…" type="search"/></div>
+<div class="start-hero">
+  <div class="start-eyebrow">QUICK ANSWERS • REAL FIELD REFERENCE</div>
+  <h2>START <span>HERE</span></h2>
+  <p>Find anything in the field guide</p>
+</div>
+<div class="start-lookup"><input autocomplete="off" class="section-search" id="start-input" placeholder="Search model, code, or topic…" type="search"/></div>
+<div class="start-example">E11 • DZ6VSA • DR80TC • AHRI • DIP switch • CFM • CoreSense • zoning • pressure switch</div>
 <div class="start-results" id="start-results" aria-live="polite"></div>
-<div class="start-safety"><strong>BEFORE YOU START</strong><ul>
-<li>The wiring diagram and nameplate on the unit always win over anything in this guide.</li>
-<li>Confirm whether the equipment is R-410A or R-32. They are different platforms with different switches and codes.</li>
-<li>Photograph or write down every DIP switch position before you change it.</li>
-<li>If an R-32 leak alarm is showing, do not open the unit or turn it off.</li>
-</ul></div>
-<h3 class="start-h">Or pick what is going on</h3>
-<div class="start-buttons"><button type="button" class="start-btn" data-q="fault code">Error code on the thermostat or board<small>Type the code in the lookup, or tap to search fault codes</small></button><button type="button" class="start-btn" data-q="bias">Thermostat not finding equipment / comm error<small>Bias voltage, termination switches, LEARN button</small></button><button type="button" class="start-btn" data-q="furnace">Furnace problem or furnace code<small>Furnace codes, pressure switches, igniter, flame</small></button><button type="button" class="start-btn" data-q="a2l">R-32 leak alarm / A2L sensor<small>LED patterns and what to do</small></button><button type="button" class="start-btn" data-q="zone">Zoning panel problem<small>Daikin DOZP-6-A and EWC UT3000</small></button><button type="button" class="start-btn" data-q="subcool">Charging: subcool, superheat, factory charge<small>Targets and conflicts by model</small></button><button type="button" class="start-btn" data-q="dip">DIP switches, emergency mode<small>Settings and what each switch does</small></button><button type="button" class="start-btn" data-q="terminal">Wiring: terminals and thermostat hookup<small>Terminal maps and communicating wiring</small></button><button type="button" class="start-btn" data-q="heater kit">Heater kit or airflow (CFM) settings<small>Heater kit kW switches, airflow tables</small></button></div>
-<article class="gray ref-card static-card" data-search="glossary — what the abbreviations mean"><div class="card-header-static"><span>GLOSSARY — WHAT THE ABBREVIATIONS MEAN</span></div><div class="card-body"><p><small>Plain-language definitions for this guide. Not quoted from a manufacturer document.</small></p><dl class="gloss"><dt>A2L</dt><dd>Class of mildly flammable refrigerants; R-32 is one. "A2L" on a board or alarm relates to the refrigerant leak-detection system.</dd><dt>AHRI</dt><dd>Air-Conditioning, Heating &amp; Refrigeration Institute. An AHRI number identifies one certified outdoor + indoor equipment combination and its ratings.</dd><dt>Aux / backup heat</dt><dd>Electric strip heat (or another heat source) that helps or replaces the heat pump.</dd><dt>CFM</dt><dd>Cubic feet per minute: airflow.</dd><dt>ClimateTalk</dt><dd>The communicating protocol that lets the thermostat, outdoor unit and indoor unit talk over the Data 1 / Data 2 (1 / 2) wires.</dd><dt>Comm bus bias</dt><dd>The small DC voltage difference between Data 1 and Data 2 when the bus is idle. See the bias-voltage cards for the target for each platform.</dd><dt>DIP switch (DS)</dt><dd>A small bank of ON/OFF switches on a circuit board. Photograph the positions before changing anything.</dd><dt>EEV</dt><dd>Electronic expansion valve: a motor-driven metering device that the board controls (replaces a fixed orifice or mechanical TXV).</dd><dt>EER2 / SEER2 / HSPF2</dt><dd>Efficiency ratings: cooling at one condition (EER2), seasonal cooling (SEER2), seasonal heating for heat pumps (HSPF2).</dd><dt>HPS / LPS</dt><dd>High-pressure switch / low-pressure switch.</dd><dt>IM / SS</dt><dd>Installation manual / spec sheet (as used in the source citations).</dd><dt>LRA / RLA / FLA</dt><dd>Locked-rotor amps / rated-load amps / full-load amps.</dd><dt>MCA / MOCP</dt><dd>Minimum circuit ampacity (wire size) / maximum overcurrent protection (breaker or fuse size).</dd><dt>OD / ID</dt><dd>Outdoor unit / indoor unit.</dd><dt>PCB</dt><dd>Printed circuit board (control board).</dd><dt>SAS / OAS</dt><dd>Supply air sensor / outdoor air sensor (EWC zone panel).</dd><dt>Shared data / memory card</dt><dd>The configuration data a communicating board needs to know its model. Wrong or missing data causes the d0, d1, d4 style codes.</dd><dt>TERM / termination</dt><dd>Switches or jumpers that add the bus end-of-line resistance. Only change them where the card for that exact platform says to.</dd><dt>TXV</dt><dd>Thermostatic expansion valve: a mechanical metering device.</dd></dl></div></article>
+<div class="start-section-title"><span class="start-section-icon">▦</span><div><h3>COMMON TASKS</h3><p>Quick access to the information used most in the field.</p></div></div>
+<div class="start-buttons">
+<button type="button" class="start-btn task-red" data-q="fault code"><span class="task-icon">!</span><span><b>ERROR CODES</b><small>Thermostat, board, Dragonfly, CoreSense</small></span></button>
+<button type="button" class="start-btn task-purple" data-q="bias"><span class="task-icon">⌁</span><span><b>COMMUNICATION</b><small>Bias voltage, termination, LEARN, comm faults</small></span></button>
+<button type="button" class="start-btn task-orange" data-q="furnace"><span class="task-icon">▲</span><span><b>FURNACE</b><small>Codes, pressure switches, ignition, sequence</small></span></button>
+<button type="button" class="start-btn task-green" data-q="a2l"><span class="task-icon">◒</span><span><b>R-32 / A2L</b><small>Leak alarms, sensor LEDs, verification</small></span></button>
+<button type="button" class="start-btn task-blue" data-q="zone"><span class="task-icon">⌂</span><span><b>ZONING</b><small>Daikin DOZP and EWC UT3000</small></span></button>
+<button type="button" class="start-btn task-amber" data-q="subcool"><span class="task-icon">◉</span><span><b>CHARGING</b><small>Subcool, superheat, factory charge</small></span></button>
+<button type="button" class="start-btn task-violet" data-q="dip"><span class="task-icon">◐</span><span><b>DIP SWITCHES</b><small>Settings, functions, emergency mode</small></span></button>
+<button type="button" class="start-btn task-cyan" data-q="terminal"><span class="task-icon">ϟ</span><span><b>WIRING</b><small>Terminal maps and communicating hookup</small></span></button>
+<button type="button" class="start-btn task-lime" data-q="heater kit"><span class="task-icon">✣</span><span><b>AIRFLOW / HEAT KITS</b><small>CFM tables, blower setup, heater kits</small></span></button>
+</div>
+<div class="start-safety">
+  <div class="safety-icon">!</div>
+  <div><strong>BEFORE YOU START</strong><ul>
+    <li>The unit wiring diagram and nameplate always win.</li>
+    <li>Confirm R-410A vs R-32 before using settings or codes.</li>
+    <li>Photograph DIP positions before changing them.</li>
+    <li>If an R-32 leak alarm is showing, do not open or power down the unit.</li>
+  </ul></div>
+</div>
+<details class="start-glossary">
+  <summary><span class="gloss-icon">▭</span><span><b>GLOSSARY</b><small>ABBREVIATIONS &amp; TERMS</small></span></summary>
+  <div class="card-body"><p><small>Plain-language definitions for this guide. Not quoted from a manufacturer document.</small></p><dl class="gloss"><dt>A2L</dt><dd>Class of mildly flammable refrigerants; R-32 is one. "A2L" on a board or alarm relates to the refrigerant leak-detection system.</dd><dt>AHRI</dt><dd>Air-Conditioning, Heating &amp; Refrigeration Institute. An AHRI number identifies one certified outdoor + indoor equipment combination and its ratings.</dd><dt>Aux / backup heat</dt><dd>Electric strip heat (or another heat source) that helps or replaces the heat pump.</dd><dt>CFM</dt><dd>Cubic feet per minute: airflow.</dd><dt>ClimateTalk</dt><dd>The communicating protocol that lets the thermostat, outdoor unit and indoor unit talk over the Data 1 / Data 2 (1 / 2) wires.</dd><dt>Comm bus bias</dt><dd>The small DC voltage difference between Data 1 and Data 2 when the bus is idle. See the bias-voltage cards for the target for each platform.</dd><dt>DIP switch (DS)</dt><dd>A small bank of ON/OFF switches on a circuit board. Photograph the positions before changing anything.</dd><dt>EEV</dt><dd>Electronic expansion valve: a motor-driven metering device that the board controls (replaces a fixed orifice or mechanical TXV).</dd><dt>EER2 / SEER2 / HSPF2</dt><dd>Efficiency ratings: cooling at one condition (EER2), seasonal cooling (SEER2), seasonal heating for heat pumps (HSPF2).</dd><dt>HPS / LPS</dt><dd>High-pressure switch / low-pressure switch.</dd><dt>IM / SS</dt><dd>Installation manual / spec sheet (as used in the source citations).</dd><dt>LRA / RLA / FLA</dt><dd>Locked-rotor amps / rated-load amps / full-load amps.</dd><dt>MCA / MOCP</dt><dd>Minimum circuit ampacity (wire size) / maximum overcurrent protection (breaker or fuse size).</dd><dt>OD / ID</dt><dd>Outdoor unit / indoor unit.</dd><dt>PCB</dt><dd>Printed circuit board (control board).</dd><dt>SAS / OAS</dt><dd>Supply air sensor / outdoor air sensor (EWC zone panel).</dd><dt>Shared data / memory card</dt><dd>The configuration data a communicating board needs to know its model. Wrong or missing data causes the d0, d1, d4 style codes.</dd><dt>TERM / termination</dt><dd>Switches or jumpers that add the bus end-of-line resistance. Only change them where the card for that exact platform says to.</dd><dt>TXV</dt><dd>Thermostatic expansion valve: a mechanical metering device.</dd></dl></div>
+</details>
 </section>
 <section class="section-block" id="sec-zoning">
 <div class="section-head"><span class="kicker pink">ZONING</span><h2>ZONING</h2><span class="count">21 reference cards</span></div><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-zoning" placeholder="Search zoning: DOZP, UT3000, E11, bias, damper, breaker, sensor…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-zoning" style="display:none">No matching reference found in this build.</div><div aria-label="Zoning platform" class="zoning-subtabs" role="tablist"><button aria-selected="true" class="zoning-subtab active" data-zoning-tab="zoning-dozp" role="tab" type="button">DAIKIN DOZP</button><button aria-selected="false" class="zoning-subtab" data-zoning-tab="zoning-ut3000" role="tab" type="button">EWC UT3000</button></div><div class="zoning-pane active" data-zoning-pane="dozp" id="zoning-dozp"><div class="zoning-pane-intro">DAIKIN DOZP-6-A • proprietary communicating zoning</div><article class="pink ref-card static-card" data-search="what this is  daikin's own proprietary communicating zoning system — not ewc, not a third-party bypass panel. pulled straight from daikin's trc-15 technical training module and the dozp-6-ada-a install manual, current as of 2026. this is new enough that most of what's below won't be in any manual your guys can find on their own — that's the point of this section.  - **kit:** dozp-6-ada-a — ships as the dozp-6-a zone controller + doza-dps-a differential pressure sensor, 2 pitot tubes, 16ft silicone tubing, mounting screws.  - **compatible equipment:** unitary r-32 inverter-driven communicating hvac systems (daikin, goodman, amana).  - **compatible thermostats:** daikin one+, daikin one touch, amana smart thermostat. requires firmware revision 4.0.10 or higher on every thermostat connected to the panel. set up wi-fi in the thermostat's communication menu and it updates automatically.  - **wireless rht sensors:** can be used as a zone device in place of a wired thermostat. up to 8 rht sensors per daikin one+. only pairs with a one+ — not one touch or the amana stat.  - **up to 6 zones — no bypass:** do not install a bypass damper. daikin: &quot;no bypass needed.&quot; the panel handles excess static with the differential pressure sensor — see the pressure sensor card below. "><div class="card-header-static"><span>WHAT THIS IS</span></div><div class="card-body"><p data-line="412">Daikin's own proprietary communicating zoning system — not EWC, not a third-party bypass panel. Pulled straight from Daikin's TRC-15 technical training module and the DOZP-6-ADA-A install manual, current as of 2026. This is new enough that most of what's below won't be in any manual your guys can find on their own — that's the point of this section.</p><ul><li data-line="414"><strong>KIT:</strong> DOZP-6-ADA-A — ships as the DOZP-6-A zone controller + DOZA-DPS-A differential pressure sensor, 2 pitot tubes, 16ft silicone tubing, mounting screws.</li></ul><ul><li data-line="416"><strong>COMPATIBLE EQUIPMENT:</strong> Unitary R-32 inverter-driven communicating HVAC systems (Daikin, Goodman, Amana).</li></ul><ul><li data-line="418"><strong>COMPATIBLE THERMOSTATS:</strong> Daikin One+, Daikin One Touch, Amana Smart Thermostat. Requires firmware revision 4.0.10 or higher on every thermostat connected to the panel. Set up Wi-Fi in the thermostat's communication menu and it updates automatically.</li></ul><ul><li data-line="420"><strong>WIRELESS RHT SENSORS:</strong> Can be used as a zone device in place of a wired thermostat. Up to 8 RHT sensors per Daikin One+. Only pairs with a One+ — not One Touch or the Amana stat.</li></ul><ul><li data-line="422"><strong>UP TO 6 ZONES — NO BYPASS:</strong> Do not install a bypass damper. Daikin: "No bypass needed." The panel handles excess static with the differential pressure sensor — see the pressure sensor card below.</li></ul></div></article><article class="pink ref-card static-card" data-search="mounting &amp; terminals  - **mounting location:** return duct, a nearby wall, or studs where you can back it with plywood. do not mount on the supply duct, the air handler, furnace housing, evaporator housing, or any hot water coil.  - **zone terminals (×6):** each zone block carries r / c / 1 / 2 (thermostat/sensor) plus c / po / pc (damper). up to 3 sets of damper wires can be daisy-chained into one zone's damper terminal.  - **damper compatibility:** any 24vac power-open/power-close damper actuator with a 35-second travel time. you cannot connect an rsd or any competitor's spring-return damper to this panel.  - **aux 1 / aux 2:** two dry-contact relays (ac or dc controlled) for a whole-house humidifier, dehumidifier, or an aux heat source. configured from the thermostat's equipment setup menu, not on the board itself.  - **a2l alarm input:** terminals c and alarm (iod-7195 p.3), fed from the air handler's alarm contacts or the furnace's alarm terminal. on a refrigerant alarm, the panel opens all zone dampers to mitigate the leak — see the fault table below for the code (0x81).  - **damper test button:** press once: opens all dampers, then closes them one at a time while the front-panel &quot;test&quot; led blinks green. hold 5 seconds: forces all dampers open and holds them (led solid green) — hold 5 seconds again to exit. the install manual (iod-7195) says the board checks every zone automatically every 10 minutes (the trc-15 training says 5). "><div class="card-header-static"><span>MOUNTING &amp; TERMINALS</span></div><div class="card-body"><ul><li data-line="426"><strong>MOUNTING LOCATION:</strong> Return duct, a nearby wall, or studs where you can back it with plywood. Do NOT mount on the supply duct, the air handler, furnace housing, evaporator housing, or any hot water coil.</li></ul><ul><li data-line="428"><strong>ZONE TERMINALS (×6):</strong> Each zone block carries R / C / 1 / 2 (thermostat/sensor) plus C / PO / PC (damper). Up to 3 sets of damper wires can be daisy-chained into one zone's damper terminal.</li></ul><ul><li data-line="430"><strong>DAMPER COMPATIBILITY:</strong> Any 24VAC Power-Open/Power-Close damper actuator with a 35-second travel time. You cannot connect an RSD or any competitor's spring-return damper to this panel.</li></ul><ul><li data-line="432"><strong>AUX 1 / AUX 2:</strong> Two dry-contact relays (AC or DC controlled) for a whole-house humidifier, dehumidifier, or an aux heat source. Configured from the thermostat's equipment setup menu, not on the board itself.</li></ul><ul><li data-line="434"><strong>A2L ALARM INPUT:</strong> Terminals C and Alarm (IOD-7195 p.3), fed from the air handler's alarm contacts or the furnace's Alarm terminal. On a refrigerant alarm, the panel opens all zone dampers to mitigate the leak — see the fault table below for the code (0x81).</li></ul><ul><li data-line="436"><strong>DAMPER TEST BUTTON:</strong> Press once: opens all dampers, then closes them one at a time while the front-panel "test" LED blinks green. Hold 5 seconds: forces all dampers open and holds them (LED solid green) — hold 5 seconds again to exit. The install manual (IOD-7195) says the board checks every zone automatically every 10 minutes (the TRC-15 training says 5).</li></ul></div></article><article class="pink ref-card static-card" data-search="transformer &amp; power sizing  a dedicated, field-supplied 24vac transformer is required — this panel is not powered off the equipment's own transformer. size it off the worst-case total va.  | component | va each | |---|---| | daikin one+ / one touch / amana stat | 6 | | zone panel (dozp-6-a) | 2.5 | | each damper (typical) | 1.5–2.5 | | transformer | max dampers | max wired stats | | 40va (min allowed) | up to 6 | up to 3 | | 100va (max allowed) | up to 24 | up to 6 |  add up every thermostat, the panel itself, and every damper on the job, then pick the transformer that clears the total. example: 2 stats (12va) + panel (2.5va) + 4×1.5va dampers (6va) = 20.5va total — a 40va transformer covers it. a bigger job (4 stats + 10 dampers at 2.5va) can clear 51.5va, which needs the 100va unit. "><div class="card-header-static"><span>TRANSFORMER &amp; POWER SIZING</span></div><div class="card-body"><p data-line="440">A dedicated, field-supplied 24VAC transformer is required — this panel is not powered off the equipment's own transformer. Size it off the worst-case total VA.</p><div class="table-wrap"><table style="min-width:0"><thead><tr><th>Component</th><th>VA each</th></tr></thead><tbody><tr><td>Daikin One+ / One Touch / Amana stat</td><td>6</td></tr><tr><td>Zone panel (DOZP-6-A)</td><td>2.5</td></tr><tr><td>Each damper (typical)</td><td>1.5–2.5</td></tr><tr><td>Transformer</td><td>Max dampers</td></tr><tr><td>40VA (min allowed)</td><td>up to 6</td></tr><tr><td>100VA (max allowed)</td><td>up to 24</td></tr></tbody></table></div><p data-line="451">Add up every thermostat, the panel itself, and every damper on the job, then pick the transformer that clears the total. Example: 2 stats (12VA) + panel (2.5VA) + 4×1.5VA dampers (6VA) = 20.5VA total — a 40VA transformer covers it. A bigger job (4 stats + 10 dampers at 2.5VA) can clear 51.5VA, which needs the 100VA unit.</p></div></article><article class="pink ref-card static-card" data-search="differential pressure sensor (doza-dps-a)  - **mounting:** pitot tubes go in the supply and return plenums (5/32&quot; holes, arrow aligned with airflow); the sensor body mounts between the two pitot locations. wire gnd→gnd, signal→signal, 5v out→5v in. confirm the green pwr led is lit after power-up, then enable the sensor on the thermostat.  - **default thresholds:** min 0.6&quot; w.c. / max 0.8&quot; w.c. — same defaults recommended for both a furnace+coil setup and an air handler, so leave them unless a specific job calls for a change.  - **normal release (less aggressive):** thermostat compares indoor blower cfm to the max zone cfm continuously. if blower cfm is too high, it modulates only the specific dampers that need it — not a blanket response.  - **aggressive release:** triggers only when the sensor reads above max pressure (0.8&quot; default): opens all dampers to 100% for 5 minutes. after 5 minutes it checks whether pressure has dropped below the min threshold (0.6&quot; default) — if so, it exits and resumes normal operation; if not, it holds high-airflow relief for another 5 minutes.  if the pressure transducer's sensed path includes a media filter, subtract that filter's rated pressure drop from both the max and min pressure settings — the media filter's own spec sheet has that number. "><div class="card-header-static"><span>DIFFERENTIAL PRESSURE SENSOR (DOZA-DPS-A)</span></div><div class="card-body"><ul><li data-line="455"><strong>MOUNTING:</strong> Pitot tubes go in the supply and return plenums (5/32" holes, arrow aligned with airflow); the sensor body mounts between the two pitot locations. Wire GND→GND, SIGNAL→SIGNAL, 5V OUT→5V IN. Confirm the green PWR LED is lit after power-up, then enable the sensor on the thermostat.</li></ul><ul><li data-line="457"><strong>DEFAULT THRESHOLDS:</strong> Min 0.6" w.c. / Max 0.8" w.c. — same defaults recommended for both a furnace+coil setup and an air handler, so leave them unless a specific job calls for a change.</li></ul><ul><li data-line="459"><strong>NORMAL RELEASE (LESS AGGRESSIVE):</strong> Thermostat compares indoor blower CFM to the max zone CFM continuously. If blower CFM is too high, it modulates only the specific dampers that need it — not a blanket response.</li></ul><ul><li data-line="461"><strong>AGGRESSIVE RELEASE:</strong> Triggers only when the sensor reads above max pressure (0.8" default): opens ALL dampers to 100% for 5 minutes. After 5 minutes it checks whether pressure has dropped below the min threshold (0.6" default) — if so, it exits and resumes normal operation; if not, it holds high-airflow relief for another 5 minutes.</li></ul><p data-line="463">If the pressure transducer's sensed path includes a media filter, subtract that filter's rated pressure drop from both the max and min pressure settings — the media filter's own spec sheet has that number.</p></div></article><article class="pink ref-card static-card" data-search="communication wiring practice  - **bias voltage:** maintain 0.6–0.9vdc across data 1/data 2. this is wider than the tolerance floating around in some secondhand notes — don't condemn a bus reading inside this range.  - **bus term switch:** leave it in the off position. do not switch it.  - **terminations:** never land three or more wires in one communication terminal. landing two is fine, but twist the exposed copper together first, then insert — a one-to-one connection is always the goal when it's achievable. avoid mixing wire gauges on the same run.  - **wire caps:** insert the wires into the cap first and let the cap do the twisting. twisting the wires by hand before capping weakens the connection. "><div class="card-header-static"><span>COMMUNICATION WIRING PRACTICE</span></div><div class="card-body"><ul><li data-line="467"><strong>BIAS VOLTAGE:</strong> Maintain 0.6–0.9VDC across Data 1/Data 2. This is wider than the tolerance floating around in some secondhand notes — don't condemn a bus reading inside this range.</li></ul><ul><li data-line="469"><strong>BUS TERM SWITCH:</strong> Leave it in the OFF position. Do not switch it.</li></ul><ul><li data-line="471"><strong>TERMINATIONS:</strong> Never land three or more wires in one communication terminal. Landing two is fine, but twist the exposed copper together first, then insert — a one-to-one connection is always the goal when it's achievable. Avoid mixing wire gauges on the same run.</li></ul><ul><li data-line="473"><strong>WIRE CAPS:</strong> Insert the wires into the cap first and let the cap do the twisting. Twisting the wires by hand before capping weakens the connection.</li></ul></div></article><article class="pink ref-card static-card" data-search="commissioning flow  1. firmware upgrade on every thermostat connected to the panel — done from the &quot;communication&quot; menu on each stat. do this before anything else; more than 3 stats updating at once can take longer, wait for all to finish.  1. setup name for each thermostat (personalization menu) — an unnamed stat defaults to &quot;main room&quot; and makes zone assignment confusing later.  1. setup thermostat role — one stat must be set primary (always zone 1), the rest additional. no primary selected throws a critical alert on the thermostat and an indoor-unit comm fault until one is set.  1. start the zoning wizard from the zone board menu (equipment setup → zone board → start zoning wizard) — walks through every remaining step below in order.  1. setup wired sensors — enable the diff pressure sensor and, if wanted, high airflow relief; set min/max pressure.  1. enable zones — the board detects connected dampers automatically; check the box for each zone you want active.  1. assign zone devices — assign every thermostat and wireless rht sensor to its zone. primary stat is locked to zone 1.  1. zone settings per zone — enable voting (checked = that zone can independently call for heat/cool; unchecked = it only runs while another zone is calling), setpoint limits (set at the local stat for wired zones), overcool (for dehumidification) and deadband (the gap between heat and cool setpoints).  1. zone weight / auto-weight — run auto-weight to measure and assign each zone's percentage of the outdoor unit's max cfm. daikin's times: 2 zones 10–15 min, up to 30–35 min for 6 zones. can be hand-tuned afterward.  1. zone test — manually open/close individual zones to verify damper operation and airflow. it stops if you leave the zoning commissioning screen.  1. complete zone board installation, then continue on into the rest of that equipment's normal system commissioning per its install manual.  can be done entirely on the thermostat itself, or remotely through the skyportcare app (tools → select thermostat model → quality install → add job → scan the thermostat's qr/dkn code → grant 3.5-hour temporary remote access → same wizard steps as above). "><div class="card-header-static"><span>COMMISSIONING FLOW</span></div><div class="card-body"><ol><li data-line="477">1. Firmware upgrade on every thermostat connected to the panel — done from the "communication" menu on each stat. Do this before anything else; more than 3 stats updating at once can take longer, wait for all to finish.</li></ol><ol><li data-line="479">1. Setup name for each thermostat (personalization menu) — an unnamed stat defaults to "main room" and makes zone assignment confusing later.</li></ol><ol><li data-line="481">1. Setup thermostat role — one stat must be set Primary (always zone 1), the rest Additional. No primary selected throws a critical alert on the thermostat and an indoor-unit comm fault until one is set.</li></ol><ol><li data-line="483">1. Start the zoning wizard from the zone board menu (equipment setup → zone board → start zoning wizard) — walks through every remaining step below in order.</li></ol><ol><li data-line="485">1. Setup wired sensors — enable the diff pressure sensor and, if wanted, high airflow relief; set min/max pressure.</li></ol><ol><li data-line="487">1. Enable zones — the board detects connected dampers automatically; check the box for each zone you want active.</li></ol><ol><li data-line="489">1. Assign zone devices — assign every thermostat and wireless RHT sensor to its zone. Primary stat is locked to zone 1.</li></ol><ol><li data-line="491">1. Zone settings per zone — enable voting (checked = that zone can independently call for heat/cool; unchecked = it only runs while another zone is calling), setpoint limits (set at the local stat for wired zones), overcool (for dehumidification) and deadband (the gap between heat and cool setpoints).</li></ol><ol><li data-line="493">1. Zone weight / auto-weight — run auto-weight to measure and assign each zone's percentage of the outdoor unit's max CFM. Daikin's times: 2 zones 10–15 min, up to 30–35 min for 6 zones. Can be hand-tuned afterward.</li></ol><ol><li data-line="495">1. Zone test — manually open/close individual zones to verify damper operation and airflow. It stops if you leave the zoning commissioning screen.</li></ol><ol><li data-line="497">1. Complete zone board installation, then continue on into the rest of that equipment's normal system commissioning per its install manual.</li></ol><p data-line="499">Can be done entirely on the thermostat itself, or remotely through the SkyportCare app (Tools → select thermostat model → Quality Install → add job → scan the thermostat's QR/DKN code → grant 3.5-hour temporary remote access → same wizard steps as above).</p></div></article><article class="pink ref-card static-card" data-search='dealer edit / installer code  to get back into the setup wizard after initial commissioning: thermostat menu → settings → dealer edit → continue past the warning. tap the info icon (top right) to reveal a 4-character installer code, close that popup, then type the code back in and press "unlock thermostat." '><div class="card-header-static"><span>DEALER EDIT / INSTALLER CODE</span></div><div class="card-body"><p data-line="503">To get back into the setup wizard after initial commissioning: thermostat menu → settings → dealer edit → continue past the warning. Tap the info icon (top right) to reveal a 4-character installer code, close that popup, then type the code back in and press "unlock thermostat."</p></div></article><article class="pink ref-card static-card" data-search="fault codes — thermostat side  these show as an alert on the connected thermostat itself, not on the zone panel.  | code | meaning | status | fix | |---|---|---|---| | 25 | zone board communication loss | critical | verify voltages and check all wiring connections. | | 31–35 | additional zone thermostat 1–5 disconnected | minor | verify proper setup and all wire connections for that thermostat. | | 36 | no primary thermostat detected | critical | set a primary thermostat (zone 1); verify all wire connections. |  worth knowing cold: with no primary thermostat set, the thermostat itself shows this as error 36 — but daikin's own training material separately notes the indoor unit will show an e77 (&quot;not finding thermostat&quot;) at the same time. same underlying cause, two different displays reporting it under two different numbers — check which device you're actually reading before you go hunting the wrong code. "><div class="card-header-static"><span>FAULT CODES — THERMOSTAT SIDE</span></div><div class="card-body"><p data-line="507">These show as an alert on the connected thermostat itself, not on the zone panel.</p><div class="table-wrap"><table><thead><tr><th>Code</th><th>Meaning</th><th>Status</th><th>Fix</th></tr></thead><tbody><tr><td>25</td><td>Zone board communication loss</td><td>Critical</td><td>Verify voltages and check all wiring connections.</td></tr><tr><td>31–35</td><td>Additional zone thermostat 1–5 disconnected</td><td>Minor</td><td>Verify proper setup and all wire connections for that thermostat.</td></tr><tr><td>36</td><td>No primary thermostat detected</td><td>Critical</td><td>Set a primary thermostat (zone 1); verify all wire connections.</td></tr></tbody></table></div><p data-line="515">Worth knowing cold: with no primary thermostat set, the thermostat itself shows this as error 36 — but Daikin's own training material separately notes the indoor unit will show an E77 ("not finding thermostat") at the same time. Same underlying cause, two different displays reporting it under two different numbers — check which device you're actually reading before you go hunting the wrong code.</p></div></article><article class="pink ref-card static-card" data-search="fault codes — zone panel (hex)  these are panel-side codes, distinct from the thermostat-side table above.  | code | meaning | status | fix | |---|---|---|---| | 0x81 | refrigerant (a2l) alarm activated | critical | follow the a2l flow chart in the installation manual. | | 0x82–0x87 | zone 1–6 damper not connected | critical | led on the panel is solid: check that zone's damper wiring. led flashing: check the wiring on the damper or at the zone board connector for that zone. | | 0x88–0x8d | zone 1–6 wired temperature sensor short-circuited | critical | incorrect wiring or connection — check resistance between the wiring pins and the sensor for a short on that zone. | | 0x90 | pressure sensor open or short-circuited | minor | check zone board settings and wiring. check for 5v between c and 5v. if 5v is present and led is off, check wiring/sensor. if 5v present and led on, check resistance between c and signal at the sensor connector — open reading means wiring or sensor failure. | | 0x91 | firmware upgrade critical data corrupted | minor | ota update was interrupted (e.g. power drop). zone board restarts the ota process automatically — no action needed. | | 0x92 | firmware upgrade checksum mismatched | minor | wrong firmware image or corrupted data received. the upgrade restarts automatically (the install manual says the zone board restarts it; trc-15 says the thermostat) — no action needed. | | 0x93 | external flash initialization failed | minor | doesn't affect zone operation, but the board won't get the latest firmware. power-cycle; replace the zone board if it persists. | | 0x94 | external flash read/write failed | minor | external flash hardware fault. power-cycle; replace the zone board if it persists. | | 0x95 | firmware internal flash update failed | minor | mcu internal flash issue; board won't get the latest firmware. power-cycle; replace the zone board if it persists. | "><div class="card-header-static"><span>FAULT CODES — ZONE PANEL (HEX)</span></div><div class="card-body"><p data-line="519">These are panel-side codes, distinct from the thermostat-side table above.</p><div class="table-wrap"><table><thead><tr><th>Code</th><th>Meaning</th><th>Status</th><th>Fix</th></tr></thead><tbody><tr><td>0x81</td><td>Refrigerant (A2L) alarm activated</td><td>Critical</td><td>Follow the A2L flow chart in the installation manual.</td></tr><tr><td>0x82–0x87</td><td>Zone 1–6 damper not connected</td><td>Critical</td><td>LED on the panel is solid: check that zone's damper wiring. LED flashing: check the wiring on the damper or at the zone board connector for that zone.</td></tr><tr><td>0x88–0x8D</td><td>Zone 1–6 wired temperature sensor short-circuited</td><td>Critical</td><td>Incorrect wiring or connection — check resistance between the wiring pins and the sensor for a short on that zone.</td></tr><tr><td>0x90</td><td>Pressure sensor open or short-circuited</td><td>Minor</td><td>Check zone board settings and wiring. Check for 5V between C and 5V. If 5V is present and LED is off, check wiring/sensor. If 5V present and LED on, check resistance between C and Signal at the sensor connector — open reading means wiring or sensor failure.</td></tr><tr><td>0x91</td><td>Firmware upgrade critical data corrupted</td><td>Minor</td><td>OTA update was interrupted (e.g. power drop). Zone board restarts the OTA process automatically — no action needed.</td></tr><tr><td>0x92</td><td>Firmware upgrade checksum mismatched</td><td>Minor</td><td>Wrong firmware image or corrupted data received. The upgrade restarts automatically (the install manual says the zone board restarts it; TRC-15 says the thermostat) — no action needed.</td></tr><tr><td>0x93</td><td>External flash initialization failed</td><td>Minor</td><td>Doesn't affect zone operation, but the board won't get the latest firmware. Power-cycle; replace the zone board if it persists.</td></tr><tr><td>0x94</td><td>External flash read/write failed</td><td>Minor</td><td>External flash hardware fault. Power-cycle; replace the zone board if it persists.</td></tr><tr><td>0x95</td><td>Firmware internal flash update failed</td><td>Minor</td><td>MCU internal flash issue; board won't get the latest firmware. Power-cycle; replace the zone board if it persists.</td></tr></tbody></table></div></div></article></div><div class="zoning-pane" data-zoning-pane="ut3000" id="zoning-ut3000"><div class="zoning-pane-intro ewc">EWC ULTRA-TALK 3000 • ClimateTalk / ComfortNet zoning • TB-280 Rev. H (04/09/2026)</div><article class="pink ref-card static-card" data-search="ut3000 ewc ultra talk climate talk comfortnet daikin amana goodman zones thermostats dampers version 1.88"><div class="card-header-static"><span>UT3000 — WHAT IT IS / COMPATIBILITY</span><small>EWC TB-280 Rev. H pp.1–2</small></div><div class="card-body">
