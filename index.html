@@ -678,6 +678,48 @@ main{
 }
 </style>
 
+
+<style id="v23-zoning-tabs">
+#sec-zoning .zoning-subtabs{
+  display:flex;
+  gap:8px;
+  margin:12px 0 16px;
+  flex-wrap:wrap;
+}
+#sec-zoning .zoning-subtab{
+  appearance:none;
+  border:1px solid #c8dce8;
+  background:#f6fafc;
+  color:#26485e;
+  border-radius:999px;
+  padding:9px 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+#sec-zoning .zoning-subtab.active{
+  background:#0b75b7;
+  color:#fff;
+  border-color:#0b75b7;
+}
+#sec-zoning .zoning-pane{display:none}
+#sec-zoning .zoning-pane.active{display:block}
+#sec-zoning .zoning-pane-intro{
+  margin:0 0 12px;
+  padding:10px 12px;
+  border-left:4px solid #cc4e9b;
+  background:#fbf4f9;
+  color:#594255;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+#sec-zoning .zoning-pane-intro.ewc{
+  border-left-color:#0b75b7;
+  background:#f1f8fc;
+  color:#31556c;
+}
+</style>
+
 </head><body>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
 <input checked="" class="page-radio" id="page-fault" name="app-page" type="radio"/>
@@ -705,11 +747,7 @@ main{
 </header>
 <main class="shell">
 <section class="section-block" id="sec-zoning">
-<div class="section-head"><span class="kicker pink">ZONING</span><h2>ZONING</h2><span class="count">16 reference cards</span></div><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-zoning" placeholder="Search zoning: DOZP, UT3000, damper, pressure sensor, fault…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-zoning" style="display:none">No matching reference found in this build.</div>
-<details class="ref-card pink" data-search="zoning platform two platforms below: the daikin dozp-6-a zone panel first, then the ewc ut3000. ">
-<summary><span>ZONING PLATFORM</span><small>source line 407</small></summary>
-<div class="card-body"><p data-line="408">Two platforms below: the Daikin DOZP-6-A zone panel first, then the EWC UT3000.</p></div>
-</details><details class="ref-card pink" data-search="what this is  daikin's own proprietary communicating zoning system — not ewc, not a third-party bypass panel. pulled straight from daikin's trc-15 technical training module and the dozp-6-ada-a install manual, current as of 2026. this is new enough that most of what's below won't be in any manual your guys can find on their own — that's the point of this section.  - **kit:** dozp-6-ada-a — ships as the dozp-6-a zone controller + doza-dps-a differential pressure sensor, 2 pitot tubes, 16ft silicone tubing, mounting screws.  - **compatible equipment:** unitary r-32 inverter-driven communicating hvac systems (daikin, goodman, amana).  - **compatible thermostats:** daikin one+, daikin one touch, amana smart thermostat. requires firmware revision 4.0.10 or higher on every thermostat connected to the panel. set up wi-fi in the thermostat's communication menu and it updates automatically.  - **wireless rht sensors:** can be used as a zone device in place of a wired thermostat. up to 8 rht sensors per daikin one+. only pairs with a one+ — not one touch or the amana stat.  - **up to 6 zones — no bypass:** do not install a bypass damper. daikin: &quot;no bypass needed.&quot; the panel handles excess static with the differential pressure sensor — see the pressure sensor card below. ">
+<div class="section-head"><span class="kicker pink">ZONING</span><h2>ZONING</h2><span class="count">21 reference cards</span></div><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-zoning" placeholder="Search zoning: DOZP, UT3000, E11, bias, damper, breaker, sensor…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-zoning" style="display:none">No matching reference found in this build.</div><div aria-label="Zoning platform" class="zoning-subtabs" role="tablist"><button aria-selected="true" class="zoning-subtab active" data-zoning-tab="zoning-dozp" role="tab" type="button">DAIKIN DOZP</button><button aria-selected="false" class="zoning-subtab" data-zoning-tab="zoning-ut3000" role="tab" type="button">EWC UT3000</button></div><div class="zoning-pane active" data-zoning-pane="dozp" id="zoning-dozp"><div class="zoning-pane-intro">DAIKIN DOZP-6-A • proprietary communicating zoning</div><details class="ref-card pink" data-search="what this is  daikin's own proprietary communicating zoning system — not ewc, not a third-party bypass panel. pulled straight from daikin's trc-15 technical training module and the dozp-6-ada-a install manual, current as of 2026. this is new enough that most of what's below won't be in any manual your guys can find on their own — that's the point of this section.  - **kit:** dozp-6-ada-a — ships as the dozp-6-a zone controller + doza-dps-a differential pressure sensor, 2 pitot tubes, 16ft silicone tubing, mounting screws.  - **compatible equipment:** unitary r-32 inverter-driven communicating hvac systems (daikin, goodman, amana).  - **compatible thermostats:** daikin one+, daikin one touch, amana smart thermostat. requires firmware revision 4.0.10 or higher on every thermostat connected to the panel. set up wi-fi in the thermostat's communication menu and it updates automatically.  - **wireless rht sensors:** can be used as a zone device in place of a wired thermostat. up to 8 rht sensors per daikin one+. only pairs with a one+ — not one touch or the amana stat.  - **up to 6 zones — no bypass:** do not install a bypass damper. daikin: &quot;no bypass needed.&quot; the panel handles excess static with the differential pressure sensor — see the pressure sensor card below. ">
 <summary><span>WHAT THIS IS</span><small>source line 410</small></summary>
 <div class="card-body"><p data-line="412">Daikin's own proprietary communicating zoning system — not EWC, not a third-party bypass panel. Pulled straight from Daikin's TRC-15 technical training module and the DOZP-6-ADA-A install manual, current as of 2026. This is new enough that most of what's below won't be in any manual your guys can find on their own — that's the point of this section.</p><ul><li data-line="414"><strong>KIT:</strong> DOZP-6-ADA-A — ships as the DOZP-6-A zone controller + DOZA-DPS-A differential pressure sensor, 2 pitot tubes, 16ft silicone tubing, mounting screws.</li></ul><ul><li data-line="416"><strong>COMPATIBLE EQUIPMENT:</strong> Unitary R-32 inverter-driven communicating HVAC systems (Daikin, Goodman, Amana).</li></ul><ul><li data-line="418"><strong>COMPATIBLE THERMOSTATS:</strong> Daikin One+, Daikin One Touch, Amana Smart Thermostat. Requires firmware revision 4.0.10 or higher on every thermostat connected to the panel. Set up Wi-Fi in the thermostat's communication menu and it updates automatically.</li></ul><ul><li data-line="420"><strong>WIRELESS RHT SENSORS:</strong> Can be used as a zone device in place of a wired thermostat. Up to 8 RHT sensors per Daikin One+. Only pairs with a One+ — not One Touch or the Amana stat.</li></ul><ul><li data-line="422"><strong>UP TO 6 ZONES — NO BYPASS:</strong> Do not install a bypass damper. Daikin: "No bypass needed." The panel handles excess static with the differential pressure sensor — see the pressure sensor card below.</li></ul></div>
 </details><details class="ref-card pink" data-search="mounting &amp; terminals  - **mounting location:** return duct, a nearby wall, or studs where you can back it with plywood. do not mount on the supply duct, the air handler, furnace housing, evaporator housing, or any hot water coil.  - **zone terminals (×6):** each zone block carries r / c / 1 / 2 (thermostat/sensor) plus c / po / pc (damper). up to 3 sets of damper wires can be daisy-chained into one zone's damper terminal.  - **damper compatibility:** any 24vac power-open/power-close damper actuator with a 35-second travel time. you cannot connect an rsd or any competitor's spring-return damper to this panel.  - **aux 1 / aux 2:** two dry-contact relays (ac or dc controlled) for a whole-house humidifier, dehumidifier, or an aux heat source. configured from the thermostat's equipment setup menu, not on the board itself.  - **a2l alarm input:** terminals c and alarm (iod-7195 p.3), fed from the air handler's alarm contacts or the furnace's alarm terminal. on a refrigerant alarm, the panel opens all zone dampers to mitigate the leak — see the fault table below for the code (0x81).  - **damper test button:** press once: opens all dampers, then closes them one at a time while the front-panel &quot;test&quot; led blinks green. hold 5 seconds: forces all dampers open and holds them (led solid green) — hold 5 seconds again to exit. the install manual (iod-7195) says the board checks every zone automatically every 10 minutes (the trc-15 training says 5). ">
@@ -736,25 +774,152 @@ main{
 </details><details class="ref-card pink" data-search="fault codes — zone panel (hex)  these are panel-side codes, distinct from the thermostat-side table above.  | code | meaning | status | fix | |---|---|---|---| | 0x81 | refrigerant (a2l) alarm activated | critical | follow the a2l flow chart in the installation manual. | | 0x82–0x87 | zone 1–6 damper not connected | critical | led on the panel is solid: check that zone's damper wiring. led flashing: check the wiring on the damper or at the zone board connector for that zone. | | 0x88–0x8d | zone 1–6 wired temperature sensor short-circuited | critical | incorrect wiring or connection — check resistance between the wiring pins and the sensor for a short on that zone. | | 0x90 | pressure sensor open or short-circuited | minor | check zone board settings and wiring. check for 5v between c and 5v. if 5v is present and led is off, check wiring/sensor. if 5v present and led on, check resistance between c and signal at the sensor connector — open reading means wiring or sensor failure. | | 0x91 | firmware upgrade critical data corrupted | minor | ota update was interrupted (e.g. power drop). zone board restarts the ota process automatically — no action needed. | | 0x92 | firmware upgrade checksum mismatched | minor | wrong firmware image or corrupted data received. the upgrade restarts automatically (the install manual says the zone board restarts it; trc-15 says the thermostat) — no action needed. | | 0x93 | external flash initialization failed | minor | doesn't affect zone operation, but the board won't get the latest firmware. power-cycle; replace the zone board if it persists. | | 0x94 | external flash read/write failed | minor | external flash hardware fault. power-cycle; replace the zone board if it persists. | | 0x95 | firmware internal flash update failed | minor | mcu internal flash issue; board won't get the latest firmware. power-cycle; replace the zone board if it persists. | ">
 <summary><span>FAULT CODES — ZONE PANEL (HEX)</span><small>source line 517</small></summary>
 <div class="card-body"><p data-line="519">These are panel-side codes, distinct from the thermostat-side table above.</p><div class="table-wrap"><table><thead><tr><th>Code</th><th>Meaning</th><th>Status</th><th>Fix</th></tr></thead><tbody><tr><td>0x81</td><td>Refrigerant (A2L) alarm activated</td><td>Critical</td><td>Follow the A2L flow chart in the installation manual.</td></tr><tr><td>0x82–0x87</td><td>Zone 1–6 damper not connected</td><td>Critical</td><td>LED on the panel is solid: check that zone's damper wiring. LED flashing: check the wiring on the damper or at the zone board connector for that zone.</td></tr><tr><td>0x88–0x8D</td><td>Zone 1–6 wired temperature sensor short-circuited</td><td>Critical</td><td>Incorrect wiring or connection — check resistance between the wiring pins and the sensor for a short on that zone.</td></tr><tr><td>0x90</td><td>Pressure sensor open or short-circuited</td><td>Minor</td><td>Check zone board settings and wiring. Check for 5V between C and 5V. If 5V is present and LED is off, check wiring/sensor. If 5V present and LED on, check resistance between C and Signal at the sensor connector — open reading means wiring or sensor failure.</td></tr><tr><td>0x91</td><td>Firmware upgrade critical data corrupted</td><td>Minor</td><td>OTA update was interrupted (e.g. power drop). Zone board restarts the OTA process automatically — no action needed.</td></tr><tr><td>0x92</td><td>Firmware upgrade checksum mismatched</td><td>Minor</td><td>Wrong firmware image or corrupted data received. The upgrade restarts automatically (the install manual says the zone board restarts it; TRC-15 says the thermostat) — no action needed.</td></tr><tr><td>0x93</td><td>External flash initialization failed</td><td>Minor</td><td>Doesn't affect zone operation, but the board won't get the latest firmware. Power-cycle; replace the zone board if it persists.</td></tr><tr><td>0x94</td><td>External flash read/write failed</td><td>Minor</td><td>External flash hardware fault. Power-cycle; replace the zone board if it persists.</td></tr><tr><td>0x95</td><td>Firmware internal flash update failed</td><td>Minor</td><td>MCU internal flash issue; board won't get the latest firmware. Power-cycle; replace the zone board if it persists.</td></tr></tbody></table></div></div>
-</details><details class="ref-card pink" data-search="what this is  the ut3000 is an ewc controls zone panel (ewc bulletin tb-241). goodman trained on it in trc-2. it works with climatetalk communicating systems or any 24v 2-heat/1-cool system. ">
-<summary><span>WHAT THIS IS</span><small>source line 535</small></summary>
-<div class="card-body"><p data-line="537">The UT3000 is an EWC Controls zone panel (EWC bulletin TB-241). Goodman trained on it in TRC-2. It works with ClimateTalk communicating systems or any 24V 2-heat/1-cool system.</p></div>
-</details><details class="ref-card pink" data-search="compatible systems  - **supported equipment:** climatetalk™ communicating equipment: up to 4 stages of heat (including modulating gas) and 2 stages of cooling. or any 24v 2-heat/1-cool system.  - **thermostats:** any climatetalk-based communicating thermostat, or standard 24v thermostats.  - **zone capacity:** 2–3 zones per panel; twin two panels to expand to 5 zones.  - **dampers:** ewc urd, nd, rsd and sid, or any 24vac 2-wire or 3-wire power-open/power-close damper. spring-type dampers are supported: only 1 spring-type damper per zone (400 ma). ">
-<summary><span>COMPATIBLE SYSTEMS</span><small>source line 539</small></summary>
-<div class="card-body"><ul><li data-line="541"><strong>SUPPORTED EQUIPMENT:</strong> ClimateTalk™ communicating equipment: up to 4 stages of heat (including modulating gas) and 2 stages of cooling. Or any 24V 2-heat/1-cool system.</li></ul><ul><li data-line="543"><strong>THERMOSTATS:</strong> Any ClimateTalk-based communicating thermostat, or standard 24V thermostats.</li></ul><ul><li data-line="545"><strong>ZONE CAPACITY:</strong> 2–3 zones per panel; twin two panels to expand to 5 zones.</li></ul><ul><li data-line="547"><strong>DAMPERS:</strong> EWC URD, ND, RSD and SID, or any 24VAC 2-wire or 3-wire power-open/power-close damper. Spring-type dampers are supported: only 1 spring-type damper per zone (400 mA).</li></ul></div>
-</details><details class="ref-card pink" data-search="power &amp; sensors  - **power:** 24vac, 40 va min / 60 va max, 50/60 hz. ewc &quot;always recommends&quot; a separate transformer. 2.5 a main board protection; if f1 trips, let it cool and find the short.  - **supply air sensor (sas):** included. if it's disconnected or fails, the panel falls back to timed-mode staging.  - **outdoor air sensor (oas):** optional. communicating systems provide the outdoor temperature. ">
-<summary><span>POWER &amp; SENSORS</span><small>source line 549</small></summary>
-<div class="card-body"><ul><li data-line="551"><strong>POWER:</strong> 24VAC, 40 VA min / 60 VA max, 50/60 Hz. EWC "always recommends" a separate transformer. 2.5 A main board protection; if F1 trips, let it cool and find the short.</li></ul><ul><li data-line="553"><strong>SUPPLY AIR SENSOR (SAS):</strong> Included. If it's disconnected or fails, the panel falls back to timed-mode staging.</li></ul><ul><li data-line="555"><strong>OUTDOOR AIR SENSOR (OAS):</strong> Optional. Communicating systems provide the outdoor temperature.</li></ul></div>
-</details><details class="ref-card pink" data-search="features  - **lcd + 4 buttons:** menus, settings, live status and messages.  - **proportional mode:** operates in proportional mode at all times. on communicating systems allow at least 1–2 minutes for it to recognize the equipment (trc-2 says 2–4).  - **dual fuel:** built in.  - **iaq relay:** spdt indoor air quality relay with an input trigger.  - **dampers at idle:** all dampers are open when the hvac system is idle (trc-2). ">
-<summary><span>FEATURES</span><small>source line 557</small></summary>
-<div class="card-body"><ul><li data-line="559"><strong>LCD + 4 BUTTONS:</strong> Menus, settings, live status and messages.</li></ul><ul><li data-line="561"><strong>PROPORTIONAL MODE:</strong> Operates in proportional mode at all times. On communicating systems allow at least 1–2 minutes for it to recognize the equipment (TRC-2 says 2–4).</li></ul><ul><li data-line="563"><strong>DUAL FUEL:</strong> Built in.</li></ul><ul><li data-line="565"><strong>IAQ RELAY:</strong> SPDT indoor air quality relay with an input trigger.</li></ul><ul><li data-line="567"><strong>DAMPERS AT IDLE:</strong> All dampers are open when the HVAC system is idle (TRC-2).</li></ul></div>
-</details><details class="ref-card pink" data-search="wiring &amp; leds  - **data bus colors (trc-2):** green = 1 (data 1), yellow = 2 (data 2), white = c.  - **leds:** 5 colored leds show status and mode. zone leds show which dampers are energized to open. rapid, random pulses on the comm leds mean a good link. ">
-<summary><span>WIRING &amp; LEDs</span><small>source line 569</small></summary>
-<div class="card-body"><ul><li data-line="571"><strong>DATA BUS COLORS (TRC-2):</strong> Green = 1 (Data 1), Yellow = 2 (Data 2), White = C.</li></ul><ul><li data-line="573"><strong>LEDs:</strong> 5 colored LEDs show status and mode. Zone LEDs show which dampers are energized to open. Rapid, random pulses on the comm LEDs mean a good link.</li></ul></div>
-</details><details class="ref-card pink" data-search="troubleshooting  - **no power / blank display:** check 24vac at the transformer. if f1 tripped, let it cool, then find and repair the short.  - **damper won't open:** check 24v at the damper motor and its 500 ma breaker.  - **comm problems:** never move the termination switches on the zone controller — they stay off (trc-2). check the data wiring and bias voltage instead. ">
-<summary><span>TROUBLESHOOTING</span><small>source line 575</small></summary>
-<div class="card-body"><ul><li data-line="577"><strong>NO POWER / BLANK DISPLAY:</strong> Check 24VAC at the transformer. If F1 tripped, let it cool, then find and repair the short.</li></ul><ul><li data-line="579"><strong>DAMPER WON'T OPEN:</strong> Check 24V at the damper motor and its 500 mA breaker.</li></ul><ul><li data-line="581"><strong>COMM PROBLEMS:</strong> Never move the termination switches on the zone controller — they stay OFF (TRC-2). Check the data wiring and bias voltage instead.</li></ul></div>
-</details>
+</details></div><div class="zoning-pane" data-zoning-pane="ut3000" id="zoning-ut3000"><div class="zoning-pane-intro ewc">EWC ULTRA-TALK 3000 • ClimateTalk / ComfortNet zoning • TB-280 Rev. H (04/09/2026)</div><details class="ref-card pink" data-search="ut3000 ewc ultra talk climate talk comfortnet daikin amana goodman zones thermostats dampers version 1.88">
+<summary><span>UT3000 — WHAT IT IS / COMPATIBILITY</span><small>EWC TB-280 Rev. H pp.1–2</small></summary>
+<div class="card-body">
+<ul>
+<li><strong>CURRENT PLATFORM:</strong> EWC Ultra-Talk UT3000, current technical bulletin TB-280 Rev. H dated 04/09/2026. Current bulletin shows <strong>Ultra Talk V 1.88</strong>.</li>
+<li><strong>EQUIPMENT:</strong> ClimateTalk communicating Daikin / Amana / Goodman ComfortNet systems, including inverter A/C or heat pump and modulating gas. Up to 4 stages heat and 2 stages cooling.</li>
+<li><strong>ZONES:</strong> 2 or 3 zones on one panel; twin two UT3000 panels for 4 or 5 zones.</li>
+<li><strong>THERMOSTATS:</strong> Daikin One+, Daikin Touch and Amana Touch communicating thermostats. Legacy 24VAC single-stage Heat/Cool or 2-heat/1-cool HP thermostats are also supported, but non-communicating thermostats cannot demand dehumidification or proportional control.</li>
+<li><strong>DAMPERS:</strong> Current Rev. H specifies EWC URD, ND and SID dampers with MA-ND5 or MA-15S motors, up to 3 dampers per zone at 26 mA each. <strong>Current Rev. H says spring-type dampers are not compatible due to high current draw.</strong></li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 power 24vac transformer 40va 60va 18awg red green yellow white breaker 2.5a 100ma 350ma 140ma">
+<summary><span>UT3000 — POWER / WIRING / BREAKER PROTECTION</span><small>EWC TB-280 Rev. H p.2</small></summary>
+<div class="card-body">
+<ul>
+<li><strong>DEDICATED TRANSFORMER:</strong> 24VAC, <strong>40 VA minimum / 60 VA maximum</strong>, 50/60 Hz. Do not power the UT3000 from the HVAC equipment transformer.</li>
+<li><strong>WIRE:</strong> Standard <strong>18 AWG solid copper</strong> multi-conductor cable in most applications. On long outdoor runs (about 100 ft or more) or noisy runs, EWC says 4-wire cable may be needed with two conductors used for each data circuit.</li>
+<li><strong>CLIMATETALK COLOR CODE:</strong> <strong>Red = R, Green = 1, Yellow = 2, White = C.</strong></li>
+<li><strong>MAIN PROTECTION:</strong> 2.5 A main circuit-board protection.</li>
+<li><strong>BRANCH AUTO-RESET PROTECTION:</strong> 100 mA on each damper terminal block; 350 mA on each communicating thermostat terminal block; 140 mA on each regular 24V thermostat and HVAC-system terminal block.</li>
+<li><strong>MAX PANEL CURRENT DRAW:</strong> 1.75 A.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 communication comm led rapid random pulse slow blink no network off non communicating discovery 10 15 minutes zone 1">
+<summary><span>UT3000 — COMM LEDs / NETWORK DISCOVERY</span><small>EWC TB-280 Rev. H pp.1, 11</small></summary>
+<div class="card-body">
+<div class="table-wrap"><table>
+<thead><tr><th>Comm LED behavior</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>Rapid / random pulses</td><td>Active communicating link and data transmission.</td></tr>
+<tr><td>Slow blink</td><td>No network detected.</td></tr>
+<tr><td>Off for a zone</td><td>Non-communicating thermostat detected on that zone.</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>DISCOVERY TIME:</strong> The network troubleshooting section says allow <strong>10–15 minutes</strong> for the UT3000 to discover the HVAC network and for communicating thermostats to finish configuration. The installation section says 8–10 minutes; for troubleshooting, allow the longer 10–15 minute window.</li>
+<li><strong>BEST PRACTICE DURING DISCOVERY:</strong> EWC says ideally all zone thermostats should be set to OFF while discovery/configuration finishes.</li>
+<li><strong>ZONE 1 MATTERS:</strong> Commissioning and maintenance functions are accessed through the Zone 1 communicating thermostat. Daikin One+ must be in Zone 1 for Daikin Cloud Inverter Menu access.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 bias voltage data 1 data 2 common 2.8 2.2 1.9 1.3 2.3 1.7 0.6 dip 1 2 on communication faults">
+<summary><span>UT3000 — BIAS VOLTAGE / COMM TROUBLESHOOTING</span><small>EWC TB-280 Rev. H p.19</small></summary>
+<div class="card-body">
+<p><strong>Expected differential:</strong> All published combinations below equal approximately <strong>0.6 VDC bias</strong>.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Application / reading</th><th>Data 1 to C</th><th>Data 2 to C</th></tr></thead>
+<tbody>
+<tr><td>Published normal set A</td><td>2.8 VDC</td><td>2.2 VDC</td></tr>
+<tr><td>Published normal set B</td><td>1.9 VDC</td><td>1.3 VDC</td></tr>
+<tr><td>CAPE coil + 2-stage furnace</td><td>2.3 VDC</td><td>1.7 VDC</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>UT3000 BIAS DIPS:</strong> EWC says <strong>BIAS DIP switches #1 and #2 at the bottom of the UT3000 should be ON.</strong></li>
+<li><strong>IF COMM IS INTERMITTENT:</strong> Check both HVAC and UT3000 transformer voltage/fuses/breakers; test all wires for continuity, shorts to 24V common and shorts to earth ground; verify wiring/miswiring; then verify the bias readings above.</li>
+<li><strong>AFTER COMM WORK:</strong> Clear Outdoor and Indoor diagnostic fault-code folders. Some systems require a System Test before normal operation.</li>
+</ul>
+<p><strong>IMPORTANT:</strong> These are EWC UT3000-specific BIAS switch instructions. Do not substitute Daikin DOZP termination-switch rules.</p>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 e11 equipment test zoning mode cl setup system test cooling will not run charge mode startup test">
+<summary><span>UT3000 — E11 / ZONING MODE / EQUIPMENT TEST</span><small>EWC Enable Zoning Mode + Start-up Guide 090376A0194</small></summary>
+<div class="card-body">
+<p><strong>E11:</strong> On applicable Daikin FIT / Amana inverter systems, E11 means the initial <strong>Equipment Test / System Test</strong> must be completed. Normal HVAC operation is blocked until the required test is complete.</p>
+<p><strong>BEFORE EQUIPMENT TEST:</strong> EWC's current Enable Zoning Mode sheet says make sure <strong>ZONING MD = ON</strong>.</p>
+<ol>
+<li>Press <strong>UP + DOWN</strong> together and release to enter equipment menus.</li>
+<li>Select <strong>MENU HEAT PUMP</strong> or <strong>MENU AIR COND</strong>.</li>
+<li>Enter <strong>CL SETUP</strong>.</li>
+<li>Find <strong>ZONING MD</strong>.</li>
+<li>Change <strong>*OFF → *ON</strong> and confirm. Wait for <strong>Updating System</strong> and verify *ON.</li>
+</ol>
+<p><strong>THEN RUN SYSTEM TEST:</strong> In the outdoor-unit equipment menu select Equipment Test → System Test → *ON. Do not interrupt the test. EWC's commissioning guide says it typically takes about <strong>8–15 minutes</strong>. When successful, E11 is absent afterward.</p>
+<p>After System Test, clear applicable fault codes and proceed to <strong>Charge Mode</strong> as required.</p>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 call for service data 1 data 2 short 24v earth ground thermostat dead zone continuity common">
+<summary><span>UT3000 — CALL FOR SERVICE / DATA-WIRE SHORTS</span><small>EWC TB-280 Rev. H p.19</small></summary>
+<div class="card-body">
+<ul>
+<li>If <strong>Data 1 and Data 2 are shorted together</strong>, or either data wire is shorted to <strong>24V or earth ground</strong>, the communicating thermostat on that zone can display <strong>“Call for Service.”</strong></li>
+<li>For a non-communicating thermostat, a 24V short can simply kill thermostat power and the zone will not function.</li>
+<li>Check UT3000 24V input R/C first. Then isolate field wiring one branch at a time and ohm the affected wiring for continuity, shorts to common and shorts to earth ground.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 dead panel dead zone f1 breaker hot 2.5 amp 140ma 350ma 100ma reset cool short thermostat damper">
+<summary><span>UT3000 — DEAD PANEL / DEAD ZONE / AUTO-RESET BREAKERS</span><small>EWC TB-280 Rev. H p.19</small></summary>
+<div class="card-body">
+<ul>
+<li><strong>ENTIRE PANEL DEAD:</strong> When the 2.5 A F1 breaker trips, EWC says it gets hot to the touch and the LCD/LEDs will not illuminate.</li>
+<li><strong>FIND THE MAIN SHORT:</strong> Remove hot wires connected to the panel one at a time. When the shorted branch is removed, panel operation returns. Repair/replace that wire or device before reconnecting.</li>
+<li><strong>SINGLE DEVICE / ZONE DEAD:</strong> A tripped 140 mA, 350 mA or 100 mA branch protector affects only the device(s) on that protected block.</li>
+<li><strong>THERMOSTAT SHORT:</strong> Remove the thermostat field wiring and allow the 140/350 mA auto-reset breaker to cool before retesting.</li>
+<li><strong>USEFUL VOLTAGE CLUE:</strong> With a thermostat-side 24V short, 24VAC can still be present at the UT3000 input R/C while 24VAC is absent at the affected thermostat R/C block.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 damper not respond 24vac 100ma breaker too many dampers incompatible parallel wiring urd nd sid">
+<summary><span>UT3000 — DAMPER TROUBLESHOOTING</span><small>EWC TB-280 Rev. H pp.15, 19</small></summary>
+<div class="card-body">
+<ul>
+<li>If HVAC and the UT3000 LCD/LEDs operate normally but dampers do not respond, check damper wiring and verify <strong>24VAC output at the damper motor</strong>.</li>
+<li>Check for too many or incompatible dampers on one zone and test field wiring for continuity, shorts and miswiring.</li>
+<li>Current Rev. H permits up to <strong>3 ND / URD / SID dampers per zone</strong> at 26 mA each.</li>
+<li>The <strong>100 mA damper auto-reset breaker</strong> may trip if too many dampers are connected, especially in a hot attic.</li>
+<li>EWC recommends wiring multiple damper motors in <strong>parallel</strong>, not series.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 sas supply air sensor oas outside air sensor bad sensor timed mode emergency high heat communication outdoor unit">
+<summary><span>UT3000 — SAS / OAS SENSOR FAULT BEHAVIOR</span><small>EWC TB-280 Rev. H pp.2, 7</small></summary>
+<div class="card-body">
+<ul>
+<li><strong>SAS FAILURE / DISCONNECTED:</strong> UT3000 displays <strong>“SAS Sensor Bad”</strong> and defaults to <strong>Timed Mode staging</strong> until zone thermostat demands are satisfied.</li>
+<li><strong>OAS FAILURE / DISCONNECTED:</strong> UT3000 displays <strong>“OAS Sensor Bad”</strong> and defaults to emergency mode or high heat for heating demands.</li>
+<li><strong>COMM CLUE:</strong> EWC specifically notes that “OAS Sensor Bad” can also indicate the UT3000 is <strong>not communicating with the outdoor heat pump or A/C</strong>.</li>
+<li><strong>SAS:</strong> Included and required for proportional equipment control. OAS is optional and unnecessary when a communicating outdoor unit provides outdoor temperature.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 time delay back forward one second bypass heat cool active delay 2 minute 4 minute purge">
+<summary><span>UT3000 — TIME DELAYS / QUICK TROUBLESHOOTING BYPASS</span><small>EWC TB-280 Rev. H pp.8, 19</small></summary>
+<div class="card-body">
+<ul>
+<li>UT3000 has built-in time delays to protect HVAC operation. A delay can make an otherwise healthy system appear not to respond immediately.</li>
+<li><strong>FIELD BYPASS:</strong> During troubleshooting, press <strong>BACK + FORWARD together for 1 second</strong> to bypass an active time delay.</li>
+<li>Use this only for troubleshooting; do not treat a bypassed delay as a permanent operating mode.</li>
+</ul>
+</div>
+</details><details class="ref-card pink" data-search="ut3000 twinning master slave 4 5 zones panel a panel b transformer 50 60 va 40va sas zone 3 system block">
+<summary><span>UT3000 — TWINNING (4–5 ZONES)</span><small>EWC Twinning Bulletin 090376A0185</small></summary>
+<div class="card-body">
+<ul>
+<li>Two UT3000 panels can be twinned for <strong>4 or 5 zones</strong>.</li>
+<li>Mount Panel A (Master) and Panel B (Slave) near each other and the HVAC equipment.</li>
+<li>A single dedicated <strong>50 or 60 VA</strong> transformer may power both panels if polarity is maintained, or separate <strong>40 VA</strong> transformers may be used. EWC says do not exceed 60 VA on any transformer.</li>
+<li>Connect the HVAC system to Panel A SYSTEM. Connect the slave Panel B communicating SYSTEM output to an unused communicating thermostat input on Panel A (EWC's example uses Zone 3).</li>
+<li>Install the <strong>SAS on Panel A only</strong>. Panel A shares supply-air and outdoor-temperature data with Panel B.</li>
+</ul>
+</div>
+</details><details class="ref-card amber" data-search="ut3000 source notes conflicts spring damper discovery 8 10 10 15 current rev h older notes">
+<summary><span>UT3000 — CURRENT-SOURCE NOTES / DOCUMENT CONFLICTS</span><small>EWC TB-280 Rev. H</small></summary>
+<div class="card-body">
+<ul>
+<li><strong>DAMPERS:</strong> Older consolidated notes said a spring-type damper could be used with a 400 mA limit. Current EWC TB-280 Rev. H instead says <strong>spring-type dampers are not compatible due to high current draw</strong>. This guide follows the current Rev. H wording.</li>
+<li><strong>DISCOVERY TIME:</strong> Rev. H installation text says <strong>8–10 minutes</strong>; its network troubleshooting section says <strong>10–15 minutes</strong>. This guide uses 10–15 minutes when diagnosing network discovery.</li>
+<li><strong>BIAS vs TERMINATION:</strong> UT3000's <strong>BIAS DIP #1/#2 = ON</strong> instruction is specific to the EWC UT3000. Do not mix it with Daikin DOZP or other platform termination-resistor instructions.</li>
+</ul>
+</div>
+</details></div>
+
 </section><section class="section-block" id="sec-fault-codes">
 <h2>DIAGNOSTICS</h2><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-fault-codes" placeholder="Search diagnostics: fault code, DIP switch, CoreSense, model-specific code…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-fault-codes" style="display:none">No matching reference found in this build.</div>
 <details class="diag-group diag-collapsible" data-group-title="DIP SWITCHES / SETUP"><summary class="diag-group-summary"><span class="diag-group-title">DIP SWITCHES / SETUP</span><span class="count"></span><span class="diag-group-hint">tap to expand</span></summary><div class="diag-group-body"><div class="section-head"><span class="kicker purple">DIP / SETUP</span><h2>DIP SWITCHES</h2><span class="count">47 reference cards</span></div><details class="ref-card purple" data-search="r-410a generation — switch table  dz6vs/dx6vs outdoor + dv**fec/dfve eev air handler + cape(a)/chpe eev cased coil. from daikin service instructions sius612209ea/eb p.34–35.  - **ds-1 (outdoor), switches 1&amp;2:** both on — factory default. termination resistor.  - **ds-2 (outdoor), switches 1&amp;2:** both off — factory default. cooling emergency level: on/off = low, off/on = medium, on/on = high. must be at factory setting for normal operation.  - **ds-3 (indoor, s9–s12):** all off — factory default. heater kit selection, eev air handler only. full kw table on the heat pump &amp; air handler tab.  - **ds-4 (indoor), switches 13&amp;14:** fan-only speed, eev air handler only: off/off = 25%, on/off = 50% (factory default*), off/on = 75%, on/on = 100%.  - **ds-4, switch 15:** on = factory default**. eev enable.  - **ds-4, switch 16:** off — no use.  - **ds-5, switches 17&amp;18:** 17 on / 18 off = factory default**. emergency eev opening.  - **ds-5, switch 19:** off = factory default**. eev emergency mode.  - **ds-5, switch 20:** off — no use.  - **ds-6 (indoor), switches 21&amp;22:** off/off = normal (factory default*). on/off = cooling emergency. off/on = heating emergency high. on/on = heating emergency low (air handler only — the eev cased coil doesn't have this).  - **ds-6, switches 23&amp;24:** off — no use.  - **footnotes (daikin's wording):** * must be set at factory setting to operate the normal mode. ** must be set at factory setting in indoor unit with eev. it's prohibited to change setting. switches 15, 17, 18 and 19 have no field procedure — leave them alone. " open="">
@@ -832,8 +997,7 @@ main{
 <summary><span>DIP SWITCHES</span><small>source line 297</small></summary>
 <div class="card-body"><p data-line="299">The full R-410A switch table (DS-1 to DS-6) and emergency mode are under DIP / SETUP. On DFVE/DMVE boards set the heater size in both the thermostat and S9–S12.</p></div>
 </details><details class="ref-card green" data-search="heater kit configuration  which method you use depends on the indoor board family — check which one you're looking at before reaching for a screwdriver or the thermostat menu.  - **dfve / dmve boards:** set the heater capacity in two places: the thermostat (installer wizard &gt; equipment setup &gt; air handler &gt; heater kit &gt; size) and the s9–s12 dip switches (iod-4039b p.14–15). airflow trim for electric heat is a separate menu one level down.  - **dmvt / mbvc boards:** heater kit size is set with dip switches on the board (dmvt table above). then check &quot;heater kit installed&quot; in the thermostat's air handler menu.  | air handler family | available heater kit sizes | |---|---| | dv25pec, dv24fec, dfve24, dmve24 | 0, 3, 5, 6, 8, 10 kw | | dv35fec, dv36fec, dv37pec, dv42fec, dfve35/36/42, dmve36 | 0, 5, 6, 8, 10, 15, 19 kw | | dv47fec, dv48fec, dv59pec, dfve47/48, dmve48 | 0, 5, 6, 8, 10, 15, 20 kw | | dv61pec, dv59fec, dv60fec, dfve59/60, dmve60 | 0, 5, 6, 8, 10, 15, 20, 25 kw | | mbvk16ch1x | 0, 3, 5, 15 kw | | mbvk20ch1x | 0, 5, 15, 20, 25 kw | | awve30, awve36 | 0, 3 kw | ">
-<summary><span>HEATER KIT CONFIGURATION</span><small>source line 301</small></summary>
-<div class="card-body"><p data-line="303">Which method you use depends on the indoor board family — check which one you're looking at before reaching for a screwdriver or the thermostat menu.</p><ul><li data-line="305"><strong>DFVE / DMVE BOARDS:</strong> Set the heater capacity in two places: the thermostat (Installer Wizard &gt; equipment setup &gt; air handler &gt; heater kit &gt; size) AND the S9–S12 DIP switches (IOD-4039B p.14–15). Airflow trim for electric heat is a separate menu one level down.</li></ul><ul><li data-line="307"><strong>DMVT / MBVC BOARDS:</strong> Heater kit size is set with DIP switches on the board (DMVT table above). Then check "heater kit installed" in the thermostat's air handler menu.</li></ul><div class="table-wrap"><table><thead><tr><th>Air handler family</th><th>Available heater kit sizes</th></tr></thead><tbody><tr><td>DV25PEC, DV24FEC, DFVE24, DMVE24</td><td>0, 3, 5, 6, 8, 10 kW</td></tr><tr><td>DV35FEC, DV36FEC, DV37PEC, DV42FEC, DFVE35/36/42, DMVE36</td><td>0, 5, 6, 8, 10, 15, 19 kW</td></tr><tr><td>DV47FEC, DV48FEC, DV59PEC, DFVE47/48, DMVE48</td><td>0, 5, 6, 8, 10, 15, 20 kW</td></tr><tr><td>DV61PEC, DV59FEC, DV60FEC, DFVE59/60, DMVE60</td><td>0, 5, 6, 8, 10, 15, 20, 25 kW</td></tr><tr><td>MBVK16CH1X</td><td>0, 3, 5, 15 kW</td></tr><tr><td>MBVK20CH1X</td><td>0, 5, 15, 20, 25 kW</td></tr><tr><td>AWVE30, AWVE36</td><td>0, 3 kW</td></tr></tbody></table></div></div>
+<summary><span>HEATER KIT CONFIGURATION</span><small>source line 301</small></summary><div class="card-body"><p data-line="303">Which method you use depends on the indoor board family — check which one you're looking at before reaching for a screwdriver or the thermostat menu.</p><ul><li data-line="305"><strong>DFVE / DMVE BOARDS:</strong> Set the heater capacity in two places: the thermostat (Installer Wizard &gt; equipment setup &gt; air handler &gt; heater kit &gt; size) AND the S9–S12 DIP switches (IOD-4039B p.14–15). Airflow trim for electric heat is a separate menu one level down.</li></ul><ul><li data-line="307"><strong>DMVT / MBVC BOARDS:</strong> Heater kit size is set with DIP switches on the board (DMVT table above). Then check "heater kit installed" in the thermostat's air handler menu.</li></ul><div class="table-wrap"><table><thead><tr><th>Air handler family</th><th>Available heater kit sizes</th></tr></thead><tbody><tr><td>DV25PEC, DV24FEC, DFVE24, DMVE24</td><td>0, 3, 5, 6, 8, 10 kW</td></tr><tr><td>DV35FEC, DV36FEC, DV37PEC, DV42FEC, DFVE35/36/42, DMVE36</td><td>0, 5, 6, 8, 10, 15, 19 kW</td></tr><tr><td>DV47FEC, DV48FEC, DV59PEC, DFVE47/48, DMVE48</td><td>0, 5, 6, 8, 10, 15, 20 kW</td></tr><tr><td>DV61PEC, DV59FEC, DV60FEC, DFVE59/60, DMVE60</td><td>0, 5, 6, 8, 10, 15, 20, 25 kW</td></tr><tr><td>MBVK16CH1X</td><td>0, 3, 5, 15 kW</td></tr><tr><td>MBVK20CH1X</td><td>0, 5, 15, 20, 25 kW</td></tr><tr><td>AWVE30, AWVE36</td><td>0, 3 kW</td></tr></tbody></table></div></div>
 </details><details class="ref-card green" data-search="calibration procedure  daikin's documented steps for correcting a thermostat's displayed temperature/humidity against a known-good reference.  1. set the system mode to off.  1. wait 30 minutes for the thermostat to settle and read ambient temperature.  1. read the room temperature with a calibrated meter near the thermostat and record it.  1. in the installer settings, go to system optimization &gt; calibration and enter the offset needed to match the meter. (setpoint offsets is a different, demand-response setting.)  ranges: temperature calibration −10°f to 10°f in 1°f steps (default 0°f); humidity calibration −15% to 15% in 1% steps (default 0%). remote wireless sensors (see below) have their own, narrower calibration range: −7°f to 7°f temp, −15% to 15% humidity. ">
 <summary><span>CALIBRATION PROCEDURE</span><small>source line 343</small></summary>
 <div class="card-body"><p data-line="345">Daikin's documented steps for correcting a thermostat's displayed temperature/humidity against a known-good reference.</p><ol><li data-line="347">1. Set the system mode to OFF.</li></ol><ol><li data-line="349">1. Wait 30 minutes for the thermostat to settle and read ambient temperature.</li></ol><ol><li data-line="351">1. Read the room temperature with a calibrated meter near the thermostat and record it.</li></ol><ol><li data-line="353">1. In the installer settings, go to system optimization &gt; calibration and enter the offset needed to match the meter. (Setpoint offsets is a different, demand-response setting.)</li></ol><p data-line="355">Ranges: temperature calibration −10°F to 10°F in 1°F steps (default 0°F); humidity calibration −15% to 15% in 1% steps (default 0%). Remote wireless sensors (see below) have their own, narrower calibration range: −7°F to 7°F temp, −15% to 15% humidity.</p></div>
@@ -997,7 +1161,8 @@ main{
 <th>HSPF2</th>
 <th>Capacity</th>
 <th>25C</th>
-<th>AHRI Ref.</th><th>Catalog</th>
+<th>AHRI Ref.</th>
+<th>Catalog</th>
 </tr>
 </thead>
 <tbody id="ahri-results"></tbody>
@@ -1347,4 +1512,38 @@ main{
 
   render(false);
 })();
-</script></body></html>
+</script>
+<script id="v23-zoning-tabs-script">
+(function(){
+  function activateZoningTab(id){
+    document.querySelectorAll('#sec-zoning .zoning-subtab').forEach(function(btn){
+      var on = btn.getAttribute('data-zoning-tab') === id;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('#sec-zoning .zoning-pane').forEach(function(pane){
+      pane.classList.toggle('active', pane.id === id);
+    });
+  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('#sec-zoning .zoning-subtab');
+    if(!btn) return;
+    activateZoningTab(btn.getAttribute('data-zoning-tab'));
+  });
+  document.addEventListener('input', function(e){
+    if(!e.target.matches('#sec-zoning .section-search')) return;
+    var q = (e.target.value || '').trim();
+    if(!q) return;
+    setTimeout(function(){
+      var dozp = document.getElementById('zoning-dozp');
+      var ewc = document.getElementById('zoning-ut3000');
+      var dozpHit = dozp && Array.from(dozp.querySelectorAll('.ref-card')).some(function(c){ return c.style.display !== 'none'; });
+      var ewcHit = ewc && Array.from(ewc.querySelectorAll('.ref-card')).some(function(c){ return c.style.display !== 'none'; });
+      if(ewcHit && !dozpHit) activateZoningTab('zoning-ut3000');
+      else if(dozpHit && !ewcHit) activateZoningTab('zoning-dozp');
+    },0);
+  });
+})();
+</script>
+
+</body></html>
