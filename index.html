@@ -1516,6 +1516,200 @@ tr:nth-child(even) td{
   }
 }
 </style>
+
+<style id="v29-all-blue-surfaces">
+/* Unified Casteel blue surfaces — remove remaining white/light backdrops */
+:root{
+  --casteel-surface:#0b2742;
+  --casteel-surface-2:#0e3456;
+  --casteel-surface-3:#123f67;
+  --casteel-border:#2f6f9d;
+  --casteel-text:#eef8ff;
+  --casteel-muted:#a9c6d9;
+}
+
+html,body{
+  background:
+    radial-gradient(circle at 18% 0%,rgba(28,173,240,.18),transparent 32%),
+    linear-gradient(180deg,#0759ae 0%,#064887 42%,#032c5a 100%) fixed!important;
+  color:var(--casteel-text)!important;
+}
+main,main.shell,.page-shell{
+  background:transparent!important;
+}
+
+/* Every major content surface */
+.section-block,
+.section-head,.page-title,
+.ref-card,.card,.panel,.section-card,details,
+.diag-static-group,.diag-group,.diag-group-body,.diag-group-header,
+.fault-flat,.fault-platform-label,
+.zoning-subtabs,.zoning-pane,.zoning-pane-intro,
+.ahri-wrap,.ahri-controls,.ahri-panel,.ahri-summary,.ahri-note,.ahri-table-wrap,
+.start-btn,.start-safety,.start-glossary,.start-results,.start-hit,.start-empty,
+.model-context,.model-suggestions,.guided-reference,.guided-reference-body,.ahri-model-mode,
+.table-wrap{
+  background:linear-gradient(180deg,var(--casteel-surface-2),var(--casteel-surface))!important;
+  color:var(--casteel-text)!important;
+  border-color:var(--casteel-border)!important;
+}
+
+/* Keep Start page itself transparent over the app blue */
+#sec-start{
+  background:transparent!important;
+  border-color:transparent!important;
+}
+
+/* Card/header bars */
+.card-header-static,
+.fault-platform-label,
+.diag-group-header,
+.section-head,.page-title{
+  background:linear-gradient(180deg,#12466f,#0d3557)!important;
+  color:#fff!important;
+}
+.card-header-static span,
+.fault-platform-label,
+.diag-group-title,
+.section-head h2,.page-title h1,
+h1,h2,h3,h4,h5,h6,
+strong,b,summary{
+  color:#fff!important;
+}
+
+/* Body copy */
+.card-body,
+.card-body p,.card-body li,.card-body td,.card-body dd,.card-body dt,
+p,li,dd,dt,
+.ahri-subtitle,.ahri-summary span,.zoning-pane-intro,
+small,.muted,.subtle,.page-note{
+  color:var(--casteel-muted)!important;
+}
+.card-body strong,.card-body b,
+td strong,li strong,p strong{
+  color:#fff!important;
+}
+
+/* Inputs / selects / search */
+input,select,textarea,
+.section-search,#ahri-search,#ahri-system-filter,.ahri-search,.ahri-select,
+.ahri-model-fields input{
+  background:#08233c!important;
+  color:#f4fbff!important;
+  border-color:#3a79a6!important;
+}
+input::placeholder,textarea::placeholder,
+.section-search::placeholder,#ahri-search::placeholder,.ahri-search::placeholder,
+.ahri-model-fields input::placeholder{
+  color:#98b7cb!important;
+}
+select option{
+  background:#08233c!important;
+  color:#f4fbff!important;
+}
+.section-search-wrap{
+  background:rgba(4,44,82,.88)!important;
+  border-color:#3677a4!important;
+}
+
+/* Tables */
+table,.ahri-table{
+  background:#09243d!important;
+  color:#edf8ff!important;
+}
+th,.ahri-table th{
+  background:#0c4775!important;
+  color:#fff!important;
+  border-color:#3b7297!important;
+}
+td,.ahri-table td{
+  background:#0a2945!important;
+  color:#d9ecf8!important;
+  border-color:#285a7e!important;
+}
+tr:nth-child(even) td,.ahri-table tr:nth-child(even) td{
+  background:#0c3150!important;
+}
+tr:hover td,.ahri-table tr:hover td{
+  background:#10436b!important;
+}
+
+/* Pills, buttons and secondary controls */
+.nav-pill,
+.zoning-subtab,.ahri-filter,.sys-chip,.tax-chip,
+.model-context-actions button,.diag-quick-strip button,.guided-reference button,
+#ahri-model-clear{
+  background:#0b3151!important;
+  color:#eaf8ff!important;
+  border-color:#3b76a0!important;
+}
+.nav-pill:hover,
+.zoning-subtab:hover,.ahri-filter:hover,
+.model-context-actions button:hover,.diag-quick-strip button:hover,.guided-reference button:hover,
+#ahri-model-clear:hover{
+  background:#0e4a78!important;
+  border-color:#5cb7ef!important;
+  color:#fff!important;
+}
+.zoning-subtab.active,.ahri-filter.active{
+  background:linear-gradient(180deg,#0b88dd,#076db8)!important;
+  border-color:#6ed4ff!important;
+  color:#fff!important;
+}
+
+/* Start task tiles */
+.start-btn{
+  background:linear-gradient(180deg,#12476f,#0b2d4b)!important;
+  border-color:#36759f!important;
+}
+.start-btn:hover,.start-btn:focus{
+  background:linear-gradient(180deg,#155886,#0e3b60)!important;
+  border-color:#62c8ff!important;
+}
+.task-icon{
+  background:#0a2d49!important;
+}
+
+/* Safety remains red but no white/pink background */
+.start-safety{
+  background:linear-gradient(90deg,rgba(125,21,35,.55),rgba(63,18,28,.45))!important;
+  border-color:#a33b49!important;
+}
+.start-safety li{color:#f3dce0!important}
+
+/* AHRI note remains amber but on dark blue */
+.ahri-note,.alert,.warn,.warning{
+  background:linear-gradient(180deg,#3b321b,#2b271b)!important;
+  color:#ffe7a9!important;
+  border-color:#8a6b2e!important;
+}
+.ahri-note strong,.alert strong,.warn strong,.warning strong{
+  color:#fff1c2!important;
+}
+
+/* Empty states / results */
+.start-hit,.start-empty{
+  background:#0b2a45!important;
+  color:#dff3ff!important;
+}
+.start-hit:hover,.start-hit:focus{
+  background:#0e3d63!important;
+  border-color:#4fc4fb!important;
+}
+
+/* Links */
+a{color:#66d5ff!important}
+
+/* Mobile keeps the same palette */
+@media(max-width:900px){
+  header.casteel-header{
+    background:linear-gradient(180deg,#0759ae,#043d78)!important;
+  }
+  .section-block{
+    background:rgba(5,49,88,.34)!important;
+  }
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
