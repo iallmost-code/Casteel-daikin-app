@@ -1453,6 +1453,69 @@ label.start-btn{cursor:pointer}
   .guided-reference summary small{display:none}
 }
 </style>
+
+<style id="v28-match-header-background">
+/* Match the main app background to the Casteel blue header/menu */
+html,body{
+  background:
+    radial-gradient(circle at 18% 0%,rgba(28,173,240,.18),transparent 32%),
+    linear-gradient(180deg,#0759ae 0%,#064887 42%,#032c5a 100%) fixed!important;
+}
+main.shell{
+  background:transparent!important;
+}
+.section-block{
+  background:rgba(3,34,67,.22)!important;
+  border:1px solid rgba(147,211,248,.12)!important;
+  border-radius:14px!important;
+}
+#sec-start{
+  background:transparent!important;
+  border:0!important;
+}
+.section-head,.page-title,
+.ref-card,.card,.panel,.section-card,details.ref-card,.fault-flat,
+.ahri-wrap,.ahri-controls,.ahri-panel,
+.zoning-subtabs,.diag-group-header,
+.start-btn,.start-glossary,.model-context,.guided-reference,.ahri-model-mode{
+  background-color:#0b1f31!important;
+}
+.ref-card,.card,.panel,.section-card,details.ref-card,.fault-flat{
+  background:linear-gradient(180deg,#0f2940,#0a1d2e)!important;
+}
+.card-header-static,.fault-platform-label{
+  background:#0c2438!important;
+}
+.table-wrap,.ahri-table-wrap,table{
+  background:#0a1b2b!important;
+}
+th{
+  background:#0d3658!important;
+}
+td{
+  background:#0b2032!important;
+}
+tr:nth-child(even) td{
+  background:#0d263b!important;
+}
+.section-search-wrap{
+  background:rgba(5,40,76,.78)!important;
+}
+.section-search,#ahri-search,#ahri-system-filter,
+.ahri-search,.ahri-select,.ahri-model-fields input{
+  background:#08213a!important;
+  color:#f3f9ff!important;
+  border-color:#2d6792!important;
+}
+.section-search::placeholder,#ahri-search::placeholder,.ahri-search::placeholder,.ahri-model-fields input::placeholder{
+  color:#94b2c8!important;
+}
+@media(max-width:900px){
+  .section-block{
+    border-radius:10px!important;
+  }
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
