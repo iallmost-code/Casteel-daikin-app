@@ -1981,6 +1981,196 @@ body main [style*="background: white"]{
   color:#e6f4fd!important;
 }
 </style>
+<style id="v31-mockup-theme">
+:root{
+  --v31-bg:#06111d;--v31-panel:#0a2034;--v31-panel2:#0d2b46;--v31-line:#245c86;
+  --v31-text:#eef8ff;--v31-muted:#9fb8ca;--v31-cyan:#3ac6ff;--v31-blue:#1593ff;
+  --v31-purple:#a96cff;--v31-green:#2ad97c;--v31-pink:#ff5baa;--v31-amber:#ffc44f;--v31-red:#ff6565;
+}
+html{background:#06111d!important}
+body{
+  background:
+    radial-gradient(circle at 15% 0%,rgba(28,159,255,.22),transparent 26%),
+    radial-gradient(circle at 86% 8%,rgba(55,107,220,.18),transparent 25%),
+    linear-gradient(180deg,#07131f 0,#07111b 46%,#081522 100%)!important;
+  color:var(--v31-text)!important;min-height:100vh
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(5,17,28,.18),rgba(5,17,28,.82)),
+    repeating-linear-gradient(90deg,rgba(57,147,219,.055) 0 1px,transparent 1px 72px),
+    repeating-linear-gradient(180deg,rgba(57,147,219,.045) 0 1px,transparent 1px 72px)
+}
+/* header */
+body header.casteel-header{
+  position:sticky!important;top:0!important;left:auto!important;bottom:auto!important;width:100%!important;height:auto!important;
+  overflow:visible!important;background:
+    linear-gradient(90deg,rgba(6,18,30,.95) 0 42%,rgba(6,18,30,.56) 70%,rgba(6,18,30,.28)),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20420%22%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b3d72%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%230b2747%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2307131f%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22m%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%235b8fb5%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2310283b%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22u%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2394a9ba%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%234a6274%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2322323f%22%2F%3E%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22420%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%3Ccircle%20cx%3D%22340%22%20cy%3D%2270%22%20r%3D%22260%22%20fill%3D%22%231a9be0%22%20opacity%3D%22.11%22%2F%3E%0A%3Cpath%20d%3D%22M0%20310L150%20205l105%2075%20165-170%20125%20130%20120-95%20160%20155%20170-170%20155%20160%20160-120%20180%20140%20210-95v205H0Z%22%20fill%3D%22url(%23m)%22%20opacity%3D%22.85%22%2F%3E%0A%3Cpath%20d%3D%22M0%20350l205-80%20130%2070%20180-95%20160%20110%20175-80%20155%2090%20190-105%20165%2080%20240-65v145H0Z%22%20fill%3D%22%2307131f%22%20opacity%3D%22.88%22%2F%3E%0A%3Cg%20opacity%3D%22.82%22%3E%0A%3Crect%20x%3D%221085%22%20y%3D%22150%22%20width%3D%22205%22%20height%3D%22180%22%20rx%3D%2214%22%20fill%3D%22url(%23u)%22%20stroke%3D%22%239cb2c2%22%20stroke-width%3D%223%22%2F%3E%0A%3Crect%20x%3D%221110%22%20y%3D%22175%22%20width%3D%22155%22%20height%3D%2228%22%20rx%3D%226%22%20fill%3D%22%23203746%22%2F%3E%0A%3Ccircle%20cx%3D%221188%22%20cy%3D%22258%22%20r%3D%2258%22%20fill%3D%22%231a2a34%22%2F%3E%0A%3Ccircle%20cx%3D%221188%22%20cy%3D%22258%22%20r%3D%2243%22%20fill%3D%22%230c141a%22%2F%3E%0A%3Cg%20stroke%3D%22%237990a0%22%20stroke-width%3D%225%22%20opacity%3D%22.85%22%3E%3Cline%20x1%3D%221188%22%20y1%3D%22215%22%20x2%3D%221188%22%20y2%3D%22301%22%2F%3E%3Cline%20x1%3D%221145%22%20y1%3D%22258%22%20x2%3D%221231%22%20y2%3D%22258%22%2F%3E%3Cline%20x1%3D%221157%22%20y1%3D%22227%22%20x2%3D%221219%22%20y2%3D%22289%22%2F%3E%3Cline%20x1%3D%221219%22%20y1%3D%22227%22%20x2%3D%221157%22%20y2%3D%22289%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M1108%20169h74l-74%2063Z%22%20fill%3D%22%231fb9f4%22%2F%3E%3Cpath%20d%3D%22M1118%20169h42l-42%2036Z%22%20fill%3D%22%230b76ca%22%2F%3E%0A%3Crect%20x%3D%221325%22%20y%3D%22185%22%20width%3D%22155%22%20height%3D%22145%22%20rx%3D%2212%22%20fill%3D%22url(%23u)%22%20opacity%3D%22.74%22%2F%3E%0A%3Ccircle%20cx%3D%221402%22%20cy%3D%22255%22%20r%3D%2242%22%20fill%3D%22%2315242e%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20fill%3D%22%230b1f2d%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M60%20360l22-72%2022%2072Z%22%2F%3E%3Cpath%20d%3D%22M112%20368l28-92%2028%2092Z%22%2F%3E%3Cpath%20d%3D%22M1510%20360l26-88%2026%2088Z%22%2F%3E%3Cpath%20d%3D%22M1455%20370l30-102%2030%20102Z%22%2F%3E%3C%2Fg%3E%0A%3C%2Fsvg%3E") right center/cover no-repeat!important;
+  border-right:0!important;border-bottom:1px solid rgba(69,166,232,.28)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.32)!important;backdrop-filter:blur(7px)!important
+}
+body header .casteel-brandbar{
+  max-width:1480px!important;margin:0 auto!important;padding:15px 20px 9px!important;min-height:118px!important;
+  display:grid!important;grid-template-columns:minmax(250px,370px) 1fr auto!important;align-items:center!important;gap:22px!important;
+  border-bottom:1px solid rgba(98,189,248,.18)!important;background:transparent!important
+}
+body header .casteel-logo{width:100%!important;max-width:340px!important;height:82px!important;object-fit:contain!important;background:transparent!important;border:0!important;box-shadow:none!important}
+body header .app-heading strong{color:#fff!important;font-size:clamp(25px,3vw,39px)!important;font-weight:950!important;letter-spacing:.18em!important;line-height:1!important;text-transform:uppercase!important}
+body header .app-heading span{margin-top:9px!important;color:#9fd2f5!important;font-size:11px!important;font-weight:850!important;letter-spacing:.26em!important;text-transform:uppercase!important}
+body header .source-badge{background:transparent!important;border:0!important;box-shadow:none!important;color:#d9eeff!important;font-size:10px!important;letter-spacing:.15em!important;text-align:right!important;padding:0!important}
+body header .nav{max-width:1480px!important;margin:0 auto!important;padding:12px 18px 15px!important;display:flex!important;flex-direction:row!important;gap:11px!important;overflow:auto!important}
+body header .nav-pill{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:145px!important;
+  padding:14px 16px!important;border-radius:17px!important;border:2px solid #2f6e9c!important;
+  background:linear-gradient(180deg,#0d304d,#091f33)!important;color:#eef8ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 8px 18px rgba(0,0,0,.22)!important;font-size:13px!important;font-weight:900!important
+}
+body header .tab-start{border-color:#4ebfff!important}
+body header .tab-diagnostics{border-color:#ec4899!important}
+body header .tab-zoning{border-color:#9b63f7!important}
+body header .tab-equipment{border-color:#2eb7f5!important}
+body header .tab-ahri{border-color:#31d17c!important}
+body header .tab-gaps{border-color:#f5b82e!important}
+body header .tab-sources{border-color:#94a3b8!important}
+body #page-start:checked ~ header label[for=page-start]{background:linear-gradient(180deg,#1c9dff,#116dcf)!important;border-color:#72d8ff!important;color:#fff!important;box-shadow:0 0 0 1px rgba(114,216,255,.25),0 10px 22px rgba(0,89,175,.35)!important}
+body #page-fault:checked ~ header label[for=page-fault]{background:linear-gradient(180deg,#e83c92,#a81962)!important;border-color:#ff94ca!important;color:#fff!important}
+body #page-zoning:checked ~ header label[for=page-zoning]{background:linear-gradient(180deg,#9a5cff,#6731cf)!important;border-color:#c9a6ff!important;color:#fff!important}
+body #page-catalog:checked ~ header label[for=page-catalog]{background:linear-gradient(180deg,#22a9ff,#0e74cb)!important;border-color:#83dcff!important;color:#fff!important}
+body #page-ahri:checked ~ header label[for=page-ahri]{background:linear-gradient(180deg,#28d37f,#13975a)!important;border-color:#83f0b9!important;color:#fff!important}
+body #page-gaps:checked ~ header label[for=page-gaps]{background:linear-gradient(180deg,#efb52b,#b77b08)!important;border-color:#ffda7a!important;color:#fff!important}
+body #page-sources:checked ~ header label[for=page-sources]{background:linear-gradient(180deg,#64748b,#475569)!important;border-color:#cbd5e1!important;color:#fff!important}
+/* main */
+body main.shell{max-width:1480px!important;margin:0 auto!important;padding:20px 18px 80px!important;min-height:100vh!important;background:transparent!important}
+body main .section-block{background:transparent!important;border:0!important;padding:0!important;margin:0!important;color:var(--v31-text)!important}
+/* scenic page hero on start */
+body main #sec-start{max-width:1480px!important}
+body main #sec-start:before{
+  content:"";display:block;height:265px;border-radius:26px;margin-bottom:18px;
+  background:
+    linear-gradient(90deg,rgba(7,18,31,.90) 0 35%,rgba(7,18,31,.48) 65%,rgba(7,18,31,.18)),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20420%22%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b3d72%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%230b2747%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2307131f%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22m%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%235b8fb5%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2310283b%22%2F%3E%3C%2FlinearGradient%3E%0A%3ClinearGradient%20id%3D%22u%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2394a9ba%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%234a6274%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2322323f%22%2F%3E%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221600%22%20height%3D%22420%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%3Ccircle%20cx%3D%22340%22%20cy%3D%2270%22%20r%3D%22260%22%20fill%3D%22%231a9be0%22%20opacity%3D%22.11%22%2F%3E%0A%3Cpath%20d%3D%22M0%20310L150%20205l105%2075%20165-170%20125%20130%20120-95%20160%20155%20170-170%20155%20160%20160-120%20180%20140%20210-95v205H0Z%22%20fill%3D%22url(%23m)%22%20opacity%3D%22.85%22%2F%3E%0A%3Cpath%20d%3D%22M0%20350l205-80%20130%2070%20180-95%20160%20110%20175-80%20155%2090%20190-105%20165%2080%20240-65v145H0Z%22%20fill%3D%22%2307131f%22%20opacity%3D%22.88%22%2F%3E%0A%3Cg%20opacity%3D%22.82%22%3E%0A%3Crect%20x%3D%221085%22%20y%3D%22150%22%20width%3D%22205%22%20height%3D%22180%22%20rx%3D%2214%22%20fill%3D%22url(%23u)%22%20stroke%3D%22%239cb2c2%22%20stroke-width%3D%223%22%2F%3E%0A%3Crect%20x%3D%221110%22%20y%3D%22175%22%20width%3D%22155%22%20height%3D%2228%22%20rx%3D%226%22%20fill%3D%22%23203746%22%2F%3E%0A%3Ccircle%20cx%3D%221188%22%20cy%3D%22258%22%20r%3D%2258%22%20fill%3D%22%231a2a34%22%2F%3E%0A%3Ccircle%20cx%3D%221188%22%20cy%3D%22258%22%20r%3D%2243%22%20fill%3D%22%230c141a%22%2F%3E%0A%3Cg%20stroke%3D%22%237990a0%22%20stroke-width%3D%225%22%20opacity%3D%22.85%22%3E%3Cline%20x1%3D%221188%22%20y1%3D%22215%22%20x2%3D%221188%22%20y2%3D%22301%22%2F%3E%3Cline%20x1%3D%221145%22%20y1%3D%22258%22%20x2%3D%221231%22%20y2%3D%22258%22%2F%3E%3Cline%20x1%3D%221157%22%20y1%3D%22227%22%20x2%3D%221219%22%20y2%3D%22289%22%2F%3E%3Cline%20x1%3D%221219%22%20y1%3D%22227%22%20x2%3D%221157%22%20y2%3D%22289%22%2F%3E%3C%2Fg%3E%0A%3Cpath%20d%3D%22M1108%20169h74l-74%2063Z%22%20fill%3D%22%231fb9f4%22%2F%3E%3Cpath%20d%3D%22M1118%20169h42l-42%2036Z%22%20fill%3D%22%230b76ca%22%2F%3E%0A%3Crect%20x%3D%221325%22%20y%3D%22185%22%20width%3D%22155%22%20height%3D%22145%22%20rx%3D%2212%22%20fill%3D%22url(%23u)%22%20opacity%3D%22.74%22%2F%3E%0A%3Ccircle%20cx%3D%221402%22%20cy%3D%22255%22%20r%3D%2242%22%20fill%3D%22%2315242e%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20fill%3D%22%230b1f2d%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M60%20360l22-72%2022%2072Z%22%2F%3E%3Cpath%20d%3D%22M112%20368l28-92%2028%2092Z%22%2F%3E%3Cpath%20d%3D%22M1510%20360l26-88%2026%2088Z%22%2F%3E%3Cpath%20d%3D%22M1455%20370l30-102%2030%20102Z%22%2F%3E%3C%2Fg%3E%0A%3C%2Fsvg%3E") right center/cover no-repeat!important;
+  border:1px solid rgba(69,166,232,.45);box-shadow:0 20px 36px rgba(0,0,0,.24)
+}
+body main .start-hero{margin-top:-245px!important;min-height:210px!important;padding:30px 28px 20px!important;text-align:left!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;align-items:flex-start!important;background:transparent!important}
+body main .start-brand-lockup{justify-content:flex-start!important;margin:0!important;padding:0!important;gap:18px!important}
+body main .start-casteel-logo{width:min(360px,52vw)!important;max-height:102px!important}
+body main .start-brand-divider{height:78px!important}
+body main .daikin-word{font-size:clamp(34px,4vw,54px)!important;color:#fff!important}
+body main .start-hero p{margin-top:14px!important;color:#e3f3ff!important;font-size:16px!important;letter-spacing:.08em!important;text-transform:none!important}
+body main .start-eyebrow{color:#8cd5ff!important}
+body main .start-lookup input{min-height:58px!important;border-radius:16px!important;background:linear-gradient(180deg,#091d2d,#061521)!important;border:2px solid #2ca8e8!important;color:#eef8ff!important;box-shadow:0 0 0 1px rgba(44,168,232,.18),0 12px 24px rgba(0,0,0,.16)!important}
+/* cards and page surfaces */
+body main .page-title,
+body main .section-head,
+body main .diag-hero,
+body main .model-context,
+body main .guided-reference,
+body main .ahri-model-mode,
+body main .zoning-pane-intro,
+body main .start-safety{
+  background:linear-gradient(180deg,rgba(12,36,58,.98),rgba(7,23,37,.98))!important;
+  border:1px solid #285f88!important;border-radius:18px!important;box-shadow:0 12px 26px rgba(0,0,0,.18)!important;color:#eef8ff!important
+}
+body main .ref-card.static-card,
+body main .ref-card.fault-flat,
+body main .fault-flat,
+body main .card,
+body main .panel,
+body main .section-card,
+body main .zoning-pane,
+body main .zoning-subtabs,
+body main .diag-quick-strip,
+body main .ahri-table-wrap,
+body main .ahri-summary,
+body main .ahri-tools,
+body main .start-glossary,
+body main .start-hit,
+body main .start-empty{
+  background:linear-gradient(180deg,#0d2b46,#081c2e)!important;color:#e8f5ff!important;border:1px solid #285f88!important;border-radius:18px!important;box-shadow:0 10px 24px rgba(0,0,0,.17)!important
+}
+body main .ref-card.static-card .card-header-static,
+body main .ref-card .card-header-static,
+body main .fault-platform-label,
+body main .diag-group-header{
+  background:linear-gradient(180deg,#124a74,#0b3454)!important;color:#fff!important;border-bottom:1px solid #2e6e9a!important
+}
+body main .ref-card .card-body,
+body main .fault-flat .card-body,
+body main .start-glossary .card-body,
+body main .guided-reference-body{background:transparent!important;color:#cfe2ef!important}
+body main .card-body p,body main .card-body li,body main .card-body dd,body main .card-body dt,body main .card-body td{color:#cfe2ef!important}
+body main .card-body strong,body main .card-body b{color:#fff!important}
+body main .page-title h1,body main .section-head h2,body main .diag-group-title,body main h2,body main h3{color:#fff!important}
+body main small,body main .muted,body main .subtle,body main .page-note,body main .ahri-subtitle{color:#9fb8ca!important}
+/* color-coded content */
+body main .ref-card.blue .card-header-static span:first-child,body main .ref-card.blue .card-body strong{color:#7cd5ff!important}
+body main .ref-card.purple .card-header-static span:first-child,body main .ref-card.purple .card-body strong{color:#d1aaff!important}
+body main .ref-card.green .card-header-static span:first-child,body main .ref-card.green .card-body strong{color:#88efb3!important}
+body main .ref-card.red .card-header-static span:first-child,body main .ref-card.red .card-body strong,body main .fault-flat .card-body strong{color:#ff9f9f!important}
+body main .ref-card.amber .card-header-static span:first-child,body main .ref-card.amber .card-body strong{color:#ffd25e!important}
+body main .ref-card.orange .card-header-static span:first-child,body main .ref-card.orange .card-body strong{color:#ffbb79!important}
+body main .ref-card.cyan .card-header-static span:first-child,body main .ref-card.cyan .card-body strong{color:#7cecff!important}
+body main .ref-card.pink .card-header-static span:first-child,body main .ref-card.pink .card-body strong{color:#ff95ca!important}
+body main .ref-card.gray .card-header-static span:first-child,body main .ref-card.gray .card-body strong{color:#d6e3ee!important}
+/* start tiles */
+body main .start-buttons{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))!important;gap:14px!important}
+body main .start-btn{min-height:108px!important;border-radius:16px!important;background:linear-gradient(180deg,#0f304c,#0a2136)!important;border:1px solid #2b648f!important;box-shadow:0 10px 22px rgba(0,0,0,.18)!important;color:#eaf6ff!important}
+body main .start-btn:hover,body main .start-btn:focus{background:linear-gradient(180deg,#13456c,#0d304c)!important;border-color:#68d1ff!important}
+body main .task-icon{width:44px!important;height:44px!important;border-radius:12px!important;background:#0b2c47!important;border:1px solid rgba(80,179,238,.35)!important}
+/* diagnostics */
+body main #sec-fault-codes{background:transparent!important;border:0!important}
+body main #sec-fault-codes .diag-hero{background:linear-gradient(90deg,#0f3150,#0b2137)!important}
+body main #sec-fault-codes .diag-group,
+body main #sec-fault-codes .diag-static-group,
+body main #sec-fault-codes .diag-group-body,
+body main #sec-fault-codes .diag-collapsible{background:transparent!important;border-color:#285f88!important}
+body main #sec-fault-codes .diag-group-header{border-radius:14px!important;margin-bottom:8px!important}
+/* controls */
+body main input,body main select,body main textarea,body main .section-search,body main #ahri-search,body main #ahri-system-filter,body main .ahri-search,body main .ahri-select,body main .ahri-model-fields input{
+  background:linear-gradient(180deg,#091c2c,#061521)!important;color:#f0f8ff!important;border:1px solid #2f709e!important;border-radius:14px!important
+}
+body main input::placeholder,body main textarea::placeholder{color:#93aec3!important}
+body main .section-search-wrap{background:rgba(6,24,39,.86)!important;border:1px solid #285f88!important;border-radius:16px!important;box-shadow:0 10px 24px rgba(0,0,0,.17)!important}
+/* buttons */
+body main .diag-quick-strip button,body main .guided-reference button,body main .model-context-actions button,body main #ahri-model-clear,body main .ahri-filter,body main .zoning-subtab{
+  background:linear-gradient(180deg,#0e3455,#09233a)!important;color:#eaf6ff!important;border:1px solid #3476a4!important;border-radius:12px!important;min-height:40px!important;font-weight:850!important
+}
+body main .zoning-subtab.active,body main .ahri-filter.active{background:linear-gradient(180deg,#1a93e8,#0e69bb)!important;border-color:#6fd4ff!important;color:#fff!important}
+/* ahri */
+body main #sec-ahri .ahri-table th{background:#0e4a76!important;color:#fff!important;border-color:#28648d!important}
+body main #sec-ahri .ahri-table td{background:#0a2a45!important;color:#dceefa!important;border-color:#214f71!important}
+body main #sec-ahri .ahri-table tr:nth-child(even) td{background:#0c3150!important}
+body main #sec-ahri .ahri-table strong,body main #sec-ahri .ahri-number{color:#85e1ff!important}
+body main #sec-ahri .ahri-note{background:linear-gradient(180deg,#3a3119,#292515)!important;color:#ffe7a5!important;border-color:#80662c!important}
+/* safety */
+body main .start-safety{background:linear-gradient(90deg,rgba(111,24,37,.9),rgba(62,15,24,.82))!important;border-color:#9a4450!important}
+body main .start-safety li{color:#f6dce0!important}
+/* mobile */
+@media(max-width:900px){
+  body header .casteel-brandbar{grid-template-columns:1fr!important;gap:8px!important;min-height:0!important;padding:12px 14px 8px!important}
+  body header .casteel-logo{max-width:305px!important;height:72px!important}
+  body header .app-heading strong{font-size:29px!important;letter-spacing:.12em!important}
+  body header .app-heading span{font-size:10px!important;letter-spacing:.20em!important}
+  body header .source-badge{display:none!important}
+  body header .nav{padding:10px 12px 13px!important;gap:10px!important}
+  body header .nav-pill{min-width:150px!important;padding:13px 15px!important;font-size:12px!important}
+  body main.shell{padding:14px 12px 70px!important}
+}
+@media(max-width:620px){
+  body main #sec-start:before{height:220px;border-radius:22px!important}
+  body main .start-hero{margin-top:-205px!important;min-height:180px!important;padding:20px 18px 16px!important}
+  body main .start-casteel-logo{width:205px!important;max-height:68px!important}
+  body main .start-brand-divider{height:54px!important}
+  body main .daikin-mark{width:32px!important;height:26px!important}
+  body main .daikin-word{font-size:28px!important}
+  body main .start-hero p{font-size:14px!important}
+  body main .start-buttons{grid-template-columns:1fr!important}
+}
+/* absolute final no-white safety net */
+body main [style*="background:#fff"],body main [style*="background: #fff"],body main [style*="background:white"],body main [style*="background: white"]{background:#0a2945!important;color:#eaf6ff!important}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
