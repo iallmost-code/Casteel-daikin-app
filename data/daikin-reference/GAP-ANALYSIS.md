@@ -58,3 +58,8 @@ Checked by key terms; "0/N" means none of the N distinctive terms appear in the 
 
 ## 5. Not checkable here
 The manufacturer PDFs themselves are not in the repo, so every value above was checked against the saved data only, not against the original pages. Items 2–4 in section 4 need the PDFs.
+
+## 6. Status — added to `index.html` on the work branch
+Added (all generated directly from the saved files, not retyped): 15 Equipment Info cards (cased-coil identification rules, CHPE/CAPEA bracket and wiring, AMST wiring/taps/temperature rise/airflow/room-size, gas-furnace manifold pressure, piping, sequence, blower menu, filters, wiring/twinning, A2L enable/verify, DMVT tables and kits, DFVE/DMVE heater kits and max CFM, EEV basics and model families, blower motor and compressor checks), 4 Diagnostics cards (capacitor DC-voltage safety, big-code trip points and check order, Ed2 trim limits, view/clear last 6 faults), 1 DIP card ("Before you touch any switch").
+Deliberately left out pending the PDFs (section 4 above): DS-6 High/Low emergency wording, the DMVE `E_b3` label, the AMST30BU1300 T9 row (shown as "not shown — check p.13"), the old UT3000 facts, and the IO-2037A/B naming.
+Upgrades built with it: Start Here page (whole-guide lookup, problem buttons, safety box, glossary), jump-to-card lists, merged duplicate cards, source-line tags removed, plain-language Known Gaps and charge/catalog tables, readable bold text, phone-friendly small tables, AHRI table pre-filled so it shows without JavaScript.
