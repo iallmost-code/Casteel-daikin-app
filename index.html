@@ -1710,6 +1710,267 @@ a{color:#66d5ff!important}
   }
 }
 </style>
+
+<style id="v30-dark-blue-readable">
+/* Hard override: no white cards/panels. High-specificity rules beat the older light-theme CSS. */
+html body{
+  background:linear-gradient(180deg,#0759ae 0%,#064887 42%,#032c5a 100%) fixed!important;
+  color:#eef8ff!important;
+}
+body main.shell,
+body main,
+body .page-shell{
+  background:transparent!important;
+}
+
+/* Whole page sections */
+body main .section-block,
+body main #sec-fault-codes,
+body main #sec-zoning,
+body main #sec-catalog-differences,
+body main #sec-ahri,
+body main #sec-known-gaps,
+body main #sec-source-documents{
+  background:rgba(3,37,70,.58)!important;
+  border-color:#2a6b98!important;
+  color:#eaf6ff!important;
+}
+
+/* Reference cards — force every static/fault card dark blue */
+body main .ref-card.static-card,
+body main .ref-card.fault-flat,
+body main #sec-fault-codes .fault-flat,
+body main details.ref-card,
+body main .card,
+body main .panel,
+body main .section-card{
+  background:linear-gradient(180deg,#0e3456,#09243d)!important;
+  color:#e8f5ff!important;
+  border-color:#3479a7!important;
+  box-shadow:0 6px 18px rgba(0,20,45,.24)!important;
+}
+
+/* Card headers */
+body main .ref-card.static-card .card-header-static,
+body main .ref-card .card-header-static,
+body main #sec-fault-codes .fault-platform-label,
+body main .fault-platform-label{
+  background:linear-gradient(90deg,#114a76,#0d3658)!important;
+  color:#ffffff!important;
+  border-color:#3b7ca7!important;
+}
+body main .ref-card.static-card .card-header-static span,
+body main .ref-card .card-header-static span,
+body main #sec-fault-codes .fault-platform-label{
+  color:#ffffff!important;
+}
+
+/* Card bodies */
+body main .ref-card.static-card .card-body,
+body main .ref-card .card-body,
+body main #sec-fault-codes .fault-flat .card-body,
+body main .fault-flat .card-body{
+  background:#0a2945!important;
+  color:#d9edf9!important;
+  border-color:#2e668d!important;
+}
+body main .card-body p,
+body main .card-body li,
+body main .card-body dd,
+body main .card-body dt,
+body main .card-body td{
+  color:#d9edf9!important;
+}
+body main .card-body small{
+  color:#9fc2d8!important;
+}
+body main .card-body strong,
+body main .card-body b{
+  color:#ffffff!important;
+}
+
+/* Diagnostics groups — eliminate remaining white blocks */
+body main #sec-fault-codes .diag-group,
+body main #sec-fault-codes .diag-static-group,
+body main #sec-fault-codes .diag-group-body,
+body main #sec-fault-codes .diag-collapsible{
+  background:#082640!important;
+  color:#e8f5ff!important;
+  border-color:#3479a7!important;
+}
+body main #sec-fault-codes .diag-group-header,
+body main #sec-fault-codes .diag-group-summary{
+  background:linear-gradient(90deg,#124d79,#0c3455)!important;
+  color:#ffffff!important;
+  border-color:#3c83b2!important;
+}
+body main #sec-fault-codes .diag-group-title{
+  color:#ffffff!important;
+}
+body main #sec-fault-codes .diag-group-summary .count{
+  background:#0a2945!important;
+  color:#bfe6ff!important;
+  border-color:#3a78a2!important;
+}
+
+/* Zoning */
+body main #sec-zoning .zoning-pane,
+body main #sec-zoning .zoning-pane-intro,
+body main #sec-zoning .zoning-pane-intro.ewc,
+body main #sec-zoning .zoning-subtabs{
+  background:#092945!important;
+  color:#dceefa!important;
+  border-color:#3479a7!important;
+}
+
+/* AHRI */
+body main #sec-ahri .ahri-table-wrap,
+body main #sec-ahri .ahri-summary,
+body main #sec-ahri .ahri-tools,
+body main #sec-ahri .ahri-quick{
+  background:#092945!important;
+  color:#e5f4ff!important;
+  border-color:#3479a7!important;
+}
+body main #sec-ahri .ahri-note{
+  background:#332b18!important;
+  color:#ffe8a8!important;
+  border-color:#8b6a2c!important;
+}
+body main #sec-ahri .ahri-table,
+body main #sec-ahri table{
+  background:#08243d!important;
+}
+body main #sec-ahri .ahri-table th{
+  background:#0c4a78!important;
+  color:#ffffff!important;
+}
+body main #sec-ahri .ahri-table td{
+  background:#0a2945!important;
+  color:#e4f3fc!important;
+  border-color:#2b648c!important;
+}
+body main #sec-ahri .ahri-table tr:nth-child(even) td{
+  background:#0c3150!important;
+}
+body main #sec-ahri .ahri-table strong,
+body main #sec-ahri .ahri-number{
+  color:#7ed8ff!important;
+}
+body main #sec-ahri .ahri-table small{
+  color:#9dc1d8!important;
+}
+
+/* Search / inputs */
+body main input,
+body main select,
+body main textarea,
+body main .section-search,
+body main #ahri-search,
+body main #ahri-system-filter,
+body main .ahri-search,
+body main .ahri-select{
+  background:#07213a!important;
+  color:#f5fbff!important;
+  border-color:#3b7ca7!important;
+}
+body main input::placeholder,
+body main textarea::placeholder{
+  color:#93b5ca!important;
+}
+body main .section-search-wrap{
+  background:rgba(5,43,78,.92)!important;
+  border-color:#3479a7!important;
+}
+
+/* Top navigation: dark colored tabs instead of white */
+body header.casteel-header .nav-pill,
+body header .nav-pill{
+  background:#0a3152!important;
+  color:#eef8ff!important;
+  border-width:2px!important;
+}
+body header .tab-start{border-color:#7dd3fc!important;color:#dff6ff!important}
+body header .tab-diagnostics{border-color:#ec4899!important;color:#f9a8d4!important}
+body header .tab-zoning{border-color:#8b5cf6!important;color:#c4b5fd!important}
+body header .tab-equipment{border-color:#0ea5e9!important;color:#7dd3fc!important}
+body header .tab-ahri{border-color:#22c55e!important;color:#86efac!important}
+body header .tab-gaps{border-color:#f59e0b!important;color:#fcd34d!important}
+body header .tab-sources{border-color:#94a3b8!important;color:#cbd5e1!important}
+
+body #page-start:checked ~ header label[for='page-start']{
+  background:#0b6fae!important;color:#ffffff!important;border-color:#7dd3fc!important;
+}
+body #page-fault:checked ~ header label[for='page-fault']{
+  background:#6b1748!important;color:#ffffff!important;border-color:#f472b6!important;
+}
+body #page-zoning:checked ~ header label[for='page-zoning']{
+  background:#4c2b8a!important;color:#ffffff!important;border-color:#a78bfa!important;
+}
+body #page-catalog:checked ~ header label[for='page-catalog']{
+  background:#075985!important;color:#ffffff!important;border-color:#38bdf8!important;
+}
+body #page-ahri:checked ~ header label[for='page-ahri']{
+  background:#166534!important;color:#ffffff!important;border-color:#4ade80!important;
+}
+body #page-gaps:checked ~ header label[for='page-gaps']{
+  background:#7c4a03!important;color:#ffffff!important;border-color:#fbbf24!important;
+}
+body #page-sources:checked ~ header label[for='page-sources']{
+  background:#475569!important;color:#ffffff!important;border-color:#cbd5e1!important;
+}
+
+/* COLOR-CODED TEXT INSIDE CARDS */
+body main .ref-card.static-card.pink .card-header-static span,
+body main .ref-card.static-card.pink .card-body strong,
+body main .ref-card.pink .card-body strong{color:#f9a8d4!important}
+body main .ref-card.static-card.purple .card-header-static span,
+body main .ref-card.static-card.purple .card-body strong,
+body main .ref-card.purple .card-body strong{color:#c4b5fd!important}
+body main .ref-card.static-card.blue .card-header-static span,
+body main .ref-card.static-card.blue .card-body strong,
+body main .ref-card.blue .card-body strong{color:#7dd3fc!important}
+body main .ref-card.static-card.cyan .card-header-static span,
+body main .ref-card.static-card.cyan .card-body strong,
+body main .ref-card.cyan .card-body strong{color:#67e8f9!important}
+body main .ref-card.static-card.green .card-header-static span,
+body main .ref-card.static-card.green .card-body strong,
+body main .ref-card.green .card-body strong{color:#86efac!important}
+body main .ref-card.static-card.orange .card-header-static span,
+body main .ref-card.static-card.orange .card-body strong,
+body main .ref-card.orange .card-body strong{color:#fdba74!important}
+body main .ref-card.static-card.amber .card-header-static span,
+body main .ref-card.static-card.amber .card-body strong,
+body main .ref-card.amber .card-body strong{color:#fcd34d!important}
+body main .ref-card.static-card.red .card-header-static span,
+body main .ref-card.static-card.red .card-body strong,
+body main .ref-card.red .card-body strong,
+body main #sec-fault-codes .fault-flat .card-body strong{color:#fca5a5!important}
+body main .ref-card.static-card.gray .card-header-static span,
+body main .ref-card.static-card.gray .card-body strong,
+body main .ref-card.gray .card-body strong{color:#cbd5e1!important}
+
+/* Match bullet markers to card color */
+body main .ref-card.pink li::marker{color:#f472b6}
+body main .ref-card.purple li::marker{color:#a78bfa}
+body main .ref-card.blue li::marker{color:#38bdf8}
+body main .ref-card.cyan li::marker{color:#22d3ee}
+body main .ref-card.green li::marker{color:#4ade80}
+body main .ref-card.orange li::marker{color:#fb923c}
+body main .ref-card.amber li::marker{color:#fbbf24}
+body main .ref-card.red li::marker,
+body main #sec-fault-codes .fault-flat li::marker{color:#f87171}
+body main .ref-card.gray li::marker{color:#94a3b8}
+
+/* Generic white/light remnants */
+body main [style*="background:#fff"],
+body main [style*="background: #fff"],
+body main [style*="background:white"],
+body main [style*="background: white"]{
+  background:#0a2945!important;
+  color:#e6f4fd!important;
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
