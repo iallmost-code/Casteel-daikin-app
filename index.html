@@ -1352,12 +1352,22 @@ header.casteel-header{
 }
 </style>
 <style id="v25-start-fix">
+#sec-start .start-hero p,#sec-start .start-eyebrow,#sec-start .start-example,#sec-start .start-section-title p,#sec-start .start-btn small{opacity:1!important}
+#sec-start .start-eyebrow,#sec-start .start-hero .start-eyebrow{color:#d6e8f7!important}
+#sec-start .start-hero>p,#sec-start .start-hero p{color:#d6e8f7!important}
+#sec-start .start-btn small{color:#b9d0e2!important}
+#sec-start .start-example{color:#c2d8e9!important}
+/* Start page on the blue theme: brighter small labels (were pale blue-grey on blue) */
+.start-eyebrow{color:#cfe4f5!important}
+.start-hero p{color:#d3e6f6!important}
+.start-example{color:#b9d2e4!important;font-size:12px!important}
+.start-section-title p{color:#c4d9ea!important;font-size:13px!important}
+.start-section-title h3{color:#fff!important}
 /* readability: finish the dark card design (pale text was sitting on white cards) */
 .ref-card.static-card,.ref-card.fault-flat{background:#0d1d2b!important;border-color:#254157!important;color:#d9e7f1!important}
 .ref-card .card-header-static,.ref-card .card-header-static span,.fault-flat .fault-platform-label{color:#edf6ff!important}
 .ref-card .card-body{background:transparent!important;color:#d9e7f1!important}
 .ref-card .card-body a{color:#7fd3ff!important}
-#sec-start .start-section-title h3{color:#0b2a44!important}
 #start-nojs{margin:0 0 12px;background:#2a1a0c;border:1px solid #b45309;border-radius:10px;padding:10px 12px;color:#fdd9b0;font-size:14px;line-height:1.35}
 label.start-btn{cursor:pointer}
 </style>
@@ -5124,4 +5134,12 @@ body main [style*="background: white"]{
   });
 })();
 </script>
-</body></html>
+<script id="model-context-sync">
+(function(){
+  var start=document.getElementById('start-input'),ctx=document.getElementById('model-context'),nameEl=document.getElementById('model-context-name');
+  if(!start||!ctx||!nameEl)return;
+  function norm(v){return String(v||'').toUpperCase().replace(/[^A-Z0-9]/g,'');}
+  // the selected-equipment panel belongs to the model in the box; hide it as soon as the box is changed to something else
+  start.addEventListener('input',function(){if(!ctx.hidden&&norm(start.value)!==norm(nameEl.textContent))ctx.hidden=true;});
+})();
+</script></body></html>
