@@ -1361,6 +1361,98 @@ header.casteel-header{
 #start-nojs{margin:0 0 12px;background:#2a1a0c;border:1px solid #b45309;border-radius:10px;padding:10px 12px;color:#fdd9b0;font-size:14px;line-height:1.35}
 label.start-btn{cursor:pointer}
 </style>
+
+<style id="v27-field-workflow">
+.mobile-nav-toggle{
+  display:none;border:1px solid rgba(255,255,255,.35);background:rgba(2,47,92,.42);
+  color:#fff;border-radius:9px;padding:8px 10px;font:inherit;font-weight:850;letter-spacing:.04em;cursor:pointer
+}
+.model-suggestions{
+  max-width:900px;margin:0 auto 12px;border:1px solid #28506a;border-radius:12px;
+  background:#0a1b29;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.18)
+}
+.model-suggestions button{
+  width:100%;display:flex;justify-content:space-between;gap:16px;text-align:left;
+  padding:10px 13px;border:0;border-bottom:1px solid #1d3a4d;background:transparent;
+  color:#dcecf7;font:inherit;cursor:pointer
+}
+.model-suggestions button:last-child{border-bottom:0}
+.model-suggestions button:hover,.model-suggestions button:focus{background:#10283a;outline:none}
+.model-suggestions strong{color:#fff!important}
+.model-suggestions small{color:#83a0b5!important;text-align:right}
+.model-context{
+  max-width:1000px;margin:0 auto 22px;padding:12px 14px;border:1px solid #24658a;border-radius:12px;
+  background:linear-gradient(180deg,#0d2638,#0a1a27);box-shadow:0 10px 26px rgba(0,0,0,.15)
+}
+.model-context-main{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.model-context-label{font-size:10px;letter-spacing:.16em;font-weight:900;color:#74a5c8}
+#model-context-name{font-size:19px;color:#fff!important;letter-spacing:.03em}
+.refrigerant-badge{
+  display:inline-block;margin-top:8px;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:950;letter-spacing:.05em
+}
+.refrigerant-badge.r32{background:#123a2a;color:#9ef1bd;border:1px solid #2c7650}
+.refrigerant-badge.r410{background:#163454;color:#a9d5ff;border:1px solid #386b9a}
+.refrigerant-badge.verify{background:#3a2b12;color:#ffd785;border:1px solid #7b5b22}
+.model-context-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.model-context-actions button,.diag-quick-strip button,.guided-reference button{
+  border:1px solid #2c536b;background:#102534;color:#d9eaf4;border-radius:8px;
+  padding:7px 10px;font:inherit;font-size:11px;font-weight:850;cursor:pointer
+}
+.model-context-actions button:hover,.diag-quick-strip button:hover,.guided-reference button:hover{
+  border-color:#22b9f3;background:#12334a;color:#fff
+}
+.model-context-actions .model-clear{margin-left:auto;border-color:#6c3c42;color:#ffbdc6}
+.diag-quick-strip{
+  display:flex;flex-wrap:wrap;gap:7px;margin:0 0 10px;padding:10px;border:1px solid #24475d;
+  border-radius:11px;background:#0b1925
+}
+.guided-reference{
+  margin:0 0 14px!important;border:1px solid #29495e!important;border-left:1px solid #29495e!important;
+  border-radius:11px!important;background:#0c1c29!important;box-shadow:none!important
+}
+.guided-reference summary{
+  display:flex;gap:10px;align-items:center;padding:11px 13px!important;cursor:pointer;list-style:none;
+  color:#fff!important;font-size:13px;font-weight:900
+}
+.guided-reference summary small{margin-left:auto;color:#829cad!important;font-weight:600}
+.guided-reference-body{padding:0 13px 13px}
+.guided-reference-body>div{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:9px 0;border-top:1px solid #1d3546}
+.guided-reference-body>div>strong{font-size:11px;letter-spacing:.05em;color:#b9d8ea!important}
+.guided-reference-body span{display:flex;flex-wrap:wrap;gap:6px}
+.ahri-model-mode{
+  margin:0 0 12px;padding:13px;border:1px solid #2b536b;border-radius:12px;
+  background:linear-gradient(180deg,#0e2231,#0a1925)
+}
+.ahri-model-mode-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.ahri-model-mode-head strong{color:#fff!important;font-size:13px;letter-spacing:.05em}
+.ahri-model-mode-head span{color:#87a1b4;font-size:11px}
+.ahri-model-fields{display:grid;grid-template-columns:1fr auto 1fr auto;gap:9px;align-items:end}
+.ahri-model-fields label{display:grid;gap:5px;color:#8faabd;font-size:10px;font-weight:900;letter-spacing:.08em}
+.ahri-model-fields input{
+  min-height:42px;padding:9px 11px;border:1px solid #31566d!important;border-radius:9px!important;
+  background:#071722!important;color:#eef8ff!important;font-size:14px!important
+}
+.ahri-model-fields input:focus{outline:none;border-color:#18b8f4!important;box-shadow:0 0 0 3px rgba(24,184,244,.12)!important}
+.ahri-plus{align-self:center;color:#77a6c3;font-size:22px;font-weight:900;padding-top:14px}
+#ahri-model-clear{height:42px;border:1px solid #3d6076;background:#0d2838;color:#cde7f5;border-radius:9px;padding:0 13px;font-weight:850;cursor:pointer}
+#ahri-model-clear:hover{border-color:#20b9f4;color:#fff}
+@media(max-width:900px){
+  .mobile-nav-toggle{display:inline-flex!important;align-items:center;gap:6px;margin-left:auto}
+  header.casteel-header .nav{display:none!important}
+  header.casteel-header.mobile-nav-open .nav{display:flex!important}
+  .casteel-brandbar{position:relative!important}
+  .source-badge{display:none!important}
+  .ahri-model-fields{grid-template-columns:1fr}
+  .ahri-plus{display:none}
+  #ahri-model-clear{width:100%}
+}
+@media(max-width:620px){
+  .model-context-actions button{flex:1 1 calc(50% - 7px)}
+  .model-context-actions .model-clear{margin-left:0}
+  .guided-reference-body>div{grid-template-columns:1fr}
+  .guided-reference summary small{display:none}
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
@@ -1377,9 +1469,10 @@ label.start-btn{cursor:pointer}
 <strong>HVAC FIELD GUIDE</strong>
 <span>Daikin • Goodman • Amana service reference</span>
 </div>
+<button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="field-nav">☰ <span>MENU</span></button>
 <div class="source-badge">FIELD REFERENCE • VERIFIED SOURCE BASE</div>
 </div>
-<nav class="nav">
+<nav class="nav" id="field-nav">
 <label class="nav-pill tab-start" for="page-start" tabindex="0">START HERE</label>
 <label class="nav-pill tab-diagnostics" for="page-fault" tabindex="0">DIAGNOSTICS</label>
 <label class="nav-pill tab-zoning" for="page-zoning" tabindex="0">ZONING</label>
@@ -1402,6 +1495,23 @@ label.start-btn{cursor:pointer}
 <p id="start-nojs">Search is not running here (scripts look blocked). The buttons below still open the matching section. Open this page in Chrome or Safari for the full search.</p>
 <div class="start-lookup"><input autocomplete="off" class="start-search" id="start-input" placeholder="Search model, code, or topic…" type="search"/></div>
 <div class="start-example">E11 • DZ6VSA • DR80TC • AHRI • DIP switch • CFM • CoreSense • zoning • pressure switch</div>
+<div class="model-suggestions" id="model-suggestions" hidden></div>
+<div class="model-context" id="model-context" hidden>
+  <div class="model-context-main">
+    <span class="model-context-label">SELECTED EQUIPMENT</span>
+    <strong id="model-context-name"></strong>
+  </div>
+  <span class="refrigerant-badge verify" id="model-refrigerant">VERIFY REFRIGERANT</span>
+  <div class="model-context-actions">
+    <button type="button" data-model-page="page-fault" data-model-topic="">DIAGNOSTICS</button>
+    <button type="button" data-model-page="page-fault" data-model-topic="fault code">CODES</button>
+    <button type="button" data-model-page="page-fault" data-model-topic="dip">DIP / SETUP</button>
+    <button type="button" data-model-page="page-catalog" data-model-topic="">EQUIPMENT INFO</button>
+    <button type="button" data-model-page="page-catalog" data-model-topic="charging">CHARGING</button>
+    <button type="button" data-model-page="page-ahri" data-model-topic="">AHRI MATCHES</button>
+    <button type="button" class="model-clear" id="model-clear">CLEAR</button>
+  </div>
+</div>
 <div class="start-results" id="start-results" aria-live="polite"></div>
 <div class="start-section-title"><span class="start-section-icon">▦</span><div><h3>COMMON TASKS</h3><p>Quick access to the information used most in the field.</p></div></div>
 <div class="start-buttons">
@@ -1539,7 +1649,41 @@ label.start-btn{cursor:pointer}
 </ul>
 </div></article></div>
 </section><section class="section-block" id="sec-fault-codes">
-<div class="diag-hero"><div><strong>DIAGNOSTICS</strong><span>Search a code, model, DIP switch, board or symptom — everything stays visible until you filter it.</span></div><div class="diag-hero-badge">FIELD TROUBLESHOOTING</div></div><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-fault-codes" placeholder="Search diagnostics: fault code, DIP switch, CoreSense, model-specific code…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-fault-codes" style="display:none">No matching reference found in this build.</div>
+<div class="diag-hero"><div><strong>DIAGNOSTICS</strong><span>Search a code, model, DIP switch, board or symptom — everything stays visible until you filter it.</span></div><div class="diag-hero-badge">FIELD TROUBLESHOOTING</div></div>
+<div class="diag-quick-strip" id="diag-quick-strip" aria-label="Quick diagnostic topics">
+  <button type="button" data-diag-q="fault code">FAULT CODE</button>
+  <button type="button" data-diag-q="bias">COMM / BIAS</button>
+  <button type="button" data-diag-q="dip">DIP / SETUP</button>
+  <button type="button" data-diag-q="pressure switch">PRESSURE SWITCH</button>
+  <button type="button" data-diag-q="capacitor">CAPACITOR</button>
+  <button type="button" data-diag-q="CoreSense">CORESENSE</button>
+</div>
+<details class="guided-reference" id="guided-reference">
+  <summary>GUIDED REFERENCE PATHS <small>opens the existing cards in a useful order</small></summary>
+  <div class="guided-reference-body">
+    <div><strong>COMMUNICATION</strong><span>
+      <button type="button" data-diag-q="24V">24V / POWER</button>
+      <button type="button" data-diag-q="D1 D2">D1 / D2</button>
+      <button type="button" data-diag-q="bias">BIAS VOLTAGE</button>
+      <button type="button" data-diag-q="termination">TERMINATION</button>
+      <button type="button" data-diag-q="LEARN">LEARN</button>
+    </span></div>
+    <div><strong>OUTDOOR WON'T START</strong><span>
+      <button type="button" data-diag-q="fault code">FAULT CODE</button>
+      <button type="button" data-diag-q="CoreSense">CORESENSE</button>
+      <button type="button" data-diag-q="pressure switch">PRESSURE SWITCH</button>
+      <button type="button" data-diag-q="capacitor">CAPACITOR</button>
+      <button type="button" data-diag-q="compressor">COMPRESSOR</button>
+    </span></div>
+    <div><strong>FURNACE</strong><span>
+      <button type="button" data-diag-q="furnace fault">FAULT CODE</button>
+      <button type="button" data-diag-q="pressure switch furnace">PRESSURE SWITCH</button>
+      <button type="button" data-diag-q="igniter">IGNITER</button>
+      <button type="button" data-diag-q="flame">FLAME</button>
+      <button type="button" data-diag-q="blower">BLOWER</button>
+    </span></div>
+  </div>
+</details><div class="section-search-wrap"><input autocomplete="off" class="section-search" data-target="sec-fault-codes" placeholder="Search diagnostics: fault code, DIP switch, CoreSense, model-specific code…" type="search"/><span class="section-search-count"></span></div><div class="empty section-empty" data-empty-for="sec-fault-codes" style="display:none">No matching reference found in this build.</div>
 <section class="diag-group diag-static-group" data-group-title="DIP SWITCHES / SETUP"><div class="diag-group-header"><span class="diag-group-title">DIP SWITCHES / SETUP</span><span class="count"></span></div><div class="diag-group-body"><div class="section-head"><span class="kicker purple">DIP / SETUP</span><h2>DIP SWITCHES</h2><span class="count">47 reference cards</span></div><article class="purple ref-card static-card" data-search="r-410a generation — switch table  dz6vs/dx6vs outdoor + dv**fec/dfve eev air handler + cape(a)/chpe eev cased coil. from daikin service instructions sius612209ea/eb p.34–35.  - **ds-1 (outdoor), switches 1&amp;2:** both on — factory default. termination resistor.  - **ds-2 (outdoor), switches 1&amp;2:** both off — factory default. cooling emergency level: on/off = low, off/on = medium, on/on = high. must be at factory setting for normal operation.  - **ds-3 (indoor, s9–s12):** all off — factory default. heater kit selection, eev air handler only. full kw table on the heat pump &amp; air handler tab.  - **ds-4 (indoor), switches 13&amp;14:** fan-only speed, eev air handler only: off/off = 25%, on/off = 50% (factory default*), off/on = 75%, on/on = 100%.  - **ds-4, switch 15:** on = factory default**. eev enable.  - **ds-4, switch 16:** off — no use.  - **ds-5, switches 17&amp;18:** 17 on / 18 off = factory default**. emergency eev opening.  - **ds-5, switch 19:** off = factory default**. eev emergency mode.  - **ds-5, switch 20:** off — no use.  - **ds-6 (indoor), switches 21&amp;22:** off/off = normal (factory default*). on/off = cooling emergency. off/on = heating emergency high. on/on = heating emergency low (air handler only — the eev cased coil doesn't have this).  - **ds-6, switches 23&amp;24:** off — no use.  - **footnotes (daikin's wording):** * must be set at factory setting to operate the normal mode. ** must be set at factory setting in indoor unit with eev. it's prohibited to change setting. switches 15, 17, 18 and 19 have no field procedure — leave them alone. "><div class="card-header-static"><span>R-410A GENERATION — SWITCH TABLE</span></div><div class="card-body"><p data-line="19">DZ6VS/DX6VS outdoor + DV**FEC/DFVE EEV air handler + CAPE(A)/CHPE EEV cased coil. From Daikin service instructions SiUS612209EA/EB p.34–35.</p><ul><li data-line="21"><strong>DS-1 (outdoor), switches 1&amp;2:</strong> Both ON — factory default. Termination resistor.</li></ul><ul><li data-line="23"><strong>DS-2 (outdoor), switches 1&amp;2:</strong> Both OFF — factory default. Cooling emergency level: ON/OFF = Low, OFF/ON = Medium, ON/ON = High. Must be at factory setting for normal operation.</li></ul><ul><li data-line="25"><strong>DS-3 (indoor, S9–S12):</strong> All OFF — factory default. Heater kit selection, EEV air handler only. Full kW table under DIP / SETUP.</li></ul><ul><li data-line="27"><strong>DS-4 (indoor), switches 13&amp;14:</strong> Fan-only speed, EEV air handler only: OFF/OFF = 25%, ON/OFF = 50% (factory default*), OFF/ON = 75%, ON/ON = 100%.</li></ul><ul><li data-line="29"><strong>DS-4, switch 15:</strong> ON = factory default**. EEV Enable.</li></ul><ul><li data-line="31"><strong>DS-4, switch 16:</strong> OFF — No Use.</li></ul><ul><li data-line="33"><strong>DS-5, switches 17&amp;18:</strong> 17 ON / 18 OFF = factory default**. Emergency EEV Opening.</li></ul><ul><li data-line="35"><strong>DS-5, switch 19:</strong> OFF = factory default**. EEV Emergency Mode.</li></ul><ul><li data-line="37"><strong>DS-5, switch 20:</strong> OFF — No Use.</li></ul><ul><li data-line="39"><strong>DS-6 (indoor), switches 21&amp;22:</strong> OFF/OFF = Normal (factory default*). ON/OFF = Cooling emergency. OFF/ON = Heating emergency High. ON/ON = Heating emergency Low (air handler only — the EEV cased coil doesn't have this).</li></ul><ul><li data-line="41"><strong>DS-6, switches 23&amp;24:</strong> OFF — No Use.</li></ul><ul><li data-line="43"><strong>FOOTNOTES (DAIKIN'S WORDING):</strong> * Must be set at factory setting to operate the normal mode. ** Must be set at factory setting in indoor unit with EEV. It's prohibited to change setting. Switches 15, 17, 18 and 19 have no field procedure — leave them alone.</li></ul></div></article><article class="purple ref-card static-card" data-search="r-32 generation — outdoor unit (dh6vs/dh7vs/dc6vs/dc9vs)  - **ds1 (outdoor) + ds7 (indoor) = comm termination:** they set the termination resistance on the communication circuit. factory default is combination 1. on a comm error, try each combination one at a time and apply power after each change (3p761829-1b p.47).  | combination | ds1 outdoor | ds7 indoor | |---|---|---| | 1 (factory default) | both on | both on | | 2 | off | on | | 3 | on | off | | 4 | off | off |  - **check for ds7 first:** daikin says to check the indoor unit's install manual to see whether that indoor unit has a ds7 switch.  - **most setup is in the 7-segment menu:** cool airflow trim, cool profiles, dehumidification and zoning are in setting mode 1 and 2 on the outdoor display (3p761829-1b p.48, 55). the wiring diagram also shows a ds2 bank; its function isn't published. "><div class="card-header-static"><span>R-32 GENERATION — OUTDOOR UNIT (DH6VS/DH7VS/DC6VS/DC9VS)</span></div><div class="card-body"><ul><li data-line="47"><strong>DS1 (OUTDOOR) + DS7 (INDOOR) = COMM TERMINATION:</strong> They set the termination resistance on the communication circuit. Factory default is combination 1. On a comm error, try each combination one at a time and apply power after each change (3P761829-1B p.47).</li></ul><div class="table-wrap"><table style="min-width:0"><thead><tr><th>Combination</th><th>DS1 outdoor</th><th>DS7 indoor</th></tr></thead><tbody><tr><td>1 (factory default)</td><td>Both ON</td><td>Both ON</td></tr><tr><td>2</td><td>OFF</td><td>ON</td></tr><tr><td>3</td><td>ON</td><td>OFF</td></tr><tr><td>4</td><td>OFF</td><td>OFF</td></tr></tbody></table></div><ul><li data-line="56"><strong>CHECK FOR DS7 FIRST:</strong> Daikin says to check the indoor unit's install manual to see whether that indoor unit has a DS7 switch.</li></ul><ul><li data-line="58"><strong>MOST SETUP IS IN THE 7-SEGMENT MENU:</strong> Cool airflow trim, cool profiles, dehumidification and zoning are in Setting Mode 1 and 2 on the outdoor display (3P761829-1B p.48, 55). The wiring diagram also shows a DS2 bank; its function isn't published.</li></ul></div></article><article class="purple ref-card static-card" data-search='r-32 generation — air handler (dfve) / eev coil (capea/chpea)  - **ds7 = indoor half of the termination pair:** paired with outdoor ds1 — see the combination table on the r-32 outdoor card.  - **208/230v dfve (p1300):** takes 3–25 kw heater kits. "do not change any other dip switches other than s9 to s12" (iod-4054b p.17). set the heater size in both the thermostat and s9–s12.  - **115v dfve (p0300):** no heater kit: "heater kit is not compatible with this model." daikin says do not change any dip switches.  - **capea/chpea eev coil:** no r-32 coil switch table has been verified yet. go by the wiring diagram on the unit. '><div class="card-header-static"><span>R-32 GENERATION — AIR HANDLER (DFVE) / EEV COIL (CAPEA/CHPEA)</span></div><div class="card-body"><ul><li data-line="62"><strong>DS7 = INDOOR HALF OF THE TERMINATION PAIR:</strong> Paired with outdoor DS1 — see the combination table on the R-32 outdoor card.</li></ul><ul><li data-line="64"><strong>208/230V DFVE (P1300):</strong> Takes 3–25 kW heater kits. "Do not change any other dip switches other than S9 to S12" (IOD-4054B p.17). Set the heater size in both the thermostat and S9–S12.</li></ul><ul><li data-line="66"><strong>115V DFVE (P0300):</strong> No heater kit: "Heater kit is not compatible with this model." Daikin says do not change any dip switches.</li></ul><ul><li data-line="68"><strong>CAPEA/CHPEA EEV COIL:</strong> No R-32 coil switch table has been verified yet. Go by the wiring diagram on the unit.</li></ul></div></article><article class="purple ref-card static-card" data-search="emergency mode — what it actually does  r-410a fit eev equipment, from sius612209eb p.32–34. only for when broken comm wires or a failed thermostat can't be fixed right away. daikin: &quot;must be limited to a minimum… this is only a temporary solution.&quot; it does not hold a set point, and the thermostat and outdoor display won't show status. the indoor board shows &quot;ee&quot;.  - **when it's allowed:** outdoor showing e51 or ed2, or the eev indoor unit showing e76, e77 or e78, and it can't be fixed right away.  - **cooling — eev air handler:** power off. set fan speed on ds-4 (13/14: 25/50/75/100%). set ds-6 21 on / 22 off. pick the cooling level on outdoor ds-2 (low on/off, medium off/on, high on/on). compressor speed follows outdoor temp: 100% above 95°f, 50% below 70°f. the indoor unit keeps running the eev for superheat control.  - **cooling — eev cased coil:** power off. remove the 1, 2, r, c comm wires from all equipment. jumper the furnace or modular blower's comm terminals per its own service manual. set the coil's ds-6 21 on / 22 off, then pick the level on outdoor ds-2. do the furnace/blower jumper before setting ds-2 — daikin warns the compressor may be damaged otherwise.  - **heating — eev air handler:** runs the heat strips with no thermostat. ds-6 off/on = high (8 min on / 8 off), on/on = low (7 min on / 15 off). s9–s12 must match the installed heater kit, or it may show &quot;ed&quot;. the outdoor unit must stop.  - **heating — eev cased coil:** uses the gas furnace or modular blower. remove the comm wires, jumper the furnace/blower per its manual, set the coil's ds-6 21 off / 22 on. no outdoor switch needed — the outdoor unit must stop.  - **put it back:** once comm is fixed: ds-6 back to off/off, outdoor ds-2 back to off/off, and reconnect all the thermostat comm wiring. never touch switches 15, 17, 18, 19 — daikin marks them prohibited to change. "><div class="card-header-static"><span>EMERGENCY MODE — WHAT IT ACTUALLY DOES</span></div><div class="card-body"><p data-line="72">R-410A Fit EEV equipment, from SiUS612209EB p.32–34. Only for when broken comm wires or a failed thermostat can't be fixed right away. Daikin: "must be limited to a minimum… This is only a temporary solution." It does not hold a set point, and the thermostat and outdoor display won't show status. The indoor board shows "EE".</p><ul><li data-line="74"><strong>WHEN IT'S ALLOWED:</strong> Outdoor showing E51 or Ed2, or the EEV indoor unit showing E76, E77 or E78, and it can't be fixed right away.</li></ul><ul><li data-line="76"><strong>COOLING — EEV AIR HANDLER:</strong> Power off. Set fan speed on DS-4 (13/14: 25/50/75/100%). Set DS-6 21 ON / 22 OFF. Pick the cooling level on outdoor DS-2 (Low ON/OFF, Medium OFF/ON, High ON/ON). Compressor speed follows outdoor temp: 100% above 95°F, 50% below 70°F. The indoor unit keeps running the EEV for superheat control.</li></ul><ul><li data-line="78"><strong>COOLING — EEV CASED COIL:</strong> Power off. Remove the 1, 2, R, C comm wires from all equipment. Jumper the furnace or modular blower's comm terminals per its own service manual. Set the coil's DS-6 21 ON / 22 OFF, then pick the level on outdoor DS-2. Do the furnace/blower jumper before setting DS-2 — Daikin warns the compressor may be damaged otherwise.</li></ul><ul><li data-line="80"><strong>HEATING — EEV AIR HANDLER:</strong> Runs the heat strips with no thermostat. DS-6 OFF/ON = High (8 min on / 8 off), ON/ON = Low (7 min on / 15 off). S9–S12 must match the installed heater kit, or it may show "Ed". The outdoor unit must stop.</li></ul><ul><li data-line="82"><strong>HEATING — EEV CASED COIL:</strong> Uses the gas furnace or modular blower. Remove the comm wires, jumper the furnace/blower per its manual, set the coil's DS-6 21 OFF / 22 ON. No outdoor switch needed — the outdoor unit must stop.</li></ul><ul><li data-line="84"><strong>PUT IT BACK:</strong> Once comm is fixed: DS-6 back to OFF/OFF, outdoor DS-2 back to OFF/OFF, and reconnect all the thermostat comm wiring. Never touch switches 15, 17, 18, 19 — Daikin marks them prohibited to change.</li></ul></div></article><article class="purple ref-card static-card" data-search="common mistakes &amp; troubleshooting  - **changed a switch, now it won't comm:** put every switch back to as-found. the comm switches are ds1 (outdoor) and ds7 (indoor). change one thing at a time. after a change, restart outdoor unit first, then the indoor unit (sius612209eb p.71).  - **replaced the board:** match the old board's as-found positions before applying power, except switches marked prohibited to change — those stay at factory.  - **one device keeps disappearing:** check the wiring at that device's 1 and 2 terminals first, then run the ds1/ds7 combinations on the r-32 outdoor card. "><div class="card-header-static"><span>COMMON MISTAKES &amp; TROUBLESHOOTING</span></div><div class="card-body"><ul><li data-line="88"><strong>CHANGED A SWITCH, NOW IT WON'T COMM:</strong> Put every switch back to as-found. The comm switches are DS1 (outdoor) and DS7 (indoor). Change one thing at a time. After a change, restart outdoor unit first, then the indoor unit (SiUS612209EB p.71).</li></ul><ul><li data-line="90"><strong>REPLACED THE BOARD:</strong> Match the old board's as-found positions before applying power, except switches marked prohibited to change — those stay at factory.</li></ul><ul><li data-line="92"><strong>ONE DEVICE KEEPS DISAPPEARING:</strong> Check the wiring at that device's 1 and 2 terminals first, then run the DS1/DS7 combinations on the R-32 outdoor card.</li></ul></div></article><article class="orange ref-card static-card" data-search="field configuration — r-32 eev coil (capea/chpea)  - **switches:** no r-32 coil switch table has been verified yet. go by the wiring diagram on the unit. if the coil has a ds7, it's the indoor half of the comm termination pair (see the r-32 outdoor card on the dip switches tab).  - **emergency mode:** on the r-410a coil (the only one with a published procedure): ds-6 21 on / 22 off = cooling, 21 off / 22 on = heating via the furnace. full steps on the dip switches tab. "><div class="card-header-static"><span>FIELD CONFIGURATION — R-32 EEV COIL (CAPEA/CHPEA)</span></div><div class="card-body"><ul><li data-line="126"><strong>SWITCHES:</strong> No R-32 coil switch table has been verified yet. Go by the wiring diagram on the unit. If the coil has a DS7, it's the indoor half of the comm termination pair (see the R-32 outdoor card under DIP / SETUP).</li></ul><ul><li data-line="128"><strong>EMERGENCY MODE:</strong> On the R-410A coil (the only one with a published procedure): DS-6 21 ON / 22 OFF = cooling, 21 OFF / 22 ON = heating via the furnace. Full steps under DIP / SETUP.</li></ul></div></article><article class="green ref-card static-card" data-search="switch tables  the r-32 outdoor ds1/ds7 termination table, the r-410a switch table and emergency mode are on the dip switches tab. "><div class="card-header-static"><span>SWITCH TABLES</span></div><div class="card-body"><p data-line="167">The R-32 outdoor DS1/DS7 termination table, the R-410A switch table and emergency mode are under DIP / SETUP.</p></div></article><article class="green ref-card static-card" data-search="comm bus bias voltage troubleshooting communication data1 data2 d1 d2 24vac common 0.6 vdc 0.61 vdc term ds1 discover equipment power cycle 3-5 minutes"><div class="card-header-static"><span>COMM BUS BIAS VOLTAGE TROUBLESHOOTING</span></div><div class="card-body">
 <p>Straight from Daikin's own reference guide — the field procedure for a "not discovering equipment" complaint on a communicating system.</p>
 <ol>
@@ -1633,6 +1777,15 @@ label.start-btn{cursor:pointer}
 <div class="ahri-subtitle">Casteel R-32 catalog • Generated 10/03/2025 • Local/offline matchup database</div>
 </div>
 <span class="count">1,157 catalog matchups</span>
+</div>
+<div class="ahri-model-mode">
+  <div class="ahri-model-mode-head"><strong>MODEL MATCHUP MODE</strong><span>Filter the 1,157 catalog rows without changing the database.</span></div>
+  <div class="ahri-model-fields">
+    <label>OUTDOOR MODEL<input autocomplete="off" id="ahri-outdoor-model" placeholder="Example: DC9VSA3610A" type="search"/></label>
+    <span class="ahri-plus">+</span>
+    <label>INDOOR / FURNACE / COIL<input autocomplete="off" id="ahri-indoor-model" placeholder="Example: DR80TC0603BNA or CAPEA3022B3A" type="search"/></label>
+    <button type="button" id="ahri-model-clear">CLEAR</button>
+  </div>
 </div>
 <div class="ahri-tools">
 <input autocomplete="off" class="ahri-search" id="ahri-search" placeholder="Search outdoor, furnace, air handler, coil, heat kit, or AHRI reference…" type="search"/>
@@ -4318,4 +4471,139 @@ label.start-btn{cursor:pointer}
     if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){var r=document.getElementById('page-start'); if(r&&r.checked&&inp){e.preventDefault();inp.focus();}}
   });
 })();
-</script></body></html>
+</script>
+<script id="v27-field-workflow-script">
+(function(){
+  function norm(v){return String(v||'').toUpperCase().replace(/[^A-Z0-9]/g,'');}
+  function esc(v){return String(v||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function setPage(id){
+    var r=document.getElementById(id); if(!r)return;
+    r.checked=true; r.dispatchEvent(new Event('change')); window.scrollTo(0,0);
+  }
+  function sectionSearch(pageId,q){
+    setPage(pageId);
+    setTimeout(function(){
+      if(pageId==='page-ahri'){
+        var a=document.getElementById('ahri-search'); if(a){a.value=q;a.dispatchEvent(new Event('input'));}
+        return;
+      }
+      var sid=pageId==='page-fault'?'sec-fault-codes':pageId==='page-catalog'?'sec-catalog-differences':null;
+      var inp=sid&&document.querySelector('#'+sid+' .section-search');
+      if(inp){inp.value=q;inp.dispatchEvent(new Event('input'));}
+    },20);
+  }
+
+  // Mobile menu
+  var toggle=document.getElementById('mobile-nav-toggle'), head=document.querySelector('header.casteel-header');
+  if(toggle&&head){
+    toggle.addEventListener('click',function(){
+      var open=head.classList.toggle('mobile-nav-open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    head.querySelectorAll('.nav-pill').forEach(function(p){
+      p.addEventListener('click',function(){head.classList.remove('mobile-nav-open');toggle.setAttribute('aria-expanded','false');});
+    });
+  }
+
+  // Quick diagnostics + guided reference navigation.
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-diag-q]'); if(!b)return;
+    var q=b.getAttribute('data-diag-q')||'';
+    var r=document.getElementById('page-fault'); if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change'));}
+    var inp=document.querySelector('#sec-fault-codes .section-search');
+    if(inp){inp.value=q;inp.dispatchEvent(new Event('input'));setTimeout(function(){inp.scrollIntoView({block:'start'});},20);}
+  });
+
+  // AHRI two-field matchup mode; the existing AHRI engine remains the authority.
+  var out=document.getElementById('ahri-outdoor-model');
+  var inside=document.getElementById('ahri-indoor-model');
+  var ahri=document.getElementById('ahri-search');
+  function runMatchup(){
+    if(!ahri)return;
+    var q=[out&&out.value,inside&&inside.value].filter(function(v){return String(v||'').trim();}).join(' ').trim();
+    ahri.value=q; ahri.dispatchEvent(new Event('input'));
+  }
+  [out,inside].forEach(function(el){if(el)el.addEventListener('input',runMatchup);});
+  var ac=document.getElementById('ahri-model-clear');
+  if(ac)ac.addEventListener('click',function(){if(out)out.value='';if(inside)inside.value='';runMatchup();if(out)out.focus();});
+
+  // Build a model index from the actual app contents and AHRI rows. No model/refrigerant values are invented.
+  var models=new Map();
+  function addModel(name,sourceText,isAhri){
+    var clean=String(name||'').replace(/\*/g,'').trim().toUpperCase();
+    var key=norm(clean);
+    if(key.length<6 || !/\d/.test(key))return;
+    if(/^(IOD|IO|SIUS|SS|RS|TRC|TB)\d/.test(key))return;
+    var entry=models.get(key)||{name:clean,r32:false,r410:false,ahri:false};
+    var t=String(sourceText||'').toUpperCase();
+    if(t.indexOf('R-32')>-1)entry.r32=true;
+    if(t.indexOf('R-410A')>-1)entry.r410=true;
+    if(isAhri){entry.r32=true;entry.ahri=true;}
+    models.set(key,entry);
+  }
+  document.querySelectorAll('#ahri-results tr').forEach(function(row){
+    var od=row.querySelector('td:nth-child(2) strong'); if(od)addModel(od.textContent,row.textContent,true);
+    var fm=row.querySelector('.full-match');
+    if(fm)fm.textContent.split('+').forEach(function(v){addModel(v,row.textContent,true);});
+  });
+  document.querySelectorAll('.ref-card').forEach(function(card){
+    var text=(card.getAttribute('data-search')||'')+' '+card.textContent;
+    var m=text.toUpperCase().match(/\b[A-Z]{2,8}[A-Z0-9.-]{4,}\b/g)||[];
+    m.forEach(function(v){if(/\d/.test(v))addModel(v,text,false);});
+  });
+
+  var start=document.getElementById('start-input');
+  var sug=document.getElementById('model-suggestions');
+  var ctx=document.getElementById('model-context');
+  var nameEl=document.getElementById('model-context-name');
+  var refEl=document.getElementById('model-refrigerant');
+  var selected=null;
+
+  function refrigerantLabel(entry){
+    if(entry&&entry.r32&&!entry.r410)return ['R-32','r32'];
+    if(entry&&entry.r410&&!entry.r32)return ['R-410A','r410'];
+    return ['VERIFY REFRIGERANT','verify'];
+  }
+  function choose(entry){
+    selected=entry;
+    if(!ctx||!nameEl||!refEl)return;
+    nameEl.textContent=entry.name;
+    var rr=refrigerantLabel(entry); refEl.textContent=rr[0]; refEl.className='refrigerant-badge '+rr[1];
+    ctx.hidden=false;if(sug)sug.hidden=true;
+  }
+  function suggest(q){
+    if(!sug)return;
+    var n=norm(q);
+    if(n.length<4){sug.hidden=true;sug.innerHTML='';return;}
+    var list=[];
+    models.forEach(function(v,k){
+      var score=k===n?0:k.indexOf(n)===0?1:k.indexOf(n)>-1?2:9;
+      if(score<9)list.push({v:v,score:score,key:k});
+    });
+    list.sort(function(a,b){return a.score-b.score||a.v.name.localeCompare(b.v.name);});
+    list=list.slice(0,7);
+    if(!list.length){sug.hidden=true;sug.innerHTML='';return;}
+    sug.innerHTML=list.map(function(x){
+      var rr=refrigerantLabel(x.v)[0];
+      return '<button type="button" data-model-key="'+esc(x.key)+'"><strong>'+esc(x.v.name)+'</strong><small>'+esc(rr)+(x.v.ahri?' • AHRI catalog':'')+'</small></button>';
+    }).join('');
+    sug.hidden=false;
+  }
+  if(start)start.addEventListener('input',function(){suggest(start.value);});
+  if(sug)sug.addEventListener('click',function(e){
+    var b=e.target.closest('[data-model-key]');if(!b)return;
+    var entry=models.get(b.getAttribute('data-model-key'));if(entry){choose(entry);if(start){start.value=entry.name;start.dispatchEvent(new Event('input'));}}
+  });
+  var clear=document.getElementById('model-clear');
+  if(clear)clear.addEventListener('click',function(){selected=null;if(ctx)ctx.hidden=true;if(start){start.value='';start.dispatchEvent(new Event('input'));start.focus();}});
+  document.querySelectorAll('[data-model-page]').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(!selected)return;
+      var topic=(b.getAttribute('data-model-topic')||'').trim();
+      var q=(selected.name+(topic?' '+topic:'')).trim();
+      sectionSearch(b.getAttribute('data-model-page'),q);
+    });
+  });
+})();
+</script>
+</body></html>
