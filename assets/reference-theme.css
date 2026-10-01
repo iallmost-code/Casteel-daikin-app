@@ -1,0 +1,153 @@
+/* Reference-inspired Casteel field guide. Existing reference data is unchanged. */
+:root{--text:#edf7ff;--muted:#a8c3de;--cyan:#20d6ff;--line:#245984;--bg:#00172d;--panel:#052746}
+html{background:#001225!important;color-scheme:dark}
+html body{background:radial-gradient(ellipse at 50% 0,#064678 0,#001c38 45%,#001225 100%) fixed!important;color:var(--text)!important;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;min-height:100vh;padding-bottom:84px}
+html body::before{display:none}
+html body header.casteel-header{position:relative!important;inset:auto!important;display:block;width:100%!important;height:auto!important;max-width:1100px;margin:0 auto;background:linear-gradient(0deg,#001a34 2%,transparent 58%),linear-gradient(90deg,rgba(0,27,62,.35),transparent),url('alpine-hvac.webp') center top/cover no-repeat!important;border:0!important;box-shadow:none!important;overflow:visible!important;padding:0 22px 12px;z-index:20;backdrop-filter:none}
+html body header.casteel-header .casteel-brandbar{position:relative;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important;border:0;padding:26px 0 16px 38px!important;min-height:210px!important}
+html body header.casteel-header .casteel-logo-wrap{width:280px!important;max-width:65%}
+html body header.casteel-header .casteel-logo{width:100%!important;max-width:280px!important;height:74px!important;max-height:none!important;object-fit:contain!important;object-position:left!important;filter:drop-shadow(0 2px 4px #002043)}
+html body header.casteel-header .app-heading{padding:0!important;margin-left:-30px;margin-top:3px}
+html body header.casteel-header .app-heading strong{font-size:21px!important;letter-spacing:.19em!important;font-weight:650!important;line-height:1.4!important;color:#fff!important}
+html body header.casteel-header .app-heading span{display:block!important;font-size:10px!important;letter-spacing:.25em!important;line-height:1.6!important;color:#bdd1e7!important;margin-top:0!important}
+html body header.casteel-header .source-badge{display:none!important}
+html body header.casteel-header .mobile-nav-toggle{display:block!important;position:absolute;left:0;top:50px;width:30px;height:36px;padding:0;background:transparent!important;color:#e2f5ff!important;border:0!important;font-size:27px;cursor:pointer;box-shadow:none!important}
+.global-search{display:flex;align-items:center;height:46px;padding:0 12px;gap:10px;border:1px solid #4ea2ce;border-radius:12px;background:linear-gradient(110deg,rgba(0,49,92,.94),rgba(0,44,83,.78));box-shadow:inset 0 0 12px #087dc522,0 0 10px #009bff22;margin:0 6px 14px}
+svg{width:24px;height:24px;flex-shrink:0}
+html body .global-search input{width:100%;min-width:0;background:transparent!important;border:0!important;color:#eaf8ff!important;padding:0!important;font:inherit;font-size:14px;box-shadow:none!important;outline:0}
+html body .global-search input::placeholder{color:#acc1d6!important;opacity:1}
+.global-search:focus-within{border-color:#24dcff;box-shadow:0 0 0 2px #11bfff33}
+.global-search>svg{width:21px;height:21px;color:#d4efff}
+html body .global-search button{background:transparent!important;border:0!important;border-left:1px solid #2a648b!important;padding:0 0 0 12px!important;display:flex;color:#d6efff!important;cursor:pointer}
+html body header.casteel-header .nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;flex-direction:row!important;gap:8px!important;padding:0!important;margin:0!important;overflow:visible!important;width:100%;max-width:none!important}
+html body header.casteel-header .nav .nav-pill{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 3px!important;min-height:64px;text-align:center!important;white-space:normal!important;font-size:11px!important;line-height:1.1;font-weight:750!important;color:#e6f6ff!important;border:1px solid #227ab3!important;border-radius:11px!important;background:linear-gradient(160deg,#096093,#033367 75%)!important;box-shadow:inset 0 0 12px #3cafff22!important;transform:none!important}
+html body header.casteel-header .nav .nav-pill svg{width:25px;height:25px;color:#b6edff;filter:drop-shadow(0 0 6px #06a6ff66)}
+html body header.casteel-header .nav .tab-zoning{background:linear-gradient(145deg,#542a9a,#1a1263)!important;border-color:#764ac5!important}
+html body header.casteel-header .nav .tab-zoning svg{color:#f4b5ff}
+html body header.casteel-header .nav .tab-ahri{background:linear-gradient(145deg,#064c42,#002c2b)!important;border-color:#258f72!important}
+html body header.casteel-header .nav .tab-ahri svg{color:#54ee92}
+html body #page-start:checked ~ header.casteel-header .nav label[for='page-start'],html body #page-fault:checked ~ header.casteel-header .nav label[for='page-fault'],html body #page-zoning:checked ~ header.casteel-header .nav label[for='page-zoning'],html body #page-catalog:checked ~ header.casteel-header .nav label[for='page-catalog'],html body #page-ahri:checked ~ header.casteel-header .nav label[for='page-ahri']{background:linear-gradient(150deg,#078cd0,#044193)!important;border:2px solid #24daff!important;color:#fff!important;box-shadow:0 0 5px #17ccff,0 0 18px #06baff99,inset 0 0 12px #04cfff44!important;position:relative}
+html body header.casteel-header .nav label:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #68e6ff;outline-offset:3px}
+html body #page-zoning:checked ~ header.casteel-header .nav label[for='page-zoning']{background:linear-gradient(150deg,#8540d5,#32108b)!important;border-color:#b779ff!important;box-shadow:0 0 6px #9b4fff,0 0 20px #972eff88!important}
+html body #page-ahri:checked ~ header.casteel-header .nav label[for='page-ahri']{background:linear-gradient(150deg,#086b4a,#003d33)!important;border-color:#49e691!important;box-shadow:0 0 12px #10ce6488!important}
+html body main#field-content.shell.shell{max-width:1056px!important;margin:0 auto!important;padding:6px 16px 24px!important;background:transparent!important;border:0!important;border-radius:0!important;min-height:0;overflow:visible!important;box-shadow:none!important}
+html body main#field-content.shell .section-block{margin:0!important;padding:16px!important;border:1px solid #245785!important;border-radius:18px!important;background:linear-gradient(150deg,#06345688,#001a3488)!important;box-shadow:inset 0 1px 12px #4cbfff15,0 0 14px #00b0ff15!important}
+html body main#field-content.shell .section-block :is(h1,h2,h3,h4,p,li,dt,dd){color:var(--text)!important}
+html body main#field-content.shell .section-head{background:transparent!important;border:0!important;padding:0 0 10px!important;margin:0 0 6px!important;box-shadow:none!important;align-items:center!important;gap:12px}
+html body main#field-content.shell .section-head h2{font-size:24px!important;line-height:1.2!important;font-weight:750!important;border:0!important;padding:0!important}
+html body main#field-content.shell .section-head h2::after{display:none!important}
+html body main#field-content.shell .section-head p{margin:3px 0 0!important;color:#adc7dc!important;font-size:13px}
+.heading-icon{display:grid;place-items:center;width:58px;height:58px;background:linear-gradient(135deg,#a23eff,#4b08a7);border:1px solid #af66e9;border-radius:12px;box-shadow:0 0 14px #8e20e966;flex-shrink:0;color:#fff}
+.heading-icon svg{width:34px;height:34px}
+.welcome-eyebrow{font-size:10px;letter-spacing:.18em;color:#95cbec!important;text-transform:uppercase;font-style:normal}
+html body main#field-content.shell .section-search-wrap{position:static!important;top:auto!important;display:flex!important;background:transparent!important;border:0!important;padding:0!important;box-shadow:none!important;gap:8px!important;backdrop-filter:none!important;margin:8px 0 12px!important;flex-wrap:wrap}
+html body main#field-content.shell :is(input,select,textarea){background:#032746!important;color:#deefff!important;border:1px solid #286087!important;border-radius:8px;padding:10px 12px;font:inherit}
+html body main#field-content.shell input::placeholder{color:#95b2cb!important}
+html body main#field-content.shell .section-search{min-width:0;flex:1;font-size:13px!important;padding:10px!important}
+html body main#field-content.shell .section-search-count{font-size:11px;color:#92b4d0!important;min-width:0;align-self:center}
+html body main#field-content.shell :is(.ref-card.static-card,.fault-flat,details,.guided-reference,.jump-list){background:linear-gradient(135deg,#0a3458,#03213d)!important;color:#d9edfc!important;border:1px solid #245479!important;border-radius:12px!important;box-shadow:inset 0 1px 3px #b3e4ff08!important;margin:6px 0!important;overflow:hidden}
+html body main#field-content.shell details.ref-card.static-card{border-left-width:1px!important}
+html body main#field-content.shell :is(.card-header-static,.fault-platform-label){background:transparent!important;border:0!important;color:#fff!important;padding:12px!important;font-weight:700!important;font-size:14px!important}
+html body main#field-content.shell details.ref-card .card-header-static{display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px!important;cursor:pointer;list-style:none;min-height:66px}
+.card-header-static::-webkit-details-marker{display:none}
+html body main#field-content.shell .card-header-static>span:not(.row-chevron){font-size:14px!important;color:#e8f5ff!important;letter-spacing:0!important;font-weight:700!important}
+.reference-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1.5px solid #36b6ef;border-radius:50%;color:#61cfff;box-shadow:0 0 7px #059eff44;font-style:normal}
+.reference-icon svg{width:24px;height:24px}
+.pink .reference-icon,.purple .reference-icon{color:#d772ff;border-color:#b459e4;box-shadow:0 0 8px #b836ff44}
+.green .reference-icon{color:#59ef99;border-color:#49d78d}
+.orange .reference-icon,.amber .reference-icon{color:#ffb04b;border-color:#f79428}
+.red .reference-icon{color:#ff516a;border-color:#e64a5e}
+.row-chevron{margin-left:auto;color:#a4d2ef!important;font-size:26px!important;font-weight:300!important;transition:transform .15s}
+details[open] .row-chevron{transform:rotate(90deg)}
+html body main#field-content.shell .card-header-static small{margin-left:auto!important;color:#9db8cf!important}
+html body main#field-content.shell .card-body{padding:12px 14px!important;border-top:1px solid #214f73!important;color:#cee2f3!important;font-size:13px!important}
+html body main#field-content.shell .card-body :is(p,li,td,dd,dt){color:#cee2f3!important}
+html body main#field-content.shell .card-body :is(strong,b){display:inline!important;color:#fff!important;font-size:inherit!important;letter-spacing:normal!important}
+html body main#field-content.shell .card-body ul{padding-left:20px}
+html body main#field-content.shell :is(.diag-group-header,.equip-group>h3,.zoning-pane-intro,.ahri-summary,.ahri-model-mode,.model-context){background:#063052!important;border-color:#28577b!important;color:#b9d6ec!important}
+html body main#field-content.shell .diag-hero{background:transparent!important;border:0!important;padding:0 0 10px!important;box-shadow:none!important;margin:0!important}
+html body main#field-content.shell .diag-hero strong{font-size:24px!important;color:#fff!important}
+html body main#field-content.shell .diag-hero span{color:#adc7dc!important}
+html body main#field-content.shell .diag-hero-badge{display:none!important}
+html body main#field-content.shell :is(.diag-group-title,.equip-group>h3){font-size:13px!important;letter-spacing:.05em!important;color:#b5d6ee!important}
+html body main#field-content.shell :is(.diag-quick-strip,.zoning-subtabs,.ahri-quick){display:flex;flex-wrap:wrap;gap:6px;background:transparent!important;margin:10px 0!important;padding:0!important;border:0!important}
+html body main#field-content.shell :is(button,.zoning-subtab,.ahri-filter){background:linear-gradient(160deg,#0a426b,#042746)!important;color:#c8e7fa!important;border:1px solid #29618a!important;border-radius:7px;padding:8px 10px;cursor:pointer;font:inherit;font-size:11px!important}
+html body main#field-content.shell :is(.zoning-subtab.active,.ahri-filter.active){background:linear-gradient(135deg,#078acf,#03569c)!important;border-color:#22caff!important;color:#fff!important;box-shadow:0 0 9px #05c8ff55!important}
+html body main#field-content.shell .section-head .count{color:#96b6d0!important;font-size:10px}
+html body main#field-content.shell .start-hero{position:relative;min-height:172px!important;padding:20px!important;margin:0 0 14px!important;text-align:left!important;background:linear-gradient(90deg,#032747 0,#032747ad 60%,#03274755),url('alpine-hvac.webp') center/cover;border:1px solid #29688f;border-radius:12px}
+html body main#field-content.shell .start-hero h2{font-size:25px!important;line-height:1.1!important;letter-spacing:0!important;margin:5px 0 8px!important;text-shadow:0 2px 5px #0008}
+html body main#field-content.shell .start-hero p{font-size:12px!important;line-height:1.4!important;letter-spacing:0!important;text-transform:none!important;color:#c5d9ed!important;margin:0!important;font-weight:400!important}
+html body main#field-content.shell .start-lookup{display:none!important}
+html body main#field-content.shell .start-example{font-size:10px!important;margin:6px 0 16px!important}
+html body main#field-content.shell .start-section-title h3{font-size:14px!important;letter-spacing:.12em!important}
+html body main#field-content.shell .start-section-title p{font-size:11px!important}
+html body main#field-content.shell .start-buttons{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+html body main#field-content.shell .start-btn{min-height:112px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:12px 5px!important;gap:5px;border:1px solid #28678f!important;border-radius:10px;background:linear-gradient(140deg,#084675,#032647)!important;box-shadow:inset 0 1px 5px #52c3ff22!important}
+html body main#field-content.shell .start-btn::after{display:none}
+html body main#field-content.shell .task-icon{width:28px;height:26px;flex:0 0 26px;background:transparent!important;font-size:26px}
+html body main#field-content.shell .start-btn b{font-size:11px!important;letter-spacing:0!important}
+html body main#field-content.shell .start-btn small{font-size:10px!important;line-height:1.3!important;color:#accce4!important;margin:3px 0 0!important}
+html body main#field-content.shell .start-safety{padding:12px!important;gap:10px!important}
+html body main#field-content.shell .start-safety ul{grid-template-columns:1fr!important}
+html body main#field-content.shell :is(.ahri-note,.ahri-subtitle,.ahri-summary,.ahri-more,.ahri-model-mode-head span){color:#abc7de!important}
+html body main#field-content.shell .ahri-note{background:#142d41!important;border-color:#647144!important;font-size:12px}
+html body main#field-content.shell :is(.ahri-table-wrap,.table-wrap){background:#05223c!important;border-color:#25577b!important}
+html body main#field-content.shell table{background:#04233f!important;color:#d6ecff!important}
+html body main#field-content.shell th{background:#0a4066!important;color:#ecf7ff!important;border-color:#255478!important;font-size:11px}
+html body main#field-content.shell td{color:#c1dcef!important;background:#042440!important;border-color:#163c5c!important;font-size:12px}
+html body main#field-content.shell tr:nth-child(even) td{background:#062b48!important}
+html body main#field-content.shell .ahri-table tr:hover td{background:#0b3c5a!important}
+html body main#field-content.shell .ahri-table strong{color:#b7e5ff!important}
+html body main#field-content.shell .ahri-number{color:#69d9ff!important}
+html body main#field-content.shell .ahri-table small{color:#92b7d2!important}
+html body main#field-content.shell .ahri-model-fields{grid-template-columns:1fr auto 1fr auto}
+html body main#field-content.shell .ahri-tools{grid-template-columns:minmax(0,1fr) 180px}
+html body main#field-content.shell .empty{color:#b2cee4!important}
+html body .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1100px;z-index:60;display:flex;align-items:stretch;justify-content:space-around;padding:9px 12px calc(10px + env(safe-area-inset-bottom));background:#00172eed;border-top:1px solid #1d5480;backdrop-filter:blur(18px);box-shadow:0 -3px 18px #0273cc22}
+html body .bottom-nav label{width:20%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;border:0;background:transparent;color:#809ebd;font:inherit;font-size:11px;padding:3px 0;cursor:pointer}
+.bottom-nav svg{height:27px;width:27px}
+html body .bottom-nav label.active{color:#2ed5ff;text-shadow:0 0 12px #04b8ff}
+.bottom-nav label.active svg{filter:drop-shadow(0 0 8px #0abaff)}
+.bottom-nav label.active::after{content:'';height:3px;width:40px;position:absolute;bottom:-8px;border-radius:9px;background:#38ceff;box-shadow:0 0 9px #009dff}
+#more-resources{width:min(440px,calc(100% - 32px));padding:20px;border:1px solid #397ca4;border-radius:16px;color:#e4f5ff;background:linear-gradient(135deg,#093251,#021b32);box-shadow:0 20px 80px #0009}
+#more-resources::backdrop{background:#000b;backdrop-filter:blur(5px)}
+.drawer-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.drawer-heading h2{font-size:19px;margin:0}
+#close-resources{border:0;background:transparent;color:#cbe8ff;font-size:30px;cursor:pointer}
+.resource-link{display:flex;justify-content:space-between;padding:16px 12px;border:1px solid #245a7d;border-radius:10px;margin:8px 0;cursor:pointer;background:#063050}
+#more-resources p{color:#90b6d2;font-size:12px}
+@media(min-width:760px){html body header.casteel-header{background-position:center 42%;padding:0 30px 18px}html body header.casteel-header .casteel-brandbar{min-height:250px!important;padding:28px 0 18px 45px!important}html body header.casteel-header .casteel-logo-wrap{width:350px!important}html body header.casteel-header .casteel-logo{max-width:350px!important;height:95px!important}html body header.casteel-header .app-heading strong{font-size:25px!important}.global-search{margin:0 0 18px;max-width:750px}html body main#field-content.shell .start-buttons{grid-template-columns:repeat(3,minmax(0,1fr))!important}html body main#field-content.shell .start-btn{flex-direction:row;text-align:left;align-items:center;padding:15px!important;gap:12px}html body main#field-content.shell .start-btn b{font-size:13px!important}html body main#field-content.shell .start-btn small{font-size:12px!important}html body main#field-content.shell .start-hero{min-height:215px!important}html body main#field-content.shell .start-hero h2{font-size:34px!important}html body main#field-content.shell .start-hero p{font-size:14px!important}}
+@media(max-width:480px){html body header.casteel-header{padding:0 10px 12px;background-position:right top}html body header.casteel-header .casteel-brandbar{min-height:156px!important;padding:15px 0 8px 38px!important;gap:3px!important}html body header.casteel-header .casteel-logo-wrap{width:210px!important}html body header.casteel-header .casteel-logo{height:56px!important}html body header.casteel-header .mobile-nav-toggle{top:27px}html body header.casteel-header .app-heading{margin-left:-29px;margin-top:6px}html body header.casteel-header .app-heading strong{font-size:17px!important;letter-spacing:.17em!important}html body header.casteel-header .app-heading span{font-size:8px!important;letter-spacing:.23em!important}.global-search{margin:0 2px 10px;height:37px;border-radius:10px;gap:8px;padding:0 9px}html body .global-search input{font-size:12px}html body header.casteel-header .nav{gap:5px!important}html body header.casteel-header .nav .nav-pill{min-height:51px;padding:6px 2px!important;font-size:8px!important;border-radius:8px!important}html body header.casteel-header .nav .nav-pill svg{width:22px;height:22px}html body main#field-content.shell.shell{padding:0 10px 22px!important}html body main#field-content.shell .section-block{padding:9px!important;border-radius:15px!important}html body main#field-content.shell .section-head h2{font-size:22px!important}html body main#field-content.shell .section-head p{font-size:11px}html body main#field-content.shell .heading-icon{width:44px;height:44px;border-radius:9px}.heading-icon svg{width:29px;height:29px}html body main#field-content.shell details.ref-card .card-header-static{padding:9px!important;gap:10px!important}html body main#field-content.shell .card-header-static>span:not(.row-chevron){font-size:12px!important}.reference-icon{width:34px;height:34px;flex-basis:34px}.reference-icon svg{width:21px;height:21px}html body main#field-content.shell .card-header-static small{display:none!important}html body main#field-content.shell .ahri-model-fields{grid-template-columns:1fr!important}html body main#field-content.shell .ahri-plus{display:none}html body main#field-content.shell .ahri-tools{grid-template-columns:1fr}html body main#field-content.shell .diag-group-header{padding:10px!important}html body main#field-content.shell .diag-group-title{font-size:12px!important}html body main#field-content.shell .start-section-title p{display:none}html body main#field-content.shell .section-search-count{width:100%;text-align:left}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{html body header.casteel-header{background:#032646!important;position:static!important}html body main#field-content.shell .section-block{break-inside:auto}html body main#field-content.shell details.ref-card .card-body{display:block!important}}
+/* Reset previous decorative overlays and the superseded mobile bar. */
+html body .mobile-bottom-nav,html body header.casteel-header::before,html body header.casteel-header::after,html body main#field-content.shell .start-hero::before,html body main#field-content.shell .start-hero::after{display:none!important}
+html body header.casteel-header .nav .nav-pill{min-width:0!important;width:auto!important;max-width:none!important;flex:none!important}
+html body header.casteel-header .nav .nav-pill::before,html body header.casteel-header .nav .nav-pill::after{display:none!important}
+html body main#field-content.shell .start-section-title{border:0!important;padding:0!important}
+html body main#field-content.shell .task-icon{border:0!important;box-shadow:none!important}
+html body main#field-content.shell details.ref-card summary::after,html body main#field-content.shell details.ref-card summary::before{display:none!important}
+html body main#field-content.shell .card-header-static .row-chevron{margin-left:auto!important;flex-shrink:0;color:#b6d7ef!important;font-size:24px!important}
+html body main#field-content.shell .start-hero{min-height:174px!important;display:block!important;background:linear-gradient(90deg,#032747 0,#032747aa 60%,#03274755),url('alpine-hvac.webp') right center/cover!important}
+html body main#field-content.shell .start-section-title{border:0!important;padding:0!important}
+html body main#field-content.shell .start-section-title::before,html body main#field-content.shell .start-section-title::after{display:none!important}
+html body main#field-content.shell :is(.zoning-pane,.zoning-pane-intro,.zoning-subtabs){border:0!important;box-shadow:none!important}
+html body main#field-content.shell .zoning-pane-intro{padding:8px 10px!important;border-radius:6px!important;font-size:10px!important}
+html body main#field-content.shell .task-icon{border:0!important;box-shadow:none!important;background:transparent!important}
+@media(max-width:480px){html body header.casteel-header{background-position:right top!important}html body main#field-content.shell .start-hero{padding:14px!important}}
+html body main#field-content.shell #sec-start::before,html body main#field-content.shell #sec-start::after{display:none!important}
+html body main#field-content.shell .start-section-title{border:0!important;box-shadow:none!important;background:transparent!important;margin:14px 0 10px!important}
+html body main#field-content.shell .start-example{display:none!important}
+html body main#field-content.shell footer{margin-top:22px!important;font-size:11px!important;color:#87a8c2!important}
+/* Preserve the original home copy and navigation destinations. */
+html body .bottom-nav label{width:20%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;border:0;background:transparent;color:#809ebd;font:inherit;font-size:10px;padding:3px 0;cursor:pointer}
+html body .bottom-nav label.active{color:#2ed5ff;text-shadow:0 0 12px #04b8ff}
+html body main#field-content.shell #sec-start .start-hero{display:flex!important;flex-direction:column;justify-content:center;min-height:156px!important;padding:20px!important}
+html body main#field-content.shell #sec-start .start-hero p{font-size:21px!important;font-weight:650!important;color:#fff!important;letter-spacing:.01em!important;max-width:210px;line-height:1.2!important}
+html body main#field-content.shell #sec-start .start-eyebrow{font-size:9px!important;color:#b2d9ef!important;letter-spacing:.15em;margin-bottom:14px!important}
+html body main#field-content.shell #sec-start .start-brand-lockup{display:none!important}
+html body main#field-content.shell #sec-zoning>.section-head{min-height:58px!important;background:linear-gradient(100deg,#5021a266,transparent)!important;border-radius:10px!important;padding:12px!important}
+html body main#field-content.shell #sec-zoning>.section-head .kicker{color:#d99fff!important;border-color:#8956d3!important;background:#3e177c!important}
+html body main#field-content.shell #sec-zoning>.section-head h2{font-size:23px!important}
+html body main#field-content.shell #sec-start .start-example{display:block!important;color:#a5c5de!important;font-size:10px!important;line-height:1.5!important;margin:10px 0 14px!important}
+html body .global-search input:focus{outline:none!important;box-shadow:none!important}
