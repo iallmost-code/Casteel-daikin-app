@@ -2445,6 +2445,98 @@ body{padding-bottom:76px!important}
 body .casteel-brandbar{min-height:96px!important;padding:12px 14px 8px!important}body .casteel-logo{max-width:230px!important;height:60px!important}body .app-heading strong{font-size:24px!important;letter-spacing:.12em!important}body .app-heading span{font-size:10px!important;letter-spacing:.18em!important}body header .nav{padding:9px 10px 12px!important}body header .nav-pill{min-width:128px!important;padding:12px 13px!important;border-radius:14px!important}
 }
 </style>
+
+<style id="v33-production-theme-lock">
+:root{
+  --app-bg:#07131f;
+  --app-bg2:#081827;
+  --app-panel:#0b2236;
+  --app-panel2:#0f304b;
+  --app-line:#2c6288;
+  --app-text:#eef8ff;
+  --app-muted:#9fb9cc;
+  --app-blue:#24a9ff;
+  --app-cyan:#5edcff;
+}
+html,body{
+  background:
+    radial-gradient(circle at 14% 0%,rgba(28,159,255,.22),transparent 26%),
+    radial-gradient(circle at 86% 8%,rgba(55,107,220,.18),transparent 25%),
+    linear-gradient(180deg,var(--app-bg) 0%,#07111b 46%,var(--app-bg2) 100%) fixed!important;
+  color:var(--app-text)!important;
+}
+body main,body main.shell,body .page-shell,
+body main .section-block,
+body main #sec-start,body main #sec-fault-codes,body main #sec-zoning,
+body main #sec-catalog-differences,body main #sec-known-gaps,body main #sec-source-documents{
+  background:transparent!important;
+  color:var(--app-text)!important;
+  box-shadow:none!important;
+}
+body main :is(.ref-card,.card,.panel,.section-card,details,.diag-static-group,.diag-group,.diag-group-body,.diag-collapsible,.zoning-pane,.zoning-subtabs,.guided-reference,.guided-reference-body,.model-context,.model-suggestions,.start-glossary,.start-results,.start-empty,.table-wrap){
+  background:linear-gradient(180deg,rgba(12,34,55,.98),rgba(7,22,36,.99))!important;
+  color:#eaf6ff!important;
+  border-color:rgba(52,126,181,.72)!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+body main :is(.card-body,.diag-group-body,.guided-reference-body),
+body main :is(p,li,dd,dt){color:#cfe2f0!important}
+body main :is(h1,h2,h3,h4,h5,h6,summary,strong,b){color:#fff!important}
+body main :is(small,.muted,.subtle,.page-note){color:#9fb9cc!important}
+body main :is(input,select,textarea,.section-search){
+  background:linear-gradient(180deg,#091c2c,#061521)!important;
+  color:#f5fbff!important;
+  border-color:#2f719f!important;
+}
+body main :is(input,textarea)::placeholder{color:#8eaac0!important}
+body main table{background:#08243b!important;color:#e6f4ff!important}
+body main th{
+  background:#0c4775!important;
+  color:#fff!important;
+  border-color:#285f87!important;
+}
+body main td{
+  background:#092a46!important;
+  color:#d9ebf8!important;
+  border-color:#225678!important;
+}
+body main tr:nth-child(even) td{background:#0b3252!important}
+body main tr:hover td{background:#10456f!important}
+body main :is(.warn,.warning,.alert){
+  background:linear-gradient(180deg,rgba(62,51,23,.97),rgba(42,35,17,.98))!important;
+  color:#ffe6a3!important;
+  border-color:#88692b!important;
+}
+body main :is(.danger,.critical,.start-safety){
+  background:linear-gradient(180deg,rgba(76,20,30,.96),rgba(45,14,22,.97))!important;
+  color:#ffdce3!important;
+  border-color:#9f3c4c!important;
+}
+header.casteel-header{
+  background:linear-gradient(180deg,rgba(7,19,31,.97),rgba(8,22,35,.99))!important;
+  border-bottom:1px solid rgba(71,164,232,.28)!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.30)!important;
+}
+header.casteel-header .nav-pill{
+  background:linear-gradient(180deg,#0c2a43,#081d30)!important;
+  color:#eef8ff!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.20)!important;
+}
+header.casteel-header .app-heading strong{color:#fff!important}
+header.casteel-header .app-heading span{color:#91c9ef!important}
+header.casteel-header .source-badge{
+  background:rgba(255,255,255,.08)!important;
+  color:#d7edff!important;
+  border-color:rgba(120,201,255,.32)!important;
+}
+@media(max-width:700px){
+  body main.shell{padding:12px 10px 86px!important}
+  body header.casteel-header .nav{
+    overflow-x:auto!important;
+    flex-wrap:nowrap!important;
+  }
+}
+</style>
 </head><body>
 <input checked="" class="page-radio" id="page-start" name="app-page" type="radio"/>
 <input class="page-radio" id="page-zoning" name="app-page" type="radio"/>
