@@ -66,10 +66,10 @@ Upgrades built with it: Start Here page (whole-guide lookup, problem buttons, sa
 
 ## 7. Update — airflow data added (2026-10-01)
 Saved: `11-dr80sn-blower-tap-airflow.md` (DR80SN, manual IM-IOD-2035A, 8 models: cooling/fan F01-F09 with watts, heating F01-F04 with rise) and `12-airflow-blower-data-pack-gpt.md` (GPT data pack: DR80TC/DR96TC tonnage airflow, AMST T1-T9, DMVT, DR80SN manual IOD-2039C, DR92SN/DR96SN/DD96SN pointers, DFVE/DMVE notes).
-Added to the guide's new **Airflow** tab: everything above except what the pack did not contain (listed below). The DMVT cooling table and heater DIP table in the pack already matched the guide word for word.
+Added to the guide's **Airflow** tab exactly as given (every line of both files, in their own order and wording; checked line by line, 1,728 pieces, none missing). The DMVT cooling table and heater DIP table in the pack already matched the guide word for word. Nothing was reworded or summarized. The notes below are checks only and are not shown in the app.
 
 New conflicts / checks (need the PDFs):
-1. **DR80SN has two sets of numbers.** IM-IOD-2035A (models DR80SN0403A*, 0603A* ...) and IOD-2039C (models DR80SN0403AU*, 0603AU* ...) give different CFM and different default Y1/Y2 taps for similarly named models. Both are shown, labeled by manual. Which one applies to a given furnace must come from the unit's manual and nameplate.
+1. **DR80SN has two sets of numbers.** IM-IOD-2035A (models DR80SN0403A*, 0603A* ...) and IOD-2039C (models DR80SN0403AU*, 0603AU* ...) give different CFM and different default Y1/Y2 taps for similarly named models. Both are shown exactly as given, labeled by manual. Which one applies to a given furnace must come from the unit's manual and nameplate.
 2. **AMST30BU1300 T5 = T8 = T9** in the pack (also T6 = T3, T7 = T4). This is the earlier "T5 = T9" item. Repeated rows from jumper taps occur on other AMST models too, so it may be how the manual prints them. Not verified.
 3. **AMST60DU1300:** T8 (2070 CFM at 0.1") is above T9 (1970). T2-T5 were not captured.
 4. **DR80SN (2035A) cells flagged when pulled:** 0604B* F06 dip, 0803B* F05 0.8" watts 242, 0804B* F01 0.1" 841, 1005C* F02 0.6" watts #N/A, 1205D* F04 not-recommended-for-heat.
