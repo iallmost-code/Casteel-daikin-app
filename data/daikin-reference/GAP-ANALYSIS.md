@@ -63,3 +63,15 @@ The manufacturer PDFs themselves are not in the repo, so every value above was c
 Added (all generated directly from the saved files, not retyped): 15 Equipment Info cards (cased-coil identification rules, CHPE/CAPEA bracket and wiring, AMST wiring/taps/temperature rise/airflow/room-size, gas-furnace manifold pressure, piping, sequence, blower menu, filters, wiring/twinning, A2L enable/verify, DMVT tables and kits, DFVE/DMVE heater kits and max CFM, EEV basics and model families, blower motor and compressor checks), 4 Diagnostics cards (capacitor DC-voltage safety, big-code trip points and check order, Ed2 trim limits, view/clear last 6 faults), 1 DIP card ("Before you touch any switch").
 Deliberately left out pending the PDFs (section 4 above): DS-6 High/Low emergency wording, the DMVE `E_b3` label, the AMST30BU1300 T9 row (shown as "not shown — check p.13"), the old UT3000 facts, and the IO-2037A/B naming.
 Upgrades built with it: Start Here page (whole-guide lookup, problem buttons, safety box, glossary), jump-to-card lists, merged duplicate cards, source-line tags removed, plain-language Known Gaps and charge/catalog tables, readable bold text, phone-friendly small tables, AHRI table pre-filled so it shows without JavaScript.
+
+## 7. Update — airflow data added (2026-10-01)
+Saved: `11-dr80sn-blower-tap-airflow.md` (DR80SN, manual IM-IOD-2035A, 8 models: cooling/fan F01-F09 with watts, heating F01-F04 with rise) and `12-airflow-blower-data-pack-gpt.md` (GPT data pack: DR80TC/DR96TC tonnage airflow, AMST T1-T9, DMVT, DR80SN manual IOD-2039C, DR92SN/DR96SN/DD96SN pointers, DFVE/DMVE notes).
+Added to the guide's new **Airflow** tab: everything above except what the pack did not contain (listed below). The DMVT cooling table and heater DIP table in the pack already matched the guide word for word.
+
+New conflicts / checks (need the PDFs):
+1. **DR80SN has two sets of numbers.** IM-IOD-2035A (models DR80SN0403A*, 0603A* ...) and IOD-2039C (models DR80SN0403AU*, 0603AU* ...) give different CFM and different default Y1/Y2 taps for similarly named models. Both are shown, labeled by manual. Which one applies to a given furnace must come from the unit's manual and nameplate.
+2. **AMST30BU1300 T5 = T8 = T9** in the pack (also T6 = T3, T7 = T4). This is the earlier "T5 = T9" item. Repeated rows from jumper taps occur on other AMST models too, so it may be how the manual prints them. Not verified.
+3. **AMST60DU1300:** T8 (2070 CFM at 0.1") is above T9 (1970). T2-T5 were not captured.
+4. **DR80SN (2035A) cells flagged when pulled:** 0604B* F06 dip, 0803B* F05 0.8" watts 242, 0804B* F01 0.1" 841, 1005C* F02 0.6" watts #N/A, 1205D* F04 not-recommended-for-heat.
+
+Still missing: DR92SN/DR96SN/DD96SN CFM rows (IOD-2037B pp. 46-51), DD80SN tables (IM-IOD-2035A), DR80SN 0803B*/1005C*/1205D* and all heating/watts for manual IOD-2039C, AMST60DU1300 T2-T5.

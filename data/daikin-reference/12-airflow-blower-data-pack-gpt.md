@@ -1,0 +1,320 @@
+# Daikin Airflow / Blower / Fan-Speed Data Pack
+Verified pull for Codex / HVAC Field Guide
+Date: 2026-10-01
+
+IMPORTANT
+- Do not treat F01-F09 as universal CFM values. They are model- and static-pressure-specific.
+- DR80TC / DR96TC are NOT F01-F09 airflow-selection furnaces in the current factory manuals. They use tonnage-based airflow plus trims/percent settings.
+- Unit nameplate and unit wiring diagram always win over this reference.
+- Keep R-410A and R-32 equipment logic separate.
+
+## 1) DR80TC / DR96TC TWO-STAGE FURNACES — TONNAGE-BASED AIRFLOW
+
+Factory sources:
+- DR80TC / DD80TC: IOD-2043, p.19 and wiring diagram/menu page p.38
+- DR96TC / DD96TC: IOD-2044, wiring diagram/menu page p.52
+
+For non-communicating outdoor equipment:
+1. Set ODS: 1AC, 1HP, 2AC, or 2HP.
+2. Set TON menu to desired airflow.
+
+TONNAGE -> CFM
+1.0=400
+1.1=440
+1.2=480
+1.3=520
+1.4=560
+1.5=600
+1.6=640
+1.7=680
+1.8=720
+1.9=760
+2.0=800
+2.1=840
+2.2=880
+2.3=920
+2.4=960
+2.5=1000
+2.6=1040
+2.7=1080
+2.8=1120
+2.9=1160
+3.0=1200
+3.1=1240
+3.2=1280
+3.3=1320
+3.4=1360
+3.5=1400
+3.6=1440
+3.7=1480
+3.8=1520
+3.9=1560
+4.0=1600
+4.1=1640
+4.2=1680
+4.3=1720
+4.4=1760
+4.5=1800
+4.6=1840
+4.7=1880
+4.8=1920
+4.9=1960
+5.0=2000
+5.1=2040
+5.2=2080
+5.3=2120
+5.4=2160
+5.5=2200
+5.6=2240
+5.7=2280
+5.8=2320
+5.9=2360
+6.0=2400
+
+MAXIMUM AIRFLOW OUTPUT
+- 3 ton / 60k BTUH furnace = 1400 CFM
+- 3 ton / 80k BTUH furnace = 1650 CFM
+- 4 ton models = 1760 CFM
+- 5 ton models = 2200 CFM
+
+AIRFLOW ADJUSTMENTS / MENUS
+- CTF = cooling airflow trim, -10% to +10%, 2% increments
+- HTF = heat-pump heating airflow trim, -10% to +10%, 2% increments
+- FSD = constant-fan speed as percentage of maximum airflow
+- CAP = cooling airflow profile
+- GST = percentage of high-stage cooling airflow used during low-stage operation; factory default 70%
+- GAF = gas-heat airflow as percentage of maximum system airflow
+- Gas heat fan-off delay default = 90 sec
+- Cooling fan-off delay default = 60 sec
+- Cooling fan-on delay default = 5 sec
+- Constant fan default = 25% of maximum airflow
+
+Cooling airflow profiles:
+A / 1 = full airflow; 1-minute off delay at 100%
+B / 2 = 50% for 30 sec, then 100%; 1-minute off delay at 100%
+C / 3 = 85% for about 7.5 min, then 100%; 1-minute off delay
+D / 4 = 50% for 30 sec, then 85% for about 7.5 min, then 100%; 30-sec off delay at 50%
+
+## 2) AMST R-32 AIR HANDLER — T1-T9 AIRFLOW
+
+Factory source: IO-4011B, Table 9, p.13
+CFM columns = 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 in. w.c.
+
+AMST24BU1300
+T1: 825,800,745,730,660,645,560,550,460
+T2: 850,825,770,750,675,665,590,575,470
+T3: 900,875,830,815,750,740,670,655,550
+T4: 935,910,865,850,790,780,715,705,620
+T5: 1045,1025,985,970,920,910,850,845,785
+T6: 1100,1080,1035,1020,970,960,905,900,840
+T7: 900,875,830,815,750,740,670,655,550
+T8: 1030,1005,960,950,900,890,825,820,760
+T9: 1215,1195,1155,1145,1105,1095,1045,1040,980
+
+AMST30BU1300
+T1: 855,830,780,765,705,695,625,615,515
+T2: 920,895,845,830,780,770,710,700,615
+T3: 985,960,915,900,850,840,785,775,710
+T4: 1070,1050,1005,995,945,935,890,885,830
+T5: 1185,1165,1125,1115,1070,1060,1015,1010,960
+T6: 985,960,915,900,850,840,785,775,710
+T7: 1070,1050,1005,995,945,935,890,885,830
+T8: 1185,1165,1125,1115,1070,1060,1015,1010,960
+T9: 1185,1165,1125,1115,1070,1060,1015,1010,960
+
+AMST36CU1300
+T1: 1070,1035,960,935,830,810,700,690,610
+T2: 1165,1130,1055,1035,960,940,825,815,715
+T3: 1285,1255,1190,1170,1100,1085,990,980,885
+T4: 1430,1400,1345,1330,1260,1250,1175,1165,1065
+T5: 1560,1530,1470,1455,1390,1380,1310,1300,1235
+T6: 1735,1710,1660,1645,1580,1570,1510,1500,1440
+T7: 1430,1400,1345,1330,1260,1250,1175,1165,1065
+T8: 1735,1710,1660,1645,1580,1570,1510,1500,1440
+T9: 1830,1805,1755,1740,1685,1675,1605,1595,1525
+
+AMST42CU1300
+T1: 1165,1140,1085,1065,990,975,895,880,765
+T2: 1230,1205,1150,1135,1070,1060,990,975,850
+T3: 1410,1385,1335,1325,1280,1270,1195,1185,1115
+T4: 1440,1415,1365,1355,1305,1295,1235,1225,1155
+T5: 1495,1470,1425,1415,1365,1355,1305,1295,1220
+T6: 1580,1550,1510,1490,1450,1420,1380,1330,1300
+T7: 1410,1385,1335,1325,1280,1270,1195,1185,1115
+T8: 1760,1730,1700,1670,1640,1610,1580,1550,1505
+T9: 1760,1730,1700,1670,1640,1610,1580,1550,1505
+
+AMST48CU1300
+T1: 1420,1390,1330,1310,1235,1220,1135,1125,1050
+T2: 1465,1435,1375,1355,1280,1265,1165,1155,1065
+T3: 1580,1550,1490,1470,1400,1390,1315,1305,1230
+T4: 1635,1610,1560,1545,1480,1470,1400,1390,1315
+T5: 1735,1710,1660,1640,1560,1550,1485,1475,1410
+T6: 1820,1795,1750,1735,1680,1670,1605,1595,1525
+T7: 1420,1390,1330,1310,1235,1220,1135,1125,1050
+T8: 1800,1775,1730,1715,1675,1635,1595,1550,1460
+T9: 1820,1795,1750,1735,1680,1670,1605,1595,1525
+
+AMST60DU1300
+NOTE: Factory text extraction exposes T1 and T6-T9 cleanly. T2-T5 should be visually transcribed from the source table before being entered as facts.
+T1: 1215,1175,1095,1070,975,950,790,780,700
+T6: 1815,1785,1725,1710,1650,1640,1570,1560,1490
+T7: 1360,1325,1250,1230,1145,1125,1010,990,850
+T8: 2070,2045,1995,1980,1930,1920,1855,1845,1785
+T9: 1970,1945,1895,1880,1815,1805,1740,1730,1660
+
+AMST airflow notes:
+- Data at 230V without air filter in place.
+- Static table includes static from media filter.
+- Cooling / heat-pump speed tap should follow AHRI rating.
+- Otherwise choose a tap delivering at least 350 CFM per outdoor ton.
+- CFM adjustment: horizontal left x0.98.
+- CFM adjustment: horizontal right / downflow x0.96.
+- Humidistat can reduce cooling airflow to 85%.
+
+AMST speed-tap selection:
+- T1-T5 use the standard motor tap leads.
+- T6-T9 use alternate relay/black-jumper combinations:
+  T6 = black jumper T1+T2
+  T7 = black jumper T1+T3
+  T8 = black jumper T1+T4
+  T9 = black jumper T1+T5
+
+## 3) DMVT AIR HANDLER — COOLING TAPS / DIP SWITCHES
+
+Factory reference in combined dataset: IOD-4040B, airflow label / p.19.
+IMPORTANT: IOD-4040B identifies P1400 as R-410A. Do not apply this table to P1300 R-32 equipment without checking the exact manual/nameplate.
+
+PAIR SWITCH MAP
+A = OFF/OFF
+B = ON/OFF
+C = OFF/ON
+D = ON/ON
+
+Functions:
+S1/S2 = cooling airflow selection
+S3/S4 = airflow adjustment selection
+S5/S6 = airflow profile selection
+S7 = dehumidification
+S9/S10/S11 = heater kW
+S12/S13 = continuous-fan speed selection
+
+COOLING / HEAT-PUMP AIRFLOW (Low Stage / High Stage CFM)
+DMVT24BP14: A 370/550 | B 440/660 | C 525/780 | D 655/975
+DMVT30BP14: A 395/590 | B 480/720 | C 575/860 | D 705/1050
+DMVT36BP14 / DMVT36CP14: A 530/790 | B 635/950 | C 755/1125 | D 805/1200
+DMVT42CP14: A 670/1000 | B 805/1200 | C 870/1300 | D 940/1400
+DMVT48CP14 / DMVT48DP14: A 805/1200 | B 870/1300 | C 935/1395 | D 1000/1490
+DMVT60DP14: A 940/1400 | B 1005/1500 | C 1165/1740 | D 1195/1785
+
+HEATER kW DIP SETTINGS
+3 kW: S9 ON, S10 ON, S11 ON
+5 kW: S9 ON, S10 ON, S11 OFF
+6 kW: S9 ON, S10 OFF, S11 ON
+8 kW: S9 ON, S10 OFF, S11 OFF
+10 kW: S9 OFF, S10 ON, S11 ON
+15 kW: S9 OFF, S10 ON, S11 OFF
+19/20 kW: S9 OFF, S10 OFF, S11 ON
+25 kW: S9 OFF, S10 OFF, S11 OFF
+
+WARNING: all OFF on DMVT selects 25 kW, not “no heater”.
+
+## 4) DR80SN — F01-F09 COOLING/CIRCULATION
+
+Factory source: IOD-2039C, Blower Performance Data, p.32
+CFM columns = 0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80 in. w.c.
+^ = default Y1 speed; ^^ = default Y2 speed
+
+DR80SN0403AU*
+F01: 590,540,483,429,369,311,247,203
+F02: 690,643,597,547,498,443,389,343
+F03: 750,702,660,618,572,525,477,421
+F04: 876,832,794,758,716,678,641,598
+F05^: 927,881,841,806,771,734,698,662
+F06: 1058,1015,976,945,915,881,849,818
+F07: 1116,1071,1036,1003,975,943,919,884
+F08^^: 1238,1192,1158,1124,1098,1070,1044,1016
+F09: 1398,1357,1320,1293,1269,1239,1216,1194
+
+DR80SN0603AU*
+F01: 587,542,490,437,382,318,266,207
+F02: 685,638,590,543,498,448,392,339
+F03: 856,814,774,732,693,657,622,581
+F04^: 937,892,855,819,786,752,715,684
+F05: 1060,1017,981,950,921,886,856,828
+F06^^: 1108,1068,1033,1003,972,942,914,882
+F07: 1274,1233,1203,1174,1146,1118,1089,1065
+F08: 1374,1340,1306,1278,1254,1227,1201,1179
+F09: 1437,1395,1362,1332,1305,1278,1253,1228
+
+DR80SN0604BU*
+F01: 836,774,711,655,596,523,456,397
+F02: 1274,1228,1188,1147,1107,1064,1027,990
+F03: 1295,1256,1214,1181,1140,1100,1062,1024
+F04: 1385,1337,1301,1260,1222,1186,1149,1114
+F05: 1454,1407,1372,1353,1325,1291,1255,1219
+F06^: 1528,1485,1438,1409,1383,1349,1317,1285
+F07: 1619,1579,1551,1523,1495,1463,1430,1402
+F08^^: 1746,1697,1667,1642,1617,1593,1570,1540
+F09: 1772,1735,1698,1674,1645,1622,1598,1574
+
+DR80SN0804BU*
+F01: 722,658,599,534,458,386,330,268
+F02: 1270,1223,1179,1139,1105,1066,1029,996
+F03: 1304,1254,1212,1173,1135,1104,1069,1032
+F04: 1367,1318,1277,1236,1199,1169,1135,1102
+F05^: 1473,1429,1386,1355,1320,1289,1258,1224
+F06: 1560,1518,1476,1441,1409,1382,1350,1321
+F07: 1647,1605,1562,1531,1497,1467,1440,1408
+F08^^: 1720,1710,1674,1642,1611,1581,1553,1527
+F09: 1796,1759,1721,1687,1655,1628,1604,1578
+
+DR80SN0805CU*
+F01: 1280,1228,1178,1134,1086,1036,986,936
+F02: 1401,1356,1313,1273,1234,1190,1145,1099
+F03: 1593,1550,1512,1475,1436,1399,1360,1319
+F04: 1706,1662,1621,1586,1550,1515,1479,1444
+F05^: 1821,1775,1736,1703,1669,1636,1605,1576
+F06: 1836,1793,1757,1721,1689,1659,1628,1592
+F07: 1932,1888,1855,1825,1794,1762,1733,1701
+F08^^: 2184,2143,2110,2072,2048,2017,1989,1959
+F09: 2221,2178,2145,2109,2082,2053,2025,1992
+
+## 5) DR92SN / DR96SN / DD96SN
+
+Factory source: IOD-2037B, Airflow Charts, pp.46-51.
+Current factory tables contain:
+- Fan & cooling F01-F09 at 0.1-0.8 in. w.c.
+- Heating F01-F04 at 0.1-0.8 in. w.c. plus temperature rise
+- ^ = default & recommended heat tap
+- ^^ = not recommended for heating
+- Fan/cooling defaults: F04=Y/Y1, F05=Y2, F01=G unless model-specific recommendation overrides it.
+
+Models:
+DR92SN0403A*, DR92SN0603B*, DR92SN0803B*, DR92SN0804C*, DR92SN0805C*, DR92SN1004C*, DR92SN1005C*, DR92SN1205D*
+DD96SN0403B*, DD96SN0603B*, DD96SN0804C*, DD96SN1005C*, DD96SN1205D*
+DR96SN0403A*, DR96SN0603B*, DR96SN0803B*, DR96SN0804C*, DR96SN0805C*, DR96SN1005C*, DR96SN1205D*
+
+Model-specific 2-stage outdoor recommendations printed in the manual:
+- DR92SN1205DN: Y2=F08, Y1=F05
+- DD96SN1005CN: Y2=F02, Y1=F05
+- DD96SN1205DN: Y2=F08, Y1=F05
+- DR96SN1005CN: Y2=F06, Y1=F01
+- DR96SN1205DN: Y2=F04, Y1=F05
+
+NOTE FOR CODEX:
+Do not generate or interpolate CFM values for these models from tonnage. Use exact factory table rows from IOD-2037B pp.46-51.
+
+## 6) DFVE / DMVE COMMUNICATING EEV AIR HANDLERS
+
+R-32 DFVE P1300:
+- DS7 = indoor half of communication termination pair with outdoor DS1.
+- 208/230V models: Daikin says only S9-S12 should be changed for heater-kit selection.
+- Set heater size in BOTH thermostat and S9-S12.
+- Do not use DMVT S1/S2 airflow-tap logic on DFVE.
+- Airflow setup for communicating Fit systems is handled through communicating setup / outdoor menu.
+
+R-410A DMVE / DFVE P1400:
+- Heater kit selection uses S9-S12.
+- No heater kit = all OFF.
+- Other heater-kit ordinal selections are model-specific and must use the exact model table.
