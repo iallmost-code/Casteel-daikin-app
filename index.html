@@ -6130,4 +6130,29 @@ html body #page-sources:checked ~ header.casteel-header .nav label[for='page-sou
  html body header.casteel-header .nav .nav-pill{flex:0 0 76px!important;min-width:76px!important;scroll-snap-align:start}
 }
 </style>
+<style id="v30-simple-start">
+/* Start page: search + task tiles only; everything else is quiet */
+html body main#field-content.shell #sec-start .start-hero,
+html body main#field-content.shell #sec-start .start-example{display:none!important}
+html body main#field-content.shell #sec-start .start-section-title{margin-top:6px!important}
+html body main#field-content.shell #sec-start .start-section-title p{display:none!important}
+html body main#field-content.shell #sec-start .start-buttons{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+html body main#field-content.shell #sec-start .start-btn{min-height:0!important;padding:14px 12px!important}
+html body main#field-content.shell #sec-start .start-safety{padding:10px 14px!important;margin-top:14px!important}
+html body main#field-content.shell #sec-start .start-safety ul{margin:4px 0 0!important;padding-left:18px!important;font-size:13px!important;line-height:1.35!important}
+html body main#field-content.shell #sec-start .start-safety li{margin:2px 0!important}
+html body main#field-content.shell #sec-start .start-safety strong{font-size:13px!important}
+html body main#field-content.shell #sec-start .start-safety .safety-icon{width:30px!important;height:30px!important;font-size:18px!important}
+@media(max-width:700px){
+ html body main#field-content.shell #sec-start .start-buttons{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ html body main#field-content.shell #sec-start .start-btn small{display:none!important}
+ html body main#field-content.shell #sec-start .start-btn{padding:14px 10px!important;text-align:center}
+ html body header.casteel-header .casteel-brandbar{min-height:100px!important;padding-top:10px!important}
+ html body header.casteel-header .app-heading span{display:none!important}
+ html body header.casteel-header .casteel-logo{height:44px!important}
+ html body header.casteel-header .casteel-logo-wrap{width:160px!important}
+ html body header.casteel-header .mobile-nav-toggle{top:14px!important}
+ html body header.casteel-header .app-heading{margin-top:2px!important}
+}
+</style>
 </body></html>
