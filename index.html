@@ -2896,18 +2896,18 @@ body main .start-safety{border-radius:13px!important;box-shadow:0 10px 22px rgba
   </div>
 </div>
 <div class="reference-home-actions" aria-label="Common field tasks">
-  <label for="page-catalog" class="reference-action"><span class="reference-action-icon">⌕</span><b>FIND A MODEL</b><small>Info, specs & documents</small></label>
+  <label for="page-catalog" class="reference-action" data-focus="1"><span class="reference-action-icon">⌕</span><b>FIND A MODEL</b><small>Info, specs & documents</small></label>
   <label for="page-fault" class="reference-action"><span class="reference-action-icon">⚒</span><b>TROUBLESHOOT</b><small>Error codes & diagnostics</small></label>
   <label for="page-zoning" class="reference-action"><span class="reference-action-icon">⌘</span><b>ZONING HELP</b><small>Setup & configuration</small></label>
-  <label for="page-fault" class="reference-action"><span class="reference-action-icon">⌁</span><b>WIRING</b><small>Communication & terminals</small></label>
+  <label for="page-fault" class="reference-action" data-q="wiring"><span class="reference-action-icon">⌁</span><b>WIRING</b><small>Communication & terminals</small></label>
   <label for="page-catalog" class="reference-action"><span class="reference-action-icon">◈</span><b>PARTS LOOKUP</b><small>Equipment reference</small></label>
-  <label for="page-catalog" class="reference-action"><span class="reference-action-icon">▤</span><b>INSTALL GUIDES</b><small>Setup & best practices</small></label>
+  <label for="page-catalog" class="reference-action" data-q="install"><span class="reference-action-icon">▤</span><b>INSTALL GUIDES</b><small>Setup & best practices</small></label>
 </div>
 <div class="reference-resources-title">RESOURCES & SAFETY</div>
 <div class="reference-resources">
   <button type="button" class="reference-resource" data-q="glossary"><span>▣</span><b>TECHNICAL GLOSSARY</b><small>HVAC terms and definitions</small><i>›</i></button>
-  <label for="page-fault" class="reference-resource"><span>!</span><b>SAFETY INFORMATION</b><small>PPE, electrical, refrigerant</small><i>›</i></label>
-  <label for="page-fault" class="reference-resource"><span>❄</span><b>REFRIGERANT INFO</b><small>R-410A, R-32, recovery & handling</small><i>›</i></label>
+  <label for="page-fault" class="reference-resource" data-safety="1"><span>!</span><b>SAFETY INFORMATION</b><small>PPE, electrical, refrigerant</small><i>›</i></label>
+  <label for="page-fault" class="reference-resource" data-q="refrigerant"><span>❄</span><b>REFRIGERANT INFO</b><small>R-410A, R-32, recovery & handling</small><i>›</i></label>
   <label for="page-fault" class="reference-resource"><span>▤</span><b>CODE REFERENCES</b><small>Daikin fault and HVAC codes</small><i>›</i></label>
 </div>
 <div class="start-lookup"><input autocomplete="off" class="start-search" id="start-input" placeholder="Search model, code, or topic…" type="search"/></div>
@@ -6066,5 +6066,39 @@ document.addEventListener('click',function(e){
   var g=document.querySelector('#sec-start .start-glossary');
   if(g){g.style.display='block';g.open=true;g.scrollIntoView({behavior:'smooth',block:'start'});}
 });
+</script>
+<style id="v27-search-first">
+@media(max-width:700px){
+ html body main #page-start{}
+ #page-start:checked ~ main #sec-start{display:flex!important;flex-direction:column!important}
+ body main #sec-start>*{order:10}
+ body main #sec-start>.start-lookup{order:1}
+ body main #sec-start>.start-example{order:2}
+ body main #sec-start>.model-suggestions{order:3}
+ body main #sec-start>.model-context{order:4}
+ body main #sec-start>.start-results{order:5}
+ body main #sec-start:before{order:6;height:96px!important;margin:6px 0 12px!important;background-size:cover!important;background-position:center 60%!important}
+ body main #sec-start .start-example{font-size:11px!important;color:#c4dbec!important}
+ body main #sec-start .start-lookup input{font-size:16px!important;min-height:50px!important}
+ body main #sec-start .start-safety.show-safety{display:grid!important}
+}
+</style>
+<script id="v27-home-tiles">
+(function(){
+ var inp=document.getElementById('start-input');
+ document.addEventListener('click',function(e){
+  var t=e.target.closest('.reference-action,.reference-resource');if(!t||!inp)return;
+  if(t.hasAttribute('data-q')&&t.getAttribute('data-q')!=='glossary'){
+   e.preventDefault();inp.value=t.getAttribute('data-q');
+   inp.dispatchEvent(new Event('input',{bubbles:true}));
+   var r=document.getElementById('start-results');if(r&&r.scrollIntoView)r.scrollIntoView({block:'start'});
+  }else if(t.hasAttribute('data-focus')){
+   e.preventDefault();inp.focus();inp.scrollIntoView({block:'center'});
+  }else if(t.hasAttribute('data-safety')){
+   e.preventDefault();var sf=document.querySelector('#sec-start .start-safety');
+   if(sf){sf.classList.add('show-safety');sf.style.display='grid';sf.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+ });
+})();
 </script>
 </body></html>
