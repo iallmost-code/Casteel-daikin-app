@@ -1,5 +1,6 @@
-# Casteel HVAC Field Guide: static single-file app, no build step.
+# Casteel Daikin Guide: static app; version its offline cache before publishing.
 [build]
+  command = "python3 scripts/prepare_offline.py"
   publish = "."
 
 # Keep the saved reference data (data/) out of the public site.
@@ -8,3 +9,20 @@
   to = "/404.html"
   status = 404
   force = true
+
+# Always check for guide updates; the service worker keeps a separate offline copy.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "no-cache"
