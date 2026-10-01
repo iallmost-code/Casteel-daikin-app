@@ -5607,4 +5607,30 @@ body .casteel-brandbar{min-height:96px!important;padding:12px 14px 8px!important
   start.addEventListener('input',function(){if(!ctx.hidden&&norm(start.value)!==norm(nameEl.textContent))ctx.hidden=true;});
 })();
 </script><nav class="mobile-bottom-nav" aria-label="Primary mobile navigation"><label for="page-start">HOME</label><label for="page-fault">DIAGNOSTICS</label><label for="page-zoning">ZONING</label><label for="page-catalog">EQUIPMENT</label><label for="page-ahri">AHRI</label></nav>
+<style id="v26-readability-fix">
+/* readable labels on the dark theme */
+body main details.guided-reference summary,body main details.jump-list summary,body main .guided-reference summary{color:#e6f4ff!important}
+body main details.jump-list summary{color:#fff!important}
+body main .guided-reference summary small{color:#a9c3d4!important}
+body main h2,body main .section-head h2{color:#fff!important}
+body main .ahri-summary strong,body main #ahri-count,body main #ahri-count strong,body main .ahri-summary span strong{color:#5fd0ff!important}
+body main td small,body main .ahri-table small{color:#a9c3d4!important}
+body main :is(#sec-fault-codes,#sec-catalog-differences,#sec-zoning,#sec-ahri,#sec-known-gaps,#sec-source-documents) details>summary{color:#fff!important}
+body main :is(#sec-fault-codes,#sec-catalog-differences,#sec-zoning,#sec-ahri,#sec-known-gaps,#sec-source-documents) details>summary small{color:#a9c3d4!important}
+body main :is(#sec-fault-codes,#sec-catalog-differences,#sec-zoning,#sec-ahri,#sec-known-gaps,#sec-source-documents) section.section-block>h2,body main #sec-catalog-differences h2{color:#fff!important}
+/* start hero: one Casteel logo (header already has it); keep Daikin */
+body main #sec-start .start-casteel-logo,body main #sec-start .start-brand-divider{display:none!important}
+body main #sec-start .start-brand-lockup{max-width:100%!important;overflow:hidden!important}
+body main #sec-start .start-example,body main #sec-start .start-btn small{color:#c4dbec!important;opacity:1!important}
+@media(max-width:700px){
+ html body header.casteel-header .casteel-brandbar{display:flex!important;align-items:center!important;gap:10px!important;padding:8px 12px!important}
+ html body header.casteel-header .casteel-logo{max-width:110px!important;max-height:52px!important;width:auto!important}
+ html body header.casteel-header .app-heading strong{font-size:17px!important;letter-spacing:.06em!important}
+ html body header.casteel-header .app-heading span{display:none!important}
+ html body header.casteel-header .source-badge{display:none!important}
+ body main #sec-start .start-hero{margin-top:-120px!important;min-height:0!important;padding:16px!important}
+ body main #sec-start .daikin-word{font-size:30px!important}
+ body main #sec-start .daikin-mark{width:36px!important;height:28px!important}
+}
+</style>
 </body></html>
