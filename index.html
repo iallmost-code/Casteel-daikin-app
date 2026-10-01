@@ -2743,7 +2743,7 @@ body main .start-safety{border-radius:13px!important;box-shadow:0 10px 22px rgba
 <label class="nav-pill tab-start" for="page-start" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 10 12 3l9 7v11h-6v-7H9v7H3Z"></path></svg><span>START HERE</span></label>
 <label class="nav-pill tab-diagnostics" for="page-fault" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M2 12h5l3-9 4 18 3-9h5"></path></svg><span>DIAGNOSTICS</span></label>
 <label class="nav-pill tab-zoning" for="page-zoning" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3v6M5 19l7-10 7 10M3 19h4M17 19h4"></path></svg><span>ZONING</span></label>
-<label class="nav-pill tab-equipment" for="page-catalog" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 2h9l4 4v16H6ZM10 10h5M10 14h5M10 18h3"></path></svg><span>EQUIPMENT INFO</span></label><label class="nav-pill tab-ahri" for="page-ahri" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 15v6h3v-6ZM10 9v12h3V9ZM16 3v18h3V3Z"></path></svg><span>AHRI</span></label>
+<label class="nav-pill tab-equipment" for="page-catalog" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M6 2h9l4 4v16H6ZM10 10h5M10 14h5M10 18h3"></path></svg><span>EQUIPMENT INFO</span></label><label class="nav-pill tab-ahri" for="page-ahri" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 15v6h3v-6ZM10 9v12h3V9ZM16 3v18h3V3Z"></path></svg><span>AHRI</span></label><label class="nav-pill tab-gaps" for="page-gaps" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 2 21h20ZM12 10v5M12 18v.5"></path></svg><span>KNOWN GAPS</span></label><label class="nav-pill tab-sources" for="page-sources" tabindex="0"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 4h12l4 4v12H4ZM8 12h8M8 16h8"></path></svg><span>SOURCES</span></label>
 </nav>
 </header>
 <main class="shell" id="field-content">
@@ -5684,15 +5684,23 @@ body main .start-safety{border-radius:13px!important;box-shadow:0 10px 22px rgba
     q=(q||'').trim(); if(!q){box.innerHTML='';return;}
     if(!index)build();
     var res={}; index.forEach(function(e){if(hit(e.text,q)){(res[e.sid]=res[e.sid]||[]).push(e);}});
-    var html='',total=0;
+    var html='',total=0,secs='',chips='',first=null,prev=box._active;
     Object.keys(PAGES).forEach(function(sid){
-      var list=res[sid]; if(!list)return; total+=list.length;
-      html+='<h3>'+PAGES[sid][1]+' — '+list.length+(list.length===1?' card':' cards')+'</h3>';
-      list.slice(0,8).forEach(function(e,i){html+='<button type="button" class="start-hit" data-sid="'+sid+'" data-i="'+index.indexOf(e)+'">'+esc(e.title.slice(0,120))+'</button>';});
-      if(list.length>8)html+='<button type="button" class="start-hit" data-sid="'+sid+'" data-all="1"><strong>Show all '+list.length+' in '+PAGES[sid][1]+'</strong></button>';
+      var list=res[sid]; if(!list)return; total+=list.length; if(!first)first=sid;
     });
-    if(q.length>=3)html+='<h3>AHRI</h3><button type="button" class="start-hit" data-sid="sec-ahri" data-all="1">Search the AHRI matchups for “'+esc(q)+'”</button>';
-    if(!total)html='<div class="start-empty">Nothing in the reference cards matches “'+esc(q)+'”. Try fewer words, or part of a model number.'+(q.length>=3?'</div><h3>AHRI</h3><button type="button" class="start-hit" data-sid="sec-ahri" data-all="1">Search the AHRI matchups for “'+esc(q)+'”</button>':'</div>');
+    var active=(prev&&res[prev])?prev:first;
+    Object.keys(PAGES).forEach(function(sid){
+      var list=res[sid]; if(!list)return;
+      chips+='<button type="button" class="start-chip'+(sid===active?' on':'')+'" data-chip="'+sid+'">'+PAGES[sid][1]+' <b>'+list.length+'</b></button>';
+      var body='';
+      list.slice(0,8).forEach(function(e,i){body+='<button type="button" class="start-hit" data-sid="'+sid+'" data-i="'+index.indexOf(e)+'">'+esc(e.title.slice(0,120))+'</button>';});
+      if(list.length>8)body+='<button type="button" class="start-hit" data-sid="'+sid+'" data-all="1"><strong>Show all '+list.length+' in '+PAGES[sid][1]+'</strong></button>';
+      secs+='<div class="start-sec'+(sid===active?' on':'')+'" data-sec="'+sid+'">'+body+'</div>';
+    });
+    if(q.length>=3){chips+='<button type="button" class="start-chip" data-chip="sec-ahri">AHRI</button>';secs+='<div class="start-sec" data-sec="sec-ahri"><button type="button" class="start-hit" data-sid="sec-ahri" data-all="1">Search the AHRI matchups for “'+esc(q)+'”</button></div>';}
+    if(total)html='<div class="start-chips">'+chips+'</div>'+secs;
+    else html='<div class="start-empty">Nothing in the reference cards matches “'+esc(q)+'”. Try fewer words, or part of a model number.</div>'+(q.length>=3?'<div class="start-chips">'+chips+'</div>'+secs.replace('start-sec"','start-sec on"'):'');
+    box._active=active;
     box.innerHTML=html; box._q=q;
   }
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -5700,6 +5708,8 @@ body main .start-safety{border-radius:13px!important;box-shadow:0 10px 22px rgba
   if(inp){inp.addEventListener('input',function(){show(inp.value);});}
   var box=document.getElementById('start-results');
   if(box)box.addEventListener('click',function(ev){
+    var ch=ev.target.closest('.start-chip');
+    if(ch){var c=ch.getAttribute('data-chip');box._active=c;box.querySelectorAll('.start-chip').forEach(function(x){x.classList.toggle('on',x===ch);});box.querySelectorAll('.start-sec').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-sec')===c);});return;}
     var b=ev.target.closest('.start-hit'); if(!b)return;
     var q=box._q||''; var sid=b.getAttribute('data-sid');
     var card=b.hasAttribute('data-i')?index[+b.getAttribute('data-i')].card:null;
@@ -6105,4 +6115,19 @@ html body main#field-content.shell #sec-start.has-q>.start-results{order:0;margi
  if(!r||!s)return;function f(){s.classList.toggle('has-q',r.children.length>0);}
  new MutationObserver(f).observe(r,{childList:true});f();})();
 </script>
+<style id="v29-tabs-and-results">
+html body main#field-content.shell .start-chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+html body main#field-content.shell .start-chip{padding:9px 14px;border-radius:999px;border:1px solid #2e6a94;background:#0b2a44;color:#e6f4ff;font-weight:800;font-size:13px;letter-spacing:.04em;cursor:pointer}
+html body main#field-content.shell .start-chip b{margin-left:6px;padding:1px 7px;border-radius:999px;background:#12476f;font-size:12px}
+html body main#field-content.shell .start-chip.on{background:linear-gradient(180deg,#1590e8,#0b5bb5);border-color:#7fd3ff;color:#fff}
+html body main#field-content.shell .start-sec{display:none}
+html body main#field-content.shell .start-sec.on{display:block}
+html body header.casteel-header .nav{grid-template-columns:repeat(7,minmax(0,1fr))!important}
+html body #page-gaps:checked ~ header.casteel-header .nav label[for='page-gaps']{background:linear-gradient(150deg,#b9770e,#6b3d00)!important;border-color:#ffd166!important;box-shadow:0 0 12px #f5b82e88!important}
+html body #page-sources:checked ~ header.casteel-header .nav label[for='page-sources']{background:linear-gradient(150deg,#5b6b7c,#2c3a48)!important;border-color:#c3d0dc!important;box-shadow:0 0 12px #8ea3b788!important}
+@media(max-width:700px){
+ html body header.casteel-header .nav{display:flex!important;overflow-x:auto!important;scroll-snap-type:x proximity;gap:6px!important;padding-bottom:4px!important}
+ html body header.casteel-header .nav .nav-pill{flex:0 0 76px!important;min-width:76px!important;scroll-snap-align:start}
+}
+</style>
 </body></html>
