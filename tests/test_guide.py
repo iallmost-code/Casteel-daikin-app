@@ -63,6 +63,10 @@ class GuideTests(unittest.TestCase):
         if destination in ('page-catalog', 'page-gaps', 'page-sources'):
             self.page.locator('#field-nav label[for="page-ahri"]').click()
             self.page.locator(f'main .eq-subnav label[for="{destination}"]:visible').click()
+        elif destination == 'page-dip':
+            # DIP switches is a sub-tab of the Diagnostics tab.
+            self.page.locator('#field-nav label[for="page-fault"]').click()
+            self.page.locator('main .eq-subnav label[for="page-dip"]:visible').click()
         else:
             self.page.locator(f'#field-nav label[for="{destination}"]').click()
 
