@@ -140,7 +140,7 @@ class GuideTests(unittest.TestCase):
         self.navigate('page-start')
         self.search('DX6VS')
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
-        self.assertEqual(self.page.locator(".ref-card").count(), 178)
+        self.assertEqual(self.page.locator(".ref-card").count(), 140)
 
     def test_responsive_pages(self):
         for width in [320, 390, 768, 1440]:
@@ -149,32 +149,31 @@ class GuideTests(unittest.TestCase):
                 self.navigate(destination)
                 self.assertFalse(self.page.evaluate('document.documentElement.scrollWidth>innerWidth'), (width, destination))
 
-    def test_charge_checkers(self):
+    def test_charge_sheet(self):
         page = self.page
-        page.locator('#field-nav label[for="page-chk32"]').click()
-        page.locator('main .eq-subnav label[for="page-chk410"]:visible').click()
-        page.select_option('#k-model', 'DX6VSA')
-        page.select_option('#k-tons', '2.0')
-        page.select_option('#k-indoor', 'CAPEA')
-        page.select_option('#k-pipe', label='3/8" liquid x 3/4" suction')
-        page.fill('#k-len', '50')
-        out = page.locator('#k-charge-out').inner_text()
-        self.assertIn('Add 22 oz', out)
-        self.assertIn('98 oz', out)
-        page.fill('#k-len', '52')  # linear approximation between the 50 and 55 ft rows
-        self.assertIn('99.2 oz', page.locator('#k-charge-out').inner_text())
-        page.fill('#k-amb', '80'); page.fill('#k-psig', '300'); page.fill('#k-liqT', '84')
-        self.assertIn('in range', page.locator('#k-sc-out').inner_text())
-        page.fill('#k-liqT', '90')
-        self.assertIn('LOW', page.locator('#k-sc-out').inner_text())
-        page.locator('main .eq-subnav label[for="page-chk32"]:visible').click()
-        page.select_option('#c-fam', 'DH7TC')
-        self.assertIn('no charging data', page.locator('#c-factory').inner_text())
-        page.select_option('#c-fam', 'DC5SE')
-        page.select_option('#c-tons', '3')
-        page.select_option('#c-pipe', index=1)
-        page.fill('#c-len', '40')
-        self.assertIn('13.8', page.locator('#c-line-out').inner_text())
+        page.locator('#field-nav label[for="page-charge"]').click()
+        page.select_option('#q-unit', 'DX6VSA')
+        page.select_option('#q-tons', '2.0')
+        page.fill('#q-od', '80')
+        page.fill('#q-lp', '300')  # 96 F from the manual's R-410A table
+        page.fill('#q-lt', '84')
+        page.fill('#q-ss', '40')
+        page.fill('#q-st', '50')
+        out = page.locator('#q-out').inner_text()
+        self.assertIn('Charge looks RIGHT', out)
+        self.assertIn('Subcooling: 12', out)
+        self.assertIn('Superheat: 10', out)
+        page.fill('#q-lt', '90')
+        self.assertIn('LOW charge', page.locator('#q-out').inner_text())
+        page.locator('#q-line summary').click()
+        page.select_option('#q-ind', 'CAPEA')
+        page.select_option('#q-pipe', label='3/8" liquid x 3/4" suction')
+        page.fill('#q-len', '52')  # linear approximation between the 50 and 55 ft rows
+        self.assertIn('99.2 oz', page.locator('#q-line-out').inner_text())
+        page.locator('#q-ref button[data-r="32"]').click()
+        page.select_option('#q-unit', 'DH7TC')
+        page.fill('#q-od', '80')
+        self.assertIn('No charging data', page.locator('#q-out').inner_text())
 
     def test_saved_release_update_can_activate_offline(self):
         self.page.evaluate('navigator.serviceWorker.ready')
