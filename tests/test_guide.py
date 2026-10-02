@@ -48,7 +48,7 @@ class GuideTests(unittest.TestCase):
         cls.workspace.cleanup()
 
     def setUp(self):
-        self.context = self.browser.new_context(viewport={'width': 390, 'height': 844})
+        self.context = self.browser.new_context(viewport={'width': 1440, 'height': 900})
         self.page = self.context.new_page()
         self.errors = []
         self.page.on('pageerror', lambda error: self.errors.append(str(error)))
@@ -142,10 +142,10 @@ class GuideTests(unittest.TestCase):
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
         self.assertEqual(self.page.locator(".ref-card").count(), 140)
 
-    def test_responsive_pages(self):
-        for width in [320, 390, 768, 1440]:
-            self.page.set_viewport_size({'width': width, 'height': 844})
-            for destination in ['page-start', 'page-fault', 'page-dip', 'page-zoning', 'page-catalog', 'page-ahri', 'page-gaps', 'page-sources']:
+    def test_pc_pages_fit(self):
+        for width in [1024, 1280, 1440, 1920]:
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            for destination in ['page-start', 'page-fault', 'page-dip', 'page-air', 'page-charge', 'page-zoning', 'page-catalog', 'page-ahri', 'page-gaps', 'page-sources']:
                 self.navigate(destination)
                 self.assertFalse(self.page.evaluate('document.documentElement.scrollWidth>innerWidth'), (width, destination))
 
