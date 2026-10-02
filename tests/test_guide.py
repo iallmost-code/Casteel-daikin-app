@@ -59,7 +59,12 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(self.errors, [])
 
     def navigate(self, destination):
-        self.page.locator(f'#field-nav label[for="{destination}"]').click()
+        # Equipment tab: AHRI, Equipment info, Known gaps and Sources share one top-level tab.
+        if destination in ('page-catalog', 'page-gaps', 'page-sources'):
+            self.page.locator('#field-nav label[for="page-ahri"]').click()
+            self.page.locator(f'main .eq-subnav label[for="{destination}"]:visible').click()
+        else:
+            self.page.locator(f'#field-nav label[for="{destination}"]').click()
 
     def search(self, query):
         self.page.locator('#global-search').fill(query)
