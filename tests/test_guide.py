@@ -140,7 +140,7 @@ class GuideTests(unittest.TestCase):
         self.navigate('page-start')
         self.search('DX6VS')
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
-        self.assertEqual(self.page.locator(".ref-card").count(), 140)
+        self.assertEqual(self.page.locator(".ref-card").count(), 178)
 
     def test_responsive_pages(self):
         for width in [320, 390, 768, 1440]:
