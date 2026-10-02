@@ -1,5 +1,5 @@
 # DAIKIN FIT R-410A CHARGING REFERENCE (DX6VS / DZ6VS inverter outdoor units)
-Compiled for James Ford (Casteel Heating and Air). Source documents: Daikin Installation & Service Reference for DX6VS***1*A* / DZ6VS***1*A* / DZ6VSA***1EA* (the Fit AC/HP install manual, 60 pages, dated 2023, page numbers below are that manual's printed pages) and Daikin service manual SiUS612209EB (same family, R-410A, with EA as the earlier revision, content the same for the sections used).
+Compiled for Casteel Heating and Air. Source documents: Daikin Installation & Service Reference for DX6VS***1*A* / DZ6VS***1*A* / DZ6VSA***1EA* (the Fit AC/HP install manual, 60 pages, dated 2023, page numbers below are that manual's printed pages) and Daikin service manual SiUS612209EB (same family, R-410A, with EA as the earlier revision, content the same for the sections used).
 Rules for whoever reads this: do NOT guess or fill gaps. If a value is not in this file, say so and send the tech to the unit nameplate or the install manual. Items marked CONFIRM are flagged.
 The R-32 Fit units (DC6VS, DH6VS, DC9VS, DH7VS, DH9VS) are a different refrigerant with different charge numbers. See the separate R-32 charging file. Do not mix them.
 

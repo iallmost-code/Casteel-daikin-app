@@ -1,5 +1,5 @@
 # DAIKIN R-32 CHARGING REFERENCE
-Compiled for James Ford (Casteel Heating and Air) from Daikin spec sheets (SS) and installation manuals (IM/IOD). Every number below is as printed in those documents. Rules for whoever reads this: do NOT guess or fill gaps. If a value is not here, say it is not in this file and tell the tech to check the unit nameplate / installation manual. Items marked CONFIRM have a mapping issue noted.
+Compiled for Casteel Heating and Air from Daikin spec sheets (SS) and installation manuals (IM/IOD). Every number below is as printed in those documents. Rules for whoever reads this: do NOT guess or fill gaps. If a value is not here, say it is not in this file and tell the tech to check the unit nameplate / installation manual. Items marked CONFIRM have a mapping issue noted.
 
 Everything in this file is R-32 equipment. There is NO R-410A charging chart in this collection.
 
