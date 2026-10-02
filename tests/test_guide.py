@@ -149,6 +149,32 @@ class GuideTests(unittest.TestCase):
                 self.navigate(destination)
                 self.assertFalse(self.page.evaluate('document.documentElement.scrollWidth>innerWidth'), (width, destination))
 
+    def test_charge_checkers(self):
+        page = self.page
+        page.locator('#field-nav label[for="page-chk410"]').click()
+        page.select_option('#k-model', 'DX6VSA')
+        page.select_option('#k-tons', '2.0')
+        page.select_option('#k-indoor', 'CAPEA')
+        page.select_option('#k-pipe', label='3/8" liquid x 3/4" suction')
+        page.fill('#k-len', '50')
+        out = page.locator('#k-charge-out').inner_text()
+        self.assertIn('Add 22 oz', out)
+        self.assertIn('98 oz', out)
+        page.fill('#k-len', '52')  # linear approximation between the 50 and 55 ft rows
+        self.assertIn('99.2 oz', page.locator('#k-charge-out').inner_text())
+        page.fill('#k-amb', '80'); page.fill('#k-psig', '300'); page.fill('#k-liqT', '84')
+        self.assertIn('in range', page.locator('#k-sc-out').inner_text())
+        page.fill('#k-liqT', '90')
+        self.assertIn('LOW', page.locator('#k-sc-out').inner_text())
+        page.locator('#field-nav label[for="page-chk32"]').click()
+        page.select_option('#c-fam', 'DH7TC')
+        self.assertIn('no charging data', page.locator('#c-factory').inner_text())
+        page.select_option('#c-fam', 'DC5SE')
+        page.select_option('#c-tons', '3')
+        page.select_option('#c-pipe', index=1)
+        page.fill('#c-len', '40')
+        self.assertIn('13.8', page.locator('#c-line-out').inner_text())
+
     def test_saved_release_update_can_activate_offline(self):
         self.page.evaluate('navigator.serviceWorker.ready')
         self.page.wait_for_function('navigator.serviceWorker.controller!==null')
