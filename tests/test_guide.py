@@ -151,7 +151,8 @@ class GuideTests(unittest.TestCase):
 
     def test_charge_checkers(self):
         page = self.page
-        page.locator('#field-nav label[for="page-chk410"]').click()
+        page.locator('#field-nav label[for="page-chk32"]').click()
+        page.locator('main .eq-subnav label[for="page-chk410"]:visible').click()
         page.select_option('#k-model', 'DX6VSA')
         page.select_option('#k-tons', '2.0')
         page.select_option('#k-indoor', 'CAPEA')
@@ -166,7 +167,7 @@ class GuideTests(unittest.TestCase):
         self.assertIn('in range', page.locator('#k-sc-out').inner_text())
         page.fill('#k-liqT', '90')
         self.assertIn('LOW', page.locator('#k-sc-out').inner_text())
-        page.locator('#field-nav label[for="page-chk32"]').click()
+        page.locator('main .eq-subnav label[for="page-chk32"]:visible').click()
         page.select_option('#c-fam', 'DH7TC')
         self.assertIn('no charging data', page.locator('#c-factory').inner_text())
         page.select_option('#c-fam', 'DC5SE')
