@@ -75,3 +75,9 @@ New conflicts / checks (need the PDFs):
 4. **DR80SN (2035A) cells flagged when pulled:** 0604B* F06 dip, 0803B* F05 0.8" watts 242, 0804B* F01 0.1" 841, 1005C* F02 0.6" watts #N/A, 1205D* F04 not-recommended-for-heat.
 
 Still missing: DR92SN/DR96SN/DD96SN CFM rows (IOD-2037B pp. 46-51), DD80SN tables (IM-IOD-2035A), DR80SN 0803B*/1005C*/1205D* and all heating/watts for manual IOD-2039C, AMST60DU1300 T2-T5.
+
+## 8. Update: R-32 charging gaps closed from Daikin manuals (2026-10-28)
+Details and every number: `15-r32-manual-tables.md`.
+- Settled: DH6VS / DC6VS subcool rows (3P761829-1B p. 31 by model column). DC6VSA is its own model (1.5-3 ton); its 3-ton target is 13, not 15 (manual and SS-DC6VS-R32).
+- Added: R-32 pressure-temperature tables from each unit's manual (all agree), Fit line set tables (3P761829-1B pp. 27-29, 3P679063-5L p. 24), SE/SQ superheat by tonnage (IOD-4047A, IOD-4064A, IOD-4048B p. 11).
+- Still open: DC7TC / DH7TC (no manual posted by Daikin), IOD-4048C (download blocked), R-410A TXV units (need the model list).
