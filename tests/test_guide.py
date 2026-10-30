@@ -59,9 +59,10 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(self.errors, [])
 
     def navigate(self, destination):
-        # Equipment tab: AHRI, Equipment info, Known gaps and Sources share one top-level tab.
+        # Equipment tab: Model lookup, Equipment info, Known gaps and Sources share one top-level tab.
+        # The AHRI matchup page is hidden on purpose; its catalog data stays in the file.
         if destination in ('page-catalog', 'page-gaps', 'page-sources'):
-            self.page.locator('#field-nav label[for="page-ahri"]').click()
+            self.page.locator('#field-nav label[for="page-models"]').click()
             self.page.locator(f'main .eq-subnav label[for="{destination}"]:visible').click()
         elif destination == 'page-dip':
             # DIP switches is a sub-tab of the Diagnostics tab.
@@ -100,7 +101,7 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(self.page.locator('#sec-fault-codes .section-search').input_value(), '')
         self.page.locator('#search-options').click()
         self.assertEqual(self.page.evaluate('document.activeElement.id'), 'global-search')
-        for destination in ['page-start', 'page-dip', 'page-ahri']:
+        for destination in ['page-start', 'page-dip', 'page-models']:
             self.navigate(destination)
             self.page.keyboard.press('Control+k')
             self.assertEqual(self.page.evaluate('document.activeElement.id'), 'global-search')
@@ -110,18 +111,14 @@ class GuideTests(unittest.TestCase):
         self.page.locator('.start-btn[data-q="furnace"]').click()
         self.assertEqual(self.page.locator('#global-search').input_value(), 'furnace')
 
-    def test_ahri_field_filter_survives_navigation(self):
-        self.navigate('page-ahri')
-        self.page.locator('#ahri-outdoor-model').fill('DC9VSA2410')
-        self.assertEqual(self.page.locator('#ahri-result-count').inner_text(), '12 matches')
-        self.assertEqual(self.page.locator('#global-search').input_value(), 'DC9VSA2410')
-        self.navigate('page-start')
-        self.navigate('page-ahri')
-        self.assertEqual(self.page.locator('#ahri-outdoor-model').input_value(), 'DC9VSA2410')
-        self.assertEqual(self.page.locator('#ahri-result-count').inner_text(), '12 matches')
-        self.search('DC4SQA6010')
-        self.assertEqual(self.page.locator('#ahri-outdoor-model').input_value(), '')
-        self.assertEqual(self.page.locator('#ahri-result-count').inner_text(), '2 matches')
+    def test_model_lookup_and_hidden_ahri(self):
+        self.navigate('page-models')
+        self.search('DC9VSA2410A')
+        self.page.wait_for_timeout(250)
+        self.assertIn('DC9VSA2410A', self.page.locator('#eu-model-name').inner_text())
+        # AHRI matchup screens are hidden by choice; the catalog data is kept.
+        self.assertEqual(self.page.locator('label[for="page-ahri"]:visible').count(), 0)
+        self.assertGreater(self.page.evaluate('window.daikinAhriCatalog.length'), 1000)
 
     def test_offline_reload_and_manifest(self):
         self.page.evaluate('navigator.serviceWorker.ready')
@@ -134,9 +131,10 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(set(keys), {'/index.html', '/manifest.webmanifest', '/icons/guide-192.png', '/icons/guide-512.png'})
         self.context.set_offline(True)
         self.page.reload()
-        self.navigate('page-ahri')
-        self.search('DC9VSA2410')
-        self.assertEqual(self.page.locator('#ahri-result-count').inner_text(), '12 matches')
+        self.navigate('page-models')
+        self.search('DC9VSA2410A')
+        self.page.wait_for_timeout(250)
+        self.assertIn('DC9VSA2410A', self.page.locator('#eu-model-name').inner_text())
         self.navigate('page-start')
         self.search('DX6VS')
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
@@ -145,7 +143,7 @@ class GuideTests(unittest.TestCase):
     def test_pc_pages_fit(self):
         for width in [1024, 1280, 1440, 1920]:
             self.page.set_viewport_size({'width': width, 'height': 900})
-            for destination in ['page-start', 'page-fault', 'page-dip', 'page-air', 'page-charge', 'page-zoning', 'page-catalog', 'page-ahri', 'page-gaps', 'page-sources']:
+            for destination in ['page-start', 'page-fault', 'page-dip', 'page-air', 'page-charge', 'page-zoning', 'page-catalog', 'page-models', 'page-gaps', 'page-sources']:
                 self.navigate(destination)
                 self.assertFalse(self.page.evaluate('document.documentElement.scrollWidth>innerWidth'), (width, destination))
 
@@ -222,9 +220,10 @@ class GuideTests(unittest.TestCase):
             self.context.set_offline(True)
             self.page.locator('#update-guide').click()
             self.page.wait_for_function("document.querySelector('meta[name=test-release]')?.content==='updated'")
-            self.navigate('page-ahri')
-            self.search('DC9VSA2410')
-            self.assertEqual(self.page.locator('#ahri-result-count').inner_text(), '12 matches')
+            self.navigate('page-models')
+            self.search('DC9VSA2410A')
+            self.page.wait_for_timeout(250)
+            self.assertIn('DC9VSA2410A', self.page.locator('#eu-model-name').inner_text())
         finally:
             index.write_text(initial_index)
             worker.write_text(initial_worker)
