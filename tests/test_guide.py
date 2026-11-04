@@ -191,6 +191,7 @@ class GuideTests(unittest.TestCase):
         # SE superheat by tonnage (IOD-4047A p11)
         page.select_option('#q-unit', 'DH4SE')
         page.select_option('#q-tons', '2.5')
+        page.fill('#q-od', '80')  # liquid line 86 F can't be below outdoor air in cooling
         page.fill('#q-lp', '300')
         page.fill('#q-lt', '86')
         page.fill('#q-sp', '120')
@@ -205,6 +206,48 @@ class GuideTests(unittest.TestCase):
         line = page.locator('#q-line-out').inner_text()
         self.assertIn('Total charge (A): 97 oz', line)
         self.assertIn('Additional (C): 24 oz', line)
+
+    def test_charge_impossible_readings_and_heating_mode(self):
+        page = self.page
+        page.locator('#field-nav label[for="page-charge"]').click()
+        page.locator('#q-ref button[data-r="32"]').click()
+        # AC unit: no mode choice
+        page.select_option('#q-unit', 'DC6VSS')
+        self.assertTrue(page.locator('#q-mode').is_hidden())
+        # The field report: DH4SE 3 ton, 65 F outdoor, suction 155 / 180, liquid 600 / 20
+        page.select_option('#q-unit', 'DH4SE')
+        page.select_option('#q-tons', '3')
+        self.assertTrue(page.locator('#q-mode').is_visible())
+        for field, value in [('#q-od', '65'), ('#q-sp', '155'), ('#q-st', '180'), ('#q-lp', '600'), ('#q-lt', '20')]:
+            page.fill(field, value)
+        out = page.locator('#q-out').inner_text()
+        self.assertIn('Check your readings first', out)
+        self.assertNotIn('HIGH charge', out)
+        self.assertIn('set Mode to Heating', out)
+        page.select_option('#q-mode', 'heat')
+        out = page.locator('#q-out').inner_text()
+        self.assertIn('Check your readings first', out)
+        self.assertNotIn('HIGH charge', out)
+        # Believable heating readings: no charge verdict, printed heating superheat
+        page.fill('#q-sp', '120')  # 40 F
+        page.fill('#q-st', '48')
+        page.fill('#q-lp', '400')  # 115 F
+        page.fill('#q-lt', '100')
+        out = page.locator('#q-out').inner_text()
+        self.assertIn('Heating mode: charge by weight', out)
+        self.assertIn('8 ± 1 °F → in range', out)
+        self.assertNotIn('charge looks', out.lower())
+        self.assertIn('true suction access port', page.locator('#q-hint').inner_text())
+        # Fit heat pump in heating: no target in the manual
+        page.select_option('#q-unit', 'DH6VS')
+        page.select_option('#q-tons', '3')
+        self.assertIn('no heating charge target', page.locator('#q-out').inner_text().lower())
+        # Back to cooling: normal check still works
+        page.select_option('#q-mode', 'cool')
+        page.fill('#q-od', '90')
+        page.fill('#q-lp', '335')  # 102 F
+        page.fill('#q-lt', '87')
+        self.assertIn('FULL): 15 ± 1 °F → in range', page.locator('#q-out').inner_text())
 
     def test_saved_release_update_can_activate_offline(self):
         self.page.evaluate('navigator.serviceWorker.ready')

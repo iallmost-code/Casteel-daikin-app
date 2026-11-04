@@ -6122,6 +6122,7 @@ html body main#field-content.shell .calc-mode button.on{background:linear-gradie
  '<fieldset><legend>1. Which unit</legend>'+
   '<label>Outdoor unit<select id="q-unit"></select></label>'+
   '<label id="q-tons-l">Tonnage<select id="q-tons"></select></label>'+
+  '<label id="q-mode-l" hidden>Mode the system is running in<select id="q-mode"><option value="cool">Cooling</option><option value="heat">Heating (heat pump)</option></select></label>'+
   '<div id="q-own" hidden class="calc-two">'+
    '<label>Target subcooling from the unit&rsquo;s manual, &deg;F<input id="q-tsc" type="number" inputmode="decimal"></label>'+
    '<label>Target superheat from the unit&rsquo;s manual, &deg;F<input id="q-tsh" type="number" inputmode="decimal"></label>'+
@@ -6141,6 +6142,8 @@ html body main#field-content.shell .calc-mode button.on{background:linear-gradie
  '<details class="calc-more" id="q-line"><summary>Line set charge (weigh-in)</summary><div class="calc-two" id="q-line-in"></div><div class="calc-out" id="q-line-out" aria-live="polite"></div></details>'+
  '<details class="calc-more"><summary>How to take the readings (from the manuals)</summary><div class="calc-note" id="q-rules"></div></details>';
  var REF='410';
+ function isHP(u){return REF==='410'?(u==='DZ6VSA'||u==='DZ6VSAE'||u==='OWN'):u.indexOf('DH')===0;}
+ function heatMode(){return isHP($('q-unit').value)&&$('q-mode').value==='heat';}
  var famsFit=['DC9VS','DC6VSA','DC6VSS','DH6VS','DH7VS','DH9VS'],famsSE=['DC5SE','DC4SE','DC4SQ','DH5SE','DH4SE'];
  var FIT={'DC9VS':{'2':[14,8,14],'3':[8,8,8],'4':[9,10,9],'5':11},
   'DH7VS':{'2':[14,8,14],'3':[9,8,8,'SS says 9, the install manual says 8. Daikin’s own documents disagree here.'],'3.5':[9,10,9],'4':[9,10,9],'5':11},
@@ -6167,6 +6170,7 @@ html body main#field-content.shell .calc-mode button.on{background:linear-gradie
  function fillTons(){
   var u=$('q-unit').value,list=[],old=$('q-tons').value;
   $('q-own').hidden=!(REF==='410'&&u==='OWN');
+  $('q-mode-l').hidden=!isHP(u);if(!isHP(u))$('q-mode').value='cool';
   if(REF==='410'){if(u!=='OWN'){var set={};r410tables().forEach(function(t){for(var x=t.lo;x<=t.hi+0.001;x+=0.5)set[x.toFixed(1)]=1;});list=Object.keys(set).sort(function(a,b){return a-b;}).map(function(x){return {v:x,t:x+' ton'};});}}
   else if(famsFit.indexOf(u)>-1||famsSE.indexOf(u)>-1){var ts=[];r32rows(u).forEach(function(r){if(ts.indexOf(r.tons)<0)ts.push(r.tons);});ts.sort(function(a,b){return a-b;});list=ts.map(function(t){return {v:t,t:t+' ton'};});}
   opts($('q-tons'),list);$('q-tons-l').hidden=!list.length;
@@ -6206,7 +6210,29 @@ html body main#field-content.shell .calc-mode button.on{background:linear-gradie
   var lines=[];
   lines.push('Subcooling: <b>'+(sc===null?'&mdash;':f1(sc)+' &deg;F')+'</b>'+(sc===null?' (needs liquid saturation and liquid line temp)':' (liquid saturation '+f1(ls)+' minus liquid line '+f1(lt)+')'));
   lines.push('Superheat: <b>'+(sh===null?'&mdash;':f1(sh)+' &deg;F')+'</b>'+(sh===null?' (needs suction saturation and suction line temp)':' (suction line '+f1(st)+' minus suction saturation '+f1(ss)+')'));
+  var heat=heatMode();
+  if(heat)$('q-hint').innerHTML+=' <b>Heating:</b> the vapor line at the outdoor unit carries hot discharge gas, so read suction at the true suction access port, with the thermometer 4 to 6&Prime; from the compressor.';
   if(od===null){show(out,'info','Enter the outdoor temperature',lines);return;}
+  var bad=[],gas=REF==='32'?'R-32':'R-410A';
+  if(sc!==null&&sc<0)bad.push('Subcooling is below zero: the liquid line reads warmer than the liquid saturation. That can&rsquo;t happen with liquid in the line. Check the liquid line probe, the liquid pressure, and that the gauges are set to '+gas+'.');
+  if(sh!==null&&sh<0)bad.push('Superheat is below zero: the suction line reads colder than the suction saturation. Check the suction line probe and the suction pressure.');
+  if(!heat&&lt!==null&&lt<od-3)bad.push('In cooling, the liquid line ('+f1(lt)+' &deg;F) can&rsquo;t be colder than the outdoor air ('+f1(od)+' &deg;F); the outdoor coil cools it with outdoor air. Check the probe and the outdoor temperature.'+(isHP(u)?' If the system is in heating, set Mode to Heating.':''));
+  if(!heat&&ls!==null&&ls<od)bad.push('In cooling, the liquid saturation ('+f1(ls)+' &deg;F) can&rsquo;t be below the outdoor air ('+f1(od)+' &deg;F). Check the liquid pressure.'+(isHP(u)?' If the system is in heating, set Mode to Heating.':''));
+  if(sc!==null&&sc>40)bad.push('Subcooling of '+f1(sc)+' &deg;F is far beyond any subcooling target in this guide. Check the readings.');
+  if(sh!==null&&sh>70)bad.push('Superheat of '+f1(sh)+' &deg;F is not a believable suction reading. Check the probe and the port.'+(!heat&&isHP(u)?' If the system is in heating, set Mode to Heating: the vapor line carries hot gas in heating.':''));
+  if(bad.length){show(out,'warn','Check your readings first',lines.concat(bad,['No charge verdict until the readings make sense. Do not add or remove refrigerant based on these numbers.']));return;}
+  if(heat&&!(REF==='410'&&u==='OWN')){
+   if(famsSE.indexOf(u)>-1){
+    var tn5=parseFloat(t)>=5,hs=u==='DH4SE'?[{v:8,l:'IOD-4047A p. 11'}]:(tn5?[{v:5,l:'IOD-4064A p. 11, two-stage 5-ton, high stage'}]:[{v:8,l:'IOD-4064A p. 11 table'},{v:5,l:'IOD-4064A p. 11 text (the same page says 8 in the table; Daikin&rsquo;s page disagrees, check the unit&rsquo;s manual)'}]);
+    hs.forEach(function(g){lines.push('Printed heating superheat at the compressor ('+g.l+'): <b>'+g.v+' &plusmn; 1 &deg;F</b>'+(sh===null?'':' &rarr; <b>'+band(sh,g.v-1,g.v+1)+'</b>'));});
+    lines.push('The manual: charge a heat pump in heating by weight, with the additional charge for line size and length. Make final adjustments in the cooling cycle. No heating subcooling target is printed.');
+    show(out,'info','Heating mode: charge by weight',lines);return;
+   }
+   lines.push(REF==='410'?'The manual&rsquo;s subcooling targets are for CHARGE MODE, which is a cooling-mode check. There is no heating-mode charge target.':'The install manual&rsquo;s subcooling targets are for the CHARGE VERIFICATION TEST and full-capacity operation. No heating-mode charge target is printed.');
+   lines.push('Weigh in the charge with the line set table below. Verify subcooling in cooling (or the charge test) when outdoor is 65 to 105 &deg;F.');
+   show(out,'info','Heating mode: no heating charge target in the manual',lines);return;
+  }
+  if(heat)lines.push('Mode: heating. The targets you entered must be the heating targets from this unit&rsquo;s manual.');
   var verdict=null;
   if(REF==='410'&&u==='OWN'){
    var tsc=num($('q-tsc').value),tsh=num($('q-tsh').value),tol=num($('q-tol').value);if(tol===null)tol=1;
@@ -6327,7 +6353,7 @@ html body main#field-content.shell .calc-mode button.on{background:linear-gradie
   else r.innerHTML='<b>R-32 inverter Fit:</b> weigh in the charge from the install manual table, then verify subcooling with the thermostat&rsquo;s CHARGE VERIFICATION TEST (65 to 105 &deg;F outdoor, while the board alternates &ldquo;cha&rdquo; and the subcool value). Do not add more than 8 oz. If heat is on, it cannot enter charging mode (code 49 / E49).<br><b>R-32 SE / SQ:</b> TXV indoor coil: charge by subcooling. Outdoor 60 &deg;F or higher. Two-stage: charge at LOW stage. Additional charge beyond 15 ft by the oz per foot table. Factory charges on these spec sheets print no unit; confirm on the nameplate.<br>The nameplate is the final authority.';
  }
  $('q-ref').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;REF=b.getAttribute('data-r');[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b);});['q-sp','q-ss','q-st','q-lp','q-ls','q-lt'].forEach(function(id){$(id).value='';});fillUnits();});
- $('q-unit').addEventListener('change',fillTons);$('q-tons').addEventListener('change',function(){buildLine();check();});
+ $('q-unit').addEventListener('change',fillTons);$('q-mode').addEventListener('change',check);$('q-tons').addEventListener('change',function(){buildLine();check();});
  ['q-od','q-sp','q-ss','q-st','q-lp','q-ls','q-lt','q-tsc','q-tsh','q-tol'].forEach(function(id){$(id).addEventListener('input',check);});
  window.__chgcalc={ptSat:ptSat,satIn:satIn,r32pt:r32pt,r32Tab:r32Tab};
  fillUnits();
