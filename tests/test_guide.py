@@ -152,6 +152,7 @@ class GuideTests(unittest.TestCase):
         page.locator('#field-nav label[for="page-charge"]').click()
         page.select_option('#q-unit', 'DX6VSA')
         page.select_option('#q-tons', '2.0')
+        page.select_option('#q-operation', 'cool')
         page.fill('#q-od', '80')
         page.fill('#q-lp', '300')  # 96 F from the manual's R-410A table
         page.fill('#q-lt', '84')
@@ -181,6 +182,7 @@ class GuideTests(unittest.TestCase):
         page.select_option('#q-unit', 'DC6VSA')
         self.assertEqual(page.eval_on_selector_all('#q-tons option', 'o=>o.map(x=>x.value)'), ['1.5', '2', '2.5', '3'])
         page.select_option('#q-tons', '3')
+        page.select_option('#q-operation', 'cool')
         page.fill('#q-od', '90')
         page.fill('#q-lp', '335')  # 102 F from the manual's R-32 table
         page.fill('#q-lt', '89')
@@ -191,6 +193,7 @@ class GuideTests(unittest.TestCase):
         # SE superheat by tonnage (IOD-4047A p11)
         page.select_option('#q-unit', 'DH4SE')
         page.select_option('#q-tons', '2.5')
+        page.fill('#q-od', '80')  # liquid line 86 F can't be below outdoor air in cooling
         page.fill('#q-lp', '300')
         page.fill('#q-lt', '86')
         page.fill('#q-sp', '120')
@@ -205,6 +208,60 @@ class GuideTests(unittest.TestCase):
         line = page.locator('#q-line-out').inner_text()
         self.assertIn('Total charge (A): 97 oz', line)
         self.assertIn('Additional (C): 24 oz', line)
+
+    def test_charge_impossible_readings_and_heating_mode(self):
+        page = self.page
+        page.locator('#field-nav label[for="page-charge"]').click()
+        page.locator('#q-ref button[data-r="32"]').click()
+        # The field report: DH4SE 3 ton, 65 F outdoor, suction 155 / 180, liquid 600 / 20
+        page.select_option('#q-unit', 'DH4SE')
+        page.select_option('#q-tons', '3')
+        page.select_option('#q-operation', 'cool')
+        for field, value in [('#q-od', '65'), ('#q-sp', '155'), ('#q-st', '180'), ('#q-lp', '600'), ('#q-lt', '20')]:
+            page.fill(field, value)
+        out = page.locator('#q-out').inner_text()
+        self.assertIn('Check your readings first', out)
+        self.assertNotIn('HIGH charge', out)
+        self.assertIn('set Operating mode to Heating', out)
+        # Heating: no add/remove verdict
+        page.select_option('#q-operation', 'heat')
+        for field, value in [('#q-od', '65'), ('#q-sp', '155'), ('#q-st', '180')]:
+            page.fill(field, value)
+        out = page.locator('#q-out').inner_text()
+        self.assertNotIn('HIGH charge', out)
+        self.assertNotIn('remove refrigerant', out)
+        self.assertIn('true suction', out.lower())
+        # DH5SE heating: IOD-4064A p11 prints 8 +/- 1 in the table and 5 +/- 1 in the text
+        page.select_option('#q-unit', 'DH5SE')
+        page.select_option('#q-tons', '3')
+        page.select_option('#q-operation', 'heat')
+        page.check('#q-heating-location')
+        page.fill('#q-sp', '120')  # 40 F
+        page.fill('#q-st', '48')
+        out = ' '.join(page.locator('#q-out').inner_text().split())
+        self.assertIn('IOD-4064A', out)
+        self.assertIn('8 ± 1 °F (within reference)', out)
+        self.assertIn('5 ± 1 °F (above reference)', out)
+        self.assertIn('matches one printed value but not the other', out)
+        self.assertNotIn('remove refrigerant', out)
+        page.select_option('#q-tons', '5')
+        page.check('#q-heating-location')
+        page.fill('#q-sp', '120')
+        page.fill('#q-st', '45')
+        out = ' '.join(page.locator('#q-out').inner_text().split())
+        self.assertIn('two-stage 5-ton', out)
+        self.assertIn('5 ± 1 °F (within reference)', out)
+        # DC5SE is an air conditioner: no heating check
+        page.select_option('#q-unit', 'DC5SE')
+        page.select_option('#q-operation', 'heat')
+        self.assertIn('AC-only', page.locator('#q-out').inner_text())
+        page.select_option('#q-unit', 'DH4SE')
+        page.select_option('#q-tons', '3')
+        # Believable cooling readings still get a verdict
+        page.select_option('#q-operation', 'cool')
+        for field, value in [('#q-od', '80'), ('#q-ls', '100'), ('#q-lt', '92')]:
+            page.fill(field, value)
+        self.assertIn('Charge looks RIGHT', page.locator('#q-out').inner_text())
 
     def test_saved_release_update_can_activate_offline(self):
         self.page.evaluate('navigator.serviceWorker.ready')
