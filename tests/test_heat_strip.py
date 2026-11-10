@@ -59,4 +59,10 @@ class HeatStripAndR32ChartTests(unittest.TestCase):
   self.assertIn('not the manual’s exact wording',text)
  def test_amst30_t9_shown(self):
   text=self.page.locator('#reference-67').evaluate('e=>e.textContent')
-  self.assertNotIn('NOT SHOWN',text);self.assertIn('printed page 14',text)
+  self.assertNotIn('NOT SHOWN',text);self.assertIn('Table 9, p.13',text);self.assertIn('only T1 and T6-T9',text)
+ def test_dmvt_r32_chart_present(self):
+  card=self.page.locator('#dmvt-r32-chart');self.assertEqual(card.count(),1)
+  text=card.evaluate('e=>e.textContent')
+  for s in ['HTR TOO LARGE','NO HTR MATCH','MTR LCKD ROTOR','LOW ID AIRFLOW','dF','100 CFM','not the manual’s exact wording']:
+   self.assertIn(s,text)
+  self.assertNotIn('AF and A1 runs together',self.page.locator('#dfve-r32-chart').evaluate('e=>e.textContent'))
