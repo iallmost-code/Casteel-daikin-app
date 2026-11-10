@@ -81,3 +81,9 @@ Details and every number: `15-r32-manual-tables.md`.
 - Settled: DH6VS / DC6VS subcool rows (3P761829-1B p. 31 by model column). DC6VSA is its own model (1.5-3 ton); its 3-ton target is 13, not 15 (manual and SS-DC6VS-R32).
 - Added: R-32 pressure-temperature tables from each unit's manual (all agree), Fit line set tables (3P761829-1B pp. 27-29, 3P679063-5L p. 24), SE/SQ superheat by tonnage (IOD-4047A, IOD-4064A, IOD-4048B p. 11).
 - Still open: DC7TC / DH7TC (no manual posted by Daikin), IOD-4048C (download blocked), R-410A TXV units (need the model list).
+
+## 9. Update: air handler / furnace charts and outdoor field checks (2026-11-10)
+Details: `16-airhandler-furnace-charts-and-field-checks.md`.
+- Added to Error Codes: DFVE IOD-4054 pp.22-23 chart (settles the b3 / b9 label question: b3 = blower motor operating in power, temp or speed limiting conditions; b9 = low indoor airflow without electric heat; 9b = with electric heat), DMVT IOD-4053 pp.31-34 chart, Goodman GR9S92 / GR9S96 / GD9S96 RS6612301 pp.34-37 codes and menu.
+- Added to Meter tests & safety: reversing valve, defrost control and defrost thermostat, two-stage unloader, compressor ground / operation test, crankcase heater, fan relay (RSD6200301).
+- Still open: DR97MC and GRVT96 furnace codes, DC7TC / DH7TC (no manual posted), "UTL" furnace code (not in IOD-2043 or RS6612301).

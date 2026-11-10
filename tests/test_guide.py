@@ -95,7 +95,7 @@ class GuideTests(unittest.TestCase):
         self.navigate('page-dip')
         self.navigate('page-fault')
         self.assertEqual(self.page.locator('#global-search').input_value(), 'termination')
-        self.assertEqual(self.page.locator('#sec-fault-codes .section-search-count').inner_text(), '5 matches')
+        self.assertEqual(self.page.locator('#sec-fault-codes .section-search-count').inner_text(), '6 matches')  # the Goodman RS6612301 chart also mentions flue termination
         self.page.locator('#sec-fault-codes .topic-tab').first.click()
         self.assertEqual(self.page.locator('#global-search').input_value(), '')
         self.assertEqual(self.page.locator('#sec-fault-codes .section-search').input_value(), '')
@@ -138,7 +138,7 @@ class GuideTests(unittest.TestCase):
         self.navigate('page-start')
         self.search('DX6VS')
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
-        self.assertEqual(self.page.locator(".ref-card").count(), 142)
+        self.assertEqual(self.page.locator(".ref-card").count(), 149)
 
     def test_pc_pages_fit(self):
         for width in [1024, 1280, 1440, 1920]:
@@ -262,6 +262,25 @@ class GuideTests(unittest.TestCase):
         for field, value in [('#q-od', '80'), ('#q-ls', '100'), ('#q-lt', '92')]:
             page.fill(field, value)
         self.assertIn('Charge looks RIGHT', page.locator('#q-out').inner_text())
+
+    def test_new_manual_fault_charts_and_field_checks(self):
+        page = self.page
+        page.locator('#field-nav label[for="page-fault"]').click()
+        cards = page.locator('#sec-fault-codes section.ref-card')
+        labels = ' '.join(cards.locator('.fault-platform-label').all_inner_texts())
+        for title in ['IOD-4054 p.22-23', 'IOD-4053 p.31-34', 'RS6612301 p.34-37', 'REVERSING VALVE', 'DEFROST CONTROL', 'UNLOADER TEST', 'CRANKCASE HEATER']:
+            self.assertIn(title, labels)
+        text = ' '.join(cards.all_text_contents())
+        self.assertIn('Blower Motor operating in Power, Temp or Speed Limiting conditions', text)  # DFVE b3
+        self.assertIn('Low Indoor Airflow (without Electric Heat mode)', text)  # DFVE b9
+        self.assertIn('MOTOR LIMITS', text)  # DMVT b3
+        self.assertIn('Main blower motor is consuming too much current during inducer pre-purge', text)  # Goodman EbU
+        self.assertIn('should close at 31°F ± 3°F', text)  # defrost thermostat
+        # the tab search finds them
+        self.search('defrost thermostat')
+        page.wait_for_timeout(300)
+        visible = page.locator('#sec-fault-codes section.ref-card:visible .fault-platform-label').all_inner_texts()
+        self.assertTrue(any('DEFROST CONTROL' in v for v in visible), visible)
 
     def test_saved_release_update_can_activate_offline(self):
         self.page.evaluate('navigator.serviceWorker.ready')
