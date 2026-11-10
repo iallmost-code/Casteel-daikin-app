@@ -81,3 +81,11 @@ Details and every number: `15-r32-manual-tables.md`.
 - Settled: DH6VS / DC6VS subcool rows (3P761829-1B p. 31 by model column). DC6VSA is its own model (1.5-3 ton); its 3-ton target is 13, not 15 (manual and SS-DC6VS-R32).
 - Added: R-32 pressure-temperature tables from each unit's manual (all agree), Fit line set tables (3P761829-1B pp. 27-29, 3P679063-5L p. 24), SE/SQ superheat by tonnage (IOD-4047A, IOD-4064A, IOD-4048B p. 11).
 - Still open: DC7TC / DH7TC (no manual posted by Daikin), IOD-4048C (download blocked), R-410A TXV units (need the model list).
+
+## 9. Update: manual checks and app changes (2026-11-10)
+Read today on the printed pages of Daikin's own PDFs, opened in a browser (the container can't download the PDFs).
+- **AMST IO-4011B (May 2024), Table 9:** on printed page 13. Every number in the app's six AMST blocks matches the printed table, with the same model labels. Item 4 in section 4 and items 2-3 in section 7 are settled: the manual itself prints AMST30BU1300 T5, T8 and T9 with the same numbers (the app now shows T9), and for AMST60DU1300 it prints only T1 and T6-T9, so there are no T2-T5 values to add.
+- **DFVE R-32 IOD-4054 (06/2024), troubleshooting chart pp.22-23:** b3 = blower in power/temp/speed limit, b9 = low indoor airflow without electric heat, 9b = with electric heat. This settles item 3 in section 4 for the R-32 DFVE manual (IO-4039A itself was not read). Added as a Faults card in plain words, with A0 / AF / A1 and the thermostat messages for E5, EF and 77.
+- **DMVT R-32 IOD-4053 (July 2024), troubleshooting chart pp.31-34 and diagnostic codes p.35:** read in full and added as a Faults card in plain words (EC heater-kit faults with their thermostat messages, EF, d0/d1/d4, b0-b7, b9, and the full display code list including C1/C2/P1/P2/h1/h2/FC/FH/F/H1/H2/dF). The manual's chart has no A2L codes.
+
+App changes on this date: phone layout (bottom tab bar, no sideways scrolling at phone width), AMST heat strip check on the Airflow tab (Table 8 minimum CFM plus the IO-4011B temperature-rise formula, and the same formula solved for CFM from a measured rise), the DFVE and DMVT R-32 chart cards, and the AMST notes above.
