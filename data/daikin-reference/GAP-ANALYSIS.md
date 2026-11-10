@@ -81,3 +81,11 @@ Details and every number: `15-r32-manual-tables.md`.
 - Settled: DH6VS / DC6VS subcool rows (3P761829-1B p. 31 by model column). DC6VSA is its own model (1.5-3 ton); its 3-ton target is 13, not 15 (manual and SS-DC6VS-R32).
 - Added: R-32 pressure-temperature tables from each unit's manual (all agree), Fit line set tables (3P761829-1B pp. 27-29, 3P679063-5L p. 24), SE/SQ superheat by tonnage (IOD-4047A, IOD-4064A, IOD-4048B p. 11).
 - Still open: DC7TC / DH7TC (no manual posted by Daikin), IOD-4048C (download blocked), R-410A TXV units (need the model list).
+
+## 9. Update: manual checks and app changes (2026-11-10)
+Read today from Daikin's own PDFs (text layer only; the container can't download the PDFs, so the pages were read through a fetch tool).
+- **AMST IO-4011B (P/N IO-4011B, May 2024), Table 9:** it is on printed page 14, not 13. Every number in the app's six AMST blocks matches the manual's text, in the same order (24B, 30B, 36C, 42C, 48C, 60D). Item 4 in section 4 and item 2 in section 7 are settled: the manual itself prints AMST30BU1300 T5, T8 and T9 with the same numbers, so the app now shows T9. AMST60DU1300 T2-T5 are still missing from the manual's text layer, so they stay blank until someone reads the printed page.
+- **DFVE R-32 IOD-4054 (06/2024), troubleshooting chart pp.22-23:** b3 = blower in power/temp/speed limit, b9 = low indoor airflow without electric heat, 9b = with electric heat. This matches what the app already shows, and it settles item 3 in section 4 for the R-32 DFVE manual (IO-4039A itself was not read). Added to the app as a new Faults card, summarized in plain words (not the manual's wording), with the A2L codes A0 / AF / A1 (ventilate the room first on A0) and the thermostat messages for E5, EF and 77.
+- **DMVT IOD-4053 (July 2024):** the fault chart past page 31 could not be read from the text layer. Still open.
+
+App changes on this date: phone layout (bottom tab bar, no sideways scrolling at phone width), AMST heat strip check on the Airflow tab (Table 8 minimum CFM plus the IO-4011B temperature-rise formula, and the same formula solved for CFM from a measured rise), the DFVE R-32 chart card, and the AMST page-number fix.
