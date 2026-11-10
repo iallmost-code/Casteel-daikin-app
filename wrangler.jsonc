@@ -1,0 +1,14 @@
+// Cloudflare Worker that serves the Casteel Daikin guide as static files.
+// Only the site files are published; .assetsignore keeps everything else out.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bitter-boat-3976",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    // Serve /index.html as-is, with no redirect, so the saved offline copy works.
+    "html_handling": "none",
+    // With no redirect, the home page "/" is served from index.html this way.
+    "not_found_handling": "single-page-application"
+  }
+}

@@ -1,0 +1,8 @@
+# Publish only the live site files. Everything else in the repo
+# (reference data, docs, tests, scripts, configs) stays private.
+*
+!index.html
+!sw.js
+!manifest.webmanifest
+!icons/
+!icons/*.png
