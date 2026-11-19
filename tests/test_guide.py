@@ -138,7 +138,7 @@ class GuideTests(unittest.TestCase):
         self.navigate('page-start')
         self.search('DX6VS')
         self.assertGreater(self.page.locator('#start-results .start-hit').count(), 0)
-        self.assertEqual(self.page.locator(".ref-card").count(), 142)
+        self.assertEqual(self.page.locator(".ref-card").count(), 143)
 
     def test_pc_pages_fit(self):
         for width in [1024, 1280, 1440, 1920]:
