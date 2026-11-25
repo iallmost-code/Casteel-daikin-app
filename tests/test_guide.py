@@ -159,11 +159,11 @@ class GuideTests(unittest.TestCase):
         page.fill('#q-ss', '40')
         page.fill('#q-st', '50')
         out = page.locator('#q-out').inner_text()
-        self.assertIn('Charge looks RIGHT', out)
+        self.assertIn('Subcooling within target', out)
         self.assertIn('Subcooling: 12', out)
         self.assertIn('Superheat: 10', out)
         page.fill('#q-lt', '90')
-        self.assertIn('LOW charge', page.locator('#q-out').inner_text())
+        self.assertIn('Subcooling below target', page.locator('#q-out').inner_text())
         page.locator('#q-line summary').click()
         page.select_option('#q-ind', 'CAPEA')
         page.select_option('#q-pipe', label='3/8" liquid x 3/4" suction')
@@ -183,6 +183,7 @@ class GuideTests(unittest.TestCase):
         self.assertEqual(page.eval_on_selector_all('#q-tons option', 'o=>o.map(x=>x.value)'), ['1.5', '2', '2.5', '3'])
         page.select_option('#q-tons', '3')
         page.select_option('#q-operation', 'cool')
+        page.select_option('#q-fit-procedure', 'full')
         page.fill('#q-od', '90')
         page.fill('#q-lp', '335')  # 102 F from the manual's R-32 table
         page.fill('#q-lt', '89')
@@ -207,7 +208,7 @@ class GuideTests(unittest.TestCase):
         page.fill('#q-len', '50')
         line = page.locator('#q-line-out').inner_text()
         self.assertIn('Total charge (A): 97 oz', line)
-        self.assertIn('Additional (C): 24 oz', line)
+        self.assertIn('Additional charge listed in table (C): 24 oz', line)
 
     def test_charge_impossible_readings_and_heating_mode(self):
         page = self.page
@@ -261,7 +262,7 @@ class GuideTests(unittest.TestCase):
         page.select_option('#q-operation', 'cool')
         for field, value in [('#q-od', '80'), ('#q-ls', '100'), ('#q-lt', '92')]:
             page.fill(field, value)
-        self.assertIn('Charge looks RIGHT', page.locator('#q-out').inner_text())
+        self.assertIn('Subcooling within target', page.locator('#q-out').inner_text())
 
     def test_new_manual_fault_charts_and_field_checks(self):
         page = self.page
